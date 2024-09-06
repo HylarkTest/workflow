@@ -1,0 +1,9 @@
+#import "../PinboardFragment.gql"
+
+subscription PinboardMoved {
+    pinboardMoved {
+        pinboard {
+            ...Pinboard
+        }
+    }
+}

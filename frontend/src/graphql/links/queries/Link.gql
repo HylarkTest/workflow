@@ -1,0 +1,13 @@
+#import "../LinkFragment.gql"
+#import "../../FetchesActionsFragment.gql"
+
+query Link(
+    $id: ID!
+) {
+    link(
+        id: $id
+    ) {
+        ...Link
+        ...FetchesActionsFragment
+    }
+}

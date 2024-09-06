@@ -1,0 +1,11 @@
+#import "../MarkerFragment.gql"
+
+mutation UpdateMarker($input: UpdateMarkerInput!) {
+    updateMarker(input: $input) {
+        code
+        success
+        marker {
+            ...Marker
+        }
+    }
+}

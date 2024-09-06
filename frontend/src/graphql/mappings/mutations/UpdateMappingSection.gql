@@ -1,0 +1,12 @@
+#import "../MappingSectionsFragment.gql"
+
+mutation UpdateMappingSection($input: UpdateMappingSectionInput!) {
+    updateMappingSection(input: $input) {
+        code
+        success
+        mapping {
+            id
+            ...Sections
+        }
+    }
+}

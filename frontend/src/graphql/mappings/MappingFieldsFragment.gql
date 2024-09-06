@@ -1,0 +1,7 @@
+#import "./MappingFieldFragment.gql"
+
+fragment Fields on Mapping {
+    fields {
+        ...Field
+    }
+}

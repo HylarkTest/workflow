@@ -1,0 +1,5 @@
+subscription MarkerGroupDeleted {
+    markerGroupDeleted {
+        markerGroup { id }
+    }
+}

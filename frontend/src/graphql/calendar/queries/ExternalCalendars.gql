@@ -1,0 +1,9 @@
+#import "../ExternalCalendarFragment.gql"
+
+query ExternalCalendars($sourceId: ID!) {
+    externalCalendars(sourceId: $sourceId) {
+        data {
+            ...ExternalCalendar
+        }
+    }
+}

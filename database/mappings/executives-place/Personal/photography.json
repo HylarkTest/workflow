@@ -1,0 +1,45 @@
+{
+    "mapping":    {
+        "name": "Photography",
+        "singular_name": "Photography",
+        "type": "ITEM",
+        "description": "Photography assignments",
+        "features": [
+            {
+                "type": "PLANNER"
+            },
+            {
+                "type": "NOTES"
+            }
+        ],
+        "fields": [
+            {
+                "id": "logo",
+                "name": "Logo",
+                "type": "IMAGE",
+                "created_at": "2019-12-09 16:01:43",
+                "updated_at": "2019-12-09 16:01:43"
+            },
+            {
+                "id": "contact",
+                "name": "Contact",
+                "type": "LINE",
+                "created_at": "2019-12-09 16:01:43",
+                "updated_at": "2019-12-09 16:01:43"
+            },
+            {
+                "id": "date",
+                "name": "Date",
+                "type": "LINE",
+                "created_at": "2019-12-09 16:01:43",
+                "updated_at": "2019-12-09 16:01:43"
+            }
+        ],
+        "design": {
+            "icon": "fa-camera"
+        }
+    },
+    "items": {
+
+    }
+}

@@ -1,0 +1,9 @@
+#import "../LinkListFragment.gql"
+
+subscription LinkListMoved {
+    linkListMoved {
+        linkList {
+            ...LinkList
+        }
+    }
+}

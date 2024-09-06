@@ -1,0 +1,11 @@
+#import "../AssociationCollectionFragment.gql"
+
+mutation AssociateItem($input: AssociateItemInput!) {
+    associateItem(input: $input) {
+        code
+        node {
+            id
+            ...AssociationCollection
+        }
+    }
+}

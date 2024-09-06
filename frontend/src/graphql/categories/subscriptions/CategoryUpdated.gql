@@ -1,0 +1,9 @@
+#import "../CategoryFragment.gql"
+
+subscription CategoryUpdated {
+    categoryUpdated {
+        category {
+            ...Category
+        }
+    }
+}

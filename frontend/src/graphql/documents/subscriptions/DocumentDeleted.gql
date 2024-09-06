@@ -1,0 +1,8 @@
+subscription DocumentDeleted($forNode: ID, $forMapping: ID) {
+    documentDeleted {
+        drive {
+            id
+            count: documentsCount(forNode: $forNode, forMapping: $forMapping)
+        }
+    }
+}

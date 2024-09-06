@@ -1,0 +1,46 @@
+#import "../DocumentFragment.gql"
+#import "../../GroupableFragment.gql"
+
+query GroupedDocuments(
+    $group: String!
+    $spaceId: ID
+    $driveId: ID
+    $forMapping: ID,
+    $forNode: ID,
+    $search: [String!]
+    $filters: [DocumentFilterInput!]
+    $isFavorited: Boolean
+    $orderBy: [DocumentOrderBy!]
+    $after: String
+) {
+    groupedDocuments(
+        group: $group,
+        spaceId: $spaceId,
+        driveId: $driveId,
+        forMapping: $forMapping,
+        forNode: $forNode,
+        search: $search,
+        filters: $filters,
+        isFavorited: $isFavorited,
+        orderBy: $orderBy,
+        after: $after,
+        first: 50,
+    ) {
+        groups {
+            groupHeader
+            group {
+                ...Groupable
+            }
+            edges {
+                node {
+                    ...Document
+                }
+            }
+            pageInfo {
+                total
+                endCursor
+                hasNextPage
+            }
+        }
+    }
+}

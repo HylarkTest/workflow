@@ -1,0 +1,11 @@
+#import "../NoteFragment.gql"
+
+mutation MoveNote($input: MoveNoteInput!) {
+    moveNote(input: $input) {
+        code
+        success
+        note {
+            ...Note
+        }
+    }
+}

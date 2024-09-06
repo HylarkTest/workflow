@@ -1,0 +1,12 @@
+#import "../PageFragment.gql"
+
+mutation CreateEntityPage($input: CreateEntityPageInput!) {
+    createEntityPage(input: $input) {
+        code
+        success
+        page {
+            ...Page
+            design
+        }
+    }
+}

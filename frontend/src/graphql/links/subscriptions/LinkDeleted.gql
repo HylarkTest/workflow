@@ -1,0 +1,8 @@
+subscription LinkDeleted($forNode: ID, $forMapping: ID) {
+    linkDeleted {
+        linkList {
+            id
+            count: linksCount(forNode: $forNode, forMapping: $forMapping)
+        }
+    }
+}

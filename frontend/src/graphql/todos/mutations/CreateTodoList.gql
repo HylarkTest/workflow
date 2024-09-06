@@ -1,0 +1,15 @@
+#import "../TodoListWithCountFragment.gql"
+
+mutation CreateTodoList(
+    $input: CreateTodoListInput!
+    $forMapping: ID
+    $forNode: ID
+) {
+    createList: createTodoList(input: $input) {
+        code
+        success
+        list: todoList {
+            ...TodoListWithCount
+        }
+    }
+}

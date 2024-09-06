@@ -1,0 +1,74 @@
+interface ActionSubject @interface(resolveType: "App\\GraphQL\\TypeResolver@resolveType") {
+    id: ID!
+}
+
+interface FetchesActions {
+    createAction: Action
+    latestAction: Action
+}
+
+interface Performer {
+    id: ID!
+    actionsPerformed: ActionConnection
+}
+
+extend type Query {
+    history(
+        onlyLatestActions: Boolean = false
+        performer: ID @globalId(type: "Member", decode: "ID")
+        forNode: ID
+        subjectType: [String!],
+        orderBy: [HistoryOrderBy!]
+        type: [ActionType!]
+        search: String
+        collapseChildren: Boolean = false
+        onlyExistingSubjects: Boolean = false
+        first: Int! = 25
+        after: String
+    ): HistoryConnection @field(resolver: "HistoryQuery@index")
+}
+
+type HistoryConnection {
+    edges: [HistoryEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+    meta: HistoryMeta!
+}
+
+type HistoryMeta {
+    allHistoryCount: Int!
+    allowedHistoryCount: Int!
+    filteredHistoryCount: Int!
+}
+
+type HistoryEdge {
+    node: Action!
+    cursor: String!
+}
+
+input HistoryOrderBy {
+    direction: SortOrder!
+    field: HistoryOrderField!
+}
+
+enum HistoryOrderField {
+    CREATED_AT @enum(value: "created_at")
+}
+
+type Action @node {
+    type: ActionType!
+    payload: JSON
+    description(withPerformer: Boolean): String! @method
+    changes(includeChildren: Boolean = false): [ActionChange!] @field(resolver: "App\\GraphQL\\Queries\\HistoryQuery@resolveChanges")
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    performer: Performer @hasOne
+    subject: ActionSubject @hasOne
+    isPrivate: Boolean!
+}
+
+type ActionChange {
+    description: String!
+    before: String
+    after: String
+    type: String
+}

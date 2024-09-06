@@ -1,0 +1,14 @@
+#import "./BaseEdgeFragment.gql"
+
+mutation UpdateProfile($input: UpdateProfileInput!) {
+    updateProfile(input: $input) {
+        code
+        success
+        base {
+            ...BaseEdge
+        }
+        activeBase {
+            ...BaseEdge
+        }
+    }
+}

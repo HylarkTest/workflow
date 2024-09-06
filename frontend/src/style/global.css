@@ -1,0 +1,385 @@
+
+/* stylelint-disable */
+
+/*
+ * If this is every changed it will break the PopupBasic component.
+ * To rectify it you can remove the document.body.offsetHeight term in the
+ * calculation for the bottom position of the popup.
+ */
+
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    /*overflow-x: hidden;
+    overflow-y: auto;*/
+    overflow: hidden;
+    width: 100vw;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+}
+
+#app {
+    height: 100%;
+
+    /*Variables*/
+    --g-top-resp: 50px;
+    --g-side-mini: 64px;
+    --g-side-extended: 210px;
+    --g-top-sub: 48px;
+    --g-bottom-resp: 100px;
+    --g-bottom-desktop: 30px;
+    --g-top-total: calc(var(--g-top-resp) + var(--g-top-sub));
+}
+
+p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    @apply
+        leading-tight
+    ;
+}
+
+.nav-spacing {
+    &--bottom {
+        padding-bottom: var(--g-bottom-resp);
+    }
+
+    &--sticky {
+        top: var(--g-top-resp);
+    }
+
+    &--top {
+        padding-top: var(--g-top-resp);
+    }
+
+    &--none {
+        @apply
+            pl-4
+        ;
+    }
+}
+
+.footer-spacing {
+    &--bottom {
+        padding-bottom: var(--g-bottom-desktop);
+    }
+}
+
+.stickies {
+    &--body {
+        top: var(--g-top-total);
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-extension {
+        &--mini {
+            padding-left: calc(var(--g-side-mini) + 2rem);
+        }
+
+        &--extended {
+            padding-left: calc(var(--g-side-extended) + 2rem);
+        }
+    }
+
+    .nav-spacing {
+        &--bottom {
+            padding-bottom: var(--g-bottom-desktop);
+        }
+
+        &--sticky {
+            top: 0;
+        }
+
+        &--top {
+            padding-top: 0;
+        }
+    }
+
+    .stickies {
+        &--body {
+            top: var(--g-top-sub);
+        }
+    }
+}
+
+/* stylelint-enable */
+
+.label {
+    @apply
+        font-semibold
+        text-cm-500
+        uppercase
+    ;
+}
+
+.kanban-style {
+    @apply
+        bg-cm-00
+        rounded-lg
+    ;
+}
+
+.line-style {
+    @apply
+        bg-cm-00
+        rounded-lg
+    ;
+}
+
+.tile-style {
+    @apply
+        bg-cm-00
+        h-full
+        rounded-lg
+    ;
+}
+
+.cardDesigns__button {
+    transition: 0.2s ease-in-out;
+
+    @apply
+        font-semibold
+        inline-flex
+        items-center
+        text-xssm
+    ;
+}
+
+.cardDesigns {
+    &__blank {
+        transition: 0.2s ease-in-out;
+
+        @apply
+            bg-cm-200
+            h-5
+            p-1
+            rounded-md
+            shadow-md
+            text-sm
+            w-full
+        ;
+
+        &--header {
+            @apply
+                h-7
+                text-smbase
+            ;
+        }
+    }
+
+    &__circle {
+        transition: 0.2s ease-in-out;
+        @apply
+            bg-cm-200
+            h-full
+            p-1
+            rounded-full
+            shadow-md
+            w-full
+        ;
+    }
+}
+
+/* Global feature classes */
+
+.feature__item {
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+        @apply
+            shadow-md
+        ;
+    }
+
+    &--mini {
+        transition: 0.2s ease-in-out;
+
+        @apply
+            px-2
+            py-1
+            rounded-lg
+        ;
+        &:hover {
+            @apply
+                shadow-md
+            ;
+        }
+    }
+
+    &--summary {
+        @apply
+            bg-cm-100
+            border
+            border-cm-200
+            border-solid
+            rounded-lg
+        ;
+    }
+
+    &--style {
+        @apply
+            bg-primary-50
+            border
+            border-primary-200
+            border-solid
+            rounded-lg
+        ;
+    }
+
+    &--description {
+        @apply
+            break-words
+            leading-snug
+            text-cm-500
+            text-xs
+        ;
+    }
+}
+
+
+.feature-page__side {
+    top: calc(var(--g-top-sub) + 1.5rem);
+
+    @apply
+        mr-8
+        sticky
+    ;
+
+    &--subless {
+        top: calc(var(--g-top-resp) + 1.5rem);
+
+        @media (min-width: 768px) {
+            top: 1.5rem;
+        }
+    }
+}
+
+.customize__container {
+    @apply
+        bg-primary-100
+        rounded-xl
+    ;
+}
+
+.displayer__prompt {
+    transition: 0.2s ease-in-out;
+    @apply
+        bg-cm-100
+        cursor-pointer
+        items-center
+        max-w-full
+        px-2
+        py-0.5
+        rounded-full
+        text-cm-600
+        text-xs
+    ;
+
+    &:hover {
+        @apply
+            bg-primary-200
+            text-primary-600
+        ;
+    }
+}
+
+.centered {
+    @apply
+        flex
+        items-center
+        justify-center
+    ;
+}
+
+.tag-sm {
+    @apply
+        px-3
+        py-1
+        text-xs
+    ;
+}
+
+.tag-md {
+    @apply
+        font-semibold
+        px-4
+        py-2
+    ;
+}
+
+.transition-2eio {
+    transition: 0.2s ease-in-out;
+}
+
+.hover--grow {
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+/*Shapes*/
+
+.clip-heart {
+    clip-path: polygon(0 0,100% 0,100% 41%,50% 91%,0 41%);
+    mask:
+        radial-gradient(at 70% 31%,#000 29%,#0000 30%),
+        radial-gradient(at 30% 31%,#000 29%,#0000 30%),
+        linear-gradient(#000 0 0) bottom/100% 50% no-repeat;
+}
+
+.clip-hexagon  {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.clip-octagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.clip-star {
+    clip-path: polygon(50% 0%, 63% 24%, 98% 35%, 74% 57%, 79% 91%, 49% 75%, 21% 91%, 24% 57%, 2% 35%, 33% 26%);
+}
+
+.clip-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.clip-flower {
+    --g:/33.334% 33.334% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
+    mask: 100% 50% var(--g),
+        75% 93.301% var(--g),
+        25% 93.301% var(--g),
+        0% 50% var(--g),
+        25% 6.699% var(--g),
+        75% 6.699% var(--g),
+        radial-gradient(100% 100% at center, #000 28.868%, #0000 calc(28.868% + 1px));
+}
+
+.clip-cloud {
+    --g:/25% 25% radial-gradient(#000 calc(71% - 1px), #0000 71%) no-repeat;
+    mask: 100% 50% var(--g),
+        93.3% 75% var(--g),
+        75% 93.3% var(--g),
+        50% 100% var(--g),
+        25% 93.3% var(--g),
+        6.7% 75% var(--g),
+        0% 50% var(--g),
+        6.7% 25% var(--g),
+        25% 6.7% var(--g),
+        50% 0% var(--g),
+        75% 6.7% var(--g),
+        93.3% 25% var(--g),
+        radial-gradient(100% 100% at center, #000 38.37%, #0000 calc(38.37% + 1px));
+}

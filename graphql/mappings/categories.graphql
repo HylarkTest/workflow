@@ -1,0 +1,110 @@
+extend type Query @guard(with: ["web", "api"]) {
+    categories(
+        first: Int! = 25,
+        after: String
+    ): CategoryConnection @field(resolver: "CategoryQuery@index")
+    category(id: ID! @globalId(decode: "ID", type: "Category")): Category @field(resolver: "CategoryQuery@show")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    createCategory(input: CreateCategoryInput!): CategoryMutationResponse! @field(resolver: "CategoryQuery@store") @broadcastNodeCreated(subscription: "categoryCreated", nodeField: "category")
+    updateCategory(input: UpdateCategoryInput!): CategoryMutationResponse! @field(resolver: "CategoryQuery@update") @broadcastNodeUpdated(subscription: "categoryUpdated", nodeField: "category")
+    deleteCategory(input: DeleteCategoryInput!): SuccessfulMutationResponse! @field(resolver: "CategoryQuery@destroy") @broadcastNodeDeleted(subscription: "categoryDeleted")
+    createCategoryItem(input: CreateCategoryItemInput!): CategoryItemMutationResponse! @field(resolver: "CategoryItemQuery@store")
+    updateCategoryItem(input: UpdateCategoryItemInput!): CategoryItemMutationResponse! @field(resolver: "CategoryItemQuery@update")
+    deleteCategoryItem(input: DeleteCategoryItemInput!): CategoryItemMutationResponse! @field(resolver: "CategoryItemQuery@destroy")
+    moveCategoryItem(input: MoveCategoryItemInput!): CategoryItemMutationResponse! @field(resolver: "CategoryItemQuery@move")
+}
+
+extend type Subscription {
+    categoryCreated: CategoryMutationResponse
+    categoryUpdated: CategoryMutationResponse
+    categoryDeleted: CategoryMutationResponse
+}
+
+type Category implements ActionSubject @node {
+    name: String!
+    templateRefs: [String!] @rename(attribute: "template_refs")
+    itemCount: Int! @count(relation: "items")
+    items: [CategoryItem!]! @hasMany
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type CategoryItem implements Findable @node {
+    name: String!
+    order: Int!
+    category: Category! @belongsTo
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type CategoryConnection {
+    edges: [CategoryEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type CategoryEdge {
+    node: Category!
+    cursor: String!
+}
+
+input MoveCategoryItemInput {
+    categoryId: ID! @globalId(decode: "ID", type: "Category")
+    id: ID! @globalId(decode: "ID", type: "CategoryItem")
+    previousId: ID @globalId(decode: "ID", type: "CategoryItem")
+}
+
+input CategoryItemOrder {
+    id: ID! @globalId(decode: "ID", type: "CategoryItem")
+    order: Int!
+}
+
+input CreateCategoryInput {
+    name: String! @rules(apply: ["max:255"])
+    items: [NewCategoryItemInput!]
+}
+
+input UpdateCategoryInput {
+    id: ID! @globalId(decode: "ID", type: "Category")
+    name: String @rules(apply: ["max:255"])
+}
+
+input DeleteCategoryInput {
+    id: ID! @globalId(decode: "ID", type: "Category")
+}
+
+input NewCategoryItemInput {
+    name: String! @rules(apply: ["max:255"])
+}
+
+input CreateCategoryItemInput {
+    categoryId: ID! @globalId(decode: "ID", type: "Category")
+    name: String! @rules(apply: ["max:255"])
+}
+
+input UpdateCategoryItemInput {
+    categoryId: ID! @globalId(decode: "ID", type: "Category")
+    id: ID! @globalId(decode: "ID", type: "CategoryItem")
+    name: String @rules(apply: ["max:255"])
+}
+
+input DeleteCategoryItemInput {
+    categoryId: ID! @globalId(decode: "ID", type: "Category")
+    id: ID! @globalId(decode: "ID", type: "CategoryItem")
+}
+
+type CategoryMutationResponse implements MutationResponse{
+    code: String!
+    success: Boolean!
+    message: String!
+    category: Category
+}
+
+type CategoryItemMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    item: CategoryItem
+    category: Category
+}

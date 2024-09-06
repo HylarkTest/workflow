@@ -1,0 +1,11 @@
+#import "../PinboardFragment.gql"
+
+mutation UpdatePinboard($input: UpdatePinboardInput!) {
+    updateList: updatePinboard(input: $input) {
+        code
+        success
+        list: pinboard {
+            ...Pinboard
+        }
+    }
+}

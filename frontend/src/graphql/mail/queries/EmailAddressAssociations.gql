@@ -1,0 +1,26 @@
+query EmailAddressAssociations($addresses: [String!]) {
+    emailAddressAssociations(first: 100, addresses: $addresses) {
+        edges {
+            node {
+                id
+                address
+                association {
+                    id
+                    spaceId
+                    name
+                    image { url }
+                    mapping {
+                        id
+                        name
+                        apiSingularName
+                    }
+                    pages {
+                        id
+                        name
+                        symbol
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+#import "../LinkFragment.gql"
+#import "../../GroupableFragment.gql"
+
+query GroupedLinks(
+    $group: String!
+    $spaceId: ID
+    $linkListId: ID
+    $forMapping: ID,
+    $forNode: ID,
+    $search: [String!]
+    $filters: [LinkFilterInput!]
+    $isFavorited: Boolean
+    $orderBy: [LinkOrderBy!]
+    $after: String
+) {
+    groupedLinks(
+        group: $group,
+        spaceId: $spaceId,
+        linkListId: $linkListId,
+        forMapping: $forMapping,
+        forNode: $forNode,
+        search: $search,
+        filters: $filters,
+        isFavorited: $isFavorited,
+        orderBy: $orderBy,
+        after: $after,
+        first: 50,
+    ) {
+        groups {
+            groupHeader
+            group {
+                ...Groupable
+            }
+            edges {
+                node {
+                    ...Link
+                }
+            }
+            pageInfo {
+                total
+                endCursor
+                hasNextPage
+            }
+        }
+    }
+}

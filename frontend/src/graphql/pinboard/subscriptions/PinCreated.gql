@@ -1,0 +1,13 @@
+#import "../PinFragment.gql"
+
+subscription PinCreated($forNode: ID, $forMapping: ID) {
+    pinCreated {
+        pin {
+            ...Pin
+        }
+        pinboard {
+            id
+            count: pinsCount(forNode: $forNode, forMapping: $forMapping)
+        }
+    }
+}

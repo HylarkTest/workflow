@@ -1,0 +1,17 @@
+fragment AssociationCollection on Associatable {
+    associations {
+        id
+        spaceId
+        name
+        image { url }
+        mapping {
+            id
+            name
+        }
+        pages {
+            id
+            name
+            symbol
+        }
+    }
+}

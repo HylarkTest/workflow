@@ -1,0 +1,13 @@
+subscription BaseDeleted {
+    baseDeleted {
+        base {
+            id
+        }
+        activeBase {
+            id
+            node {
+                id
+            }
+        }
+    }
+}

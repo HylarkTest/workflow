@@ -1,0 +1,11 @@
+#import "../CategoryFragment.gql"
+
+mutation CreateCategory($input: CreateCategoryInput!) {
+    createCategory(input: $input) {
+        code
+        success
+        category {
+            ...Category
+        }
+    }
+}

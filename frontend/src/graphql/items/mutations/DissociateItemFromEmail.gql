@@ -1,0 +1,11 @@
+#import "../AssociationCollectionFragment.gql"
+
+mutation DissociateItemFromExternalEmail($input: DissociateEmailInput!) {
+    dissociateEmail(input: $input) {
+        code
+        node: email {
+            id
+            ...AssociationCollection
+        }
+    }
+}

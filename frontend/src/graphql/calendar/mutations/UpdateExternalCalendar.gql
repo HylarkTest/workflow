@@ -1,0 +1,11 @@
+#import "../ExternalCalendarFragment.gql"
+
+mutation UpdateExternalCalendar($input: UpdateExternalCalendarInput!) {
+    updateExternalCalendar(input: $input) {
+        code
+        success
+        calendar {
+            ...ExternalCalendar
+        }
+    }
+}

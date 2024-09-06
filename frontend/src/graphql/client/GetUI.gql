@@ -1,0 +1,7 @@
+query GetUI {
+    # eslint-disable-next-line @graphql-eslint/fields-on-correct-type
+    ui @client {
+        isNavExtended
+        navExtensionClass
+    }
+}

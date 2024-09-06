@@ -1,0 +1,119 @@
+# Definitions that are generated automatically but aren't caught by the IDE for
+# validation.
+# This file should not be imported as it is just for IDE support.
+
+
+"Information about pagination using a Relay style cursor connection."
+type PageInfo {
+    "When paginating forwards, are there more items?"
+    hasNextPage: Boolean!
+
+    "When paginating backwards, are there more items?"
+    hasPreviousPage: Boolean!
+
+    "The cursor to continue paginating backwards."
+    startCursor: String
+
+    "The cursor to continue paginating forwards."
+    endCursor: String
+
+    "Total number of nodes in the paginated connection."
+    total: Int!
+
+    "Number of nodes in the current page."
+    count: Int!
+
+    "Index of the current page."
+    currentPage: Int!
+
+    "Index of the last available page."
+    lastPage: Int!
+}
+
+type MappingEdge {
+    node: Mapping!
+    cursor: String!
+}
+
+type MappingConnection {
+    edge: [MappingEdge!]!
+    pageInfo: PageInfo!
+}
+
+type ActionEdge {
+    node: Action!
+    cursor: String!
+}
+
+type ActionConnection {
+    edge: [ActionEdge!]!
+    pageInfo: PageInfo!
+}
+
+
+"Directions for ordering a list of records."
+enum SortOrder {
+    "Sort records in ascending order."
+    ASC
+
+    "Sort records in descending order."
+    DESC
+}
+
+"Allows ordering a list of records."
+input OrderByClause {
+    "The column that is used for ordering."
+    column: String!
+
+    "The direction that is used for ordering."
+    order: SortOrder!
+}
+
+interface Node {
+    id: ID!
+}
+
+type Rating {
+    stars: Float
+    max: Int
+}
+
+type Address {
+    line1: String
+    line2: String
+    city: String
+    state: String
+    country: String
+    postcode: String
+}
+
+input AddressInput {
+    line1: String
+    line2: String
+    city: String
+    state: String
+    country: String
+    postcode: String
+}
+
+type Money {
+    currency: String,
+    amount: Float,
+}
+
+input MoneyInput {
+    currency: String,
+    amount: Float,
+}
+
+type MoneyRange {
+    currency: String
+    min: Float
+    max: Float
+}
+
+input MoneyRangeInput {
+    currency: String
+    min: Float
+    max: Float
+}

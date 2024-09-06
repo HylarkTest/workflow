@@ -1,0 +1,11 @@
+#import "../LinkListFragment.gql"
+
+mutation UpdateLinkList($input: UpdateLinkListInput!) {
+    updateList: updateLinkList(input: $input) {
+        code
+        success
+        list: linkList {
+            ...LinkList
+        }
+    }
+}

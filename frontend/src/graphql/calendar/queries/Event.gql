@@ -1,0 +1,13 @@
+#import "../EventFragment.gql"
+#import "../../FetchesActionsFragment.gql"
+
+query Event(
+    $id: ID!
+) {
+    event(
+        id: $id
+    ) {
+        ...Event
+        ...FetchesActionsFragment
+    }
+}

@@ -1,0 +1,24 @@
+query LocationSearch(
+    $first: Int! = 25,
+    $after: String,
+    $levels: [LocationLevel!],
+    $search: String,
+) {
+    locations(
+        first: $first,
+        after: $after,
+        levels: $levels,
+        search: $search,
+    ) {
+        edges {
+            node {
+                id
+                name
+                level
+            }
+        }
+        pageInfo {
+            endCursor
+        }
+    }
+}

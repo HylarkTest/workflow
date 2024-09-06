@@ -1,0 +1,221 @@
+# If you're looking for the dynamic fields that are unique to each base, try checking out the `MappingTypeBuilder.php` file where the custom schema is built on each request.
+
+extend type Query {
+    allItems(
+        first: Int! = 25
+        after: String
+        type: MappingType
+        mappingId: ID @globalId(type: "Mapping", decode: "ID")
+        hasEmails: Boolean
+        search: String
+        deadlineStage: DeadlineStatus
+        due: Boolean
+        withFeatures: [MappingFeatureType!]
+        spaceId: ID @globalId(type: "Space", decode: "ID")
+        orderBy: [ItemSearchOrderBy!]
+    ): ItemConnection @field(resolver: "App\\GraphQL\\Queries\\Items\\ItemQuery@indexAll")
+
+    items: ItemQuery! @root
+    groupedItems: GroupedItemQuery! @root
+}
+
+extend type Mutation {
+    associateItem(input: AssociateItemInput!): ItemAssociateMutationResponse @field(resolver: "Items\\ItemQuery@associateItem")
+    removeItem(input: RemoveItemInput!): ItemAssociateMutationResponse @field(resolver: "Items\\ItemQuery@removeItem")
+
+    items: ItemMutation! @root
+}
+
+extend type Subscription {
+    items: ItemSubscription! @root
+    itemCreated: ItemMutationResponse
+    itemUpdated: ItemMutationResponse
+    itemDeleted: ItemMutationResponse
+}
+
+type ItemQuery {
+    dummy: String
+}
+
+type GroupedItemQuery {
+    dummy: String
+}
+
+type ItemMutation {
+    dummy: String
+}
+
+type ItemSubscription {
+    dummy: String
+}
+
+type ItemConnection {
+    edges: [ItemEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type ItemEdge {
+    node: Item!
+    cursor: String!
+}
+
+input ItemSearchOrderBy {
+    field: ItemSearchField!
+    direction: SortOrder!
+}
+
+enum ItemSearchField {
+    ID @enum(value: "id")
+    MAPPING @enum(value: "mapping")
+    MATCH @enum(value: "match")
+    CREATED_AT @enum(value: "created_at")
+    UPDATED_AT @enum(value: "updated_at")
+    NAME @enum(value: "name.keyword")
+    DUE_BY @enum(value: "due_by")
+}
+
+type EmailAssociation @node(model: "Emailable") {
+    emailId: ID!
+}
+
+type EmailAssociations {
+    directAssociations: [EmailAssociation!] @morphMany(model: "Emailable", defaultCount: 25, relation: "emailables", type: CONNECTION)
+    addressAssociations: [EmailAddressAssociation!] @morphMany(model: "EmailAddressable", defaultCount: 25, relation: "emailAddressables", type: CONNECTION)
+}
+
+interface Item @interface(resolveType: "\\App\\GraphQL\\TypeResolver@resolveType") {
+    id: ID!
+    spaceId: ID!
+    name: String!
+    image: ItemImage
+    names: [StringFieldValue!]!
+    images: [ItemImageFieldValue!]
+    emails: [Email!]
+    mapping: Mapping!
+    pages: [ItemPage!]!
+    deadlines: DeadlineInfo
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+interface ItemMarkerGroup {
+    id: String!
+    name: String!
+    apiName: String!
+    group: MarkerGroup!
+    type: MarkerType!
+    relationship: Relationship
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type ItemStatusMarkerGroup implements ItemMarkerGroup {
+    id: String!
+    name: String!
+    apiName: String!
+    group: MarkerGroup!
+    type: MarkerType!
+    relationship: Relationship
+    value: Marker
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type ItemTagMarkerGroup implements ItemMarkerGroup {
+    id: String!
+    name: String!
+    apiName: String!
+    group: MarkerGroup!
+    type: MarkerType!
+    relationship: Relationship
+    value: [Marker!]
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type ItemPipelineMarkerGroup implements ItemMarkerGroup {
+    id: String!
+    name: String!
+    apiName: String!
+    group: MarkerGroup!
+    type: MarkerType!
+    relationship: Relationship
+    value: [Marker!]
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type ItemAssociateMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    item: Item!
+    node: Associatable!
+}
+
+type ItemMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    item: Item
+}
+
+input AddManyRelationshipsInput {
+    itemId: ID! @globalId(decode: "ID", type: "Item")
+    relationshipId: String!
+    ids: [ID!]!
+}
+
+input RemoveManyRelationshipsInput {
+    itemId: ID! @globalId(decode: "ID", type: "Item")
+    relationshipId: String!
+    ids: [ID!]!
+}
+
+input AddSingleRelationshipInput {
+    itemId: ID! @globalId(decode: "ID", type: "Item")
+    relationshipId: String!
+    id: ID!
+}
+
+input RemoveSingleRelationshipInput {
+    itemId: ID! @globalId(decode: "ID", type: "Item")
+    relationshipId: String!
+}
+
+input AssociateItemInput {
+    itemId: ID! @globalId(decode: "ID", type: "Item")
+    associatableId: ID!
+}
+
+
+input RemoveItemInput {
+    itemId: ID! @globalId(decode: "ID", type: "Item")
+    associatableId: ID!
+}
+
+interface Associatable @interface(resolveType: "App\\GraphQL\\TypeResolver@resolveType") {
+    id: ID!
+    associations: [Item!]
+}
+
+enum BooleanOperator {
+    AND
+    OR
+}
+
+input ItemFilterInput {
+    boolean: BooleanOperator = AND
+    filters: [ItemFilterInput!]
+    fields: [FieldFilterInput!]
+    markers: [MarkerFilterInput!]
+    search: [String!]
+    isFavorited: Boolean
+    priority: Int
+}
+
+input FieldFilterInput {
+    fieldId: String!
+    operator: FieldFilterOperator! = IS
+    match: JSON!
+}

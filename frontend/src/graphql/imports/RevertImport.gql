@@ -1,0 +1,12 @@
+#import "./ImportFragment.gql"
+
+mutation RevertImport($input: RevertImportInput!) {
+    revertImport(input: $input) {
+        code
+        success
+        message
+        import {
+            ...Import
+        }
+    }
+}

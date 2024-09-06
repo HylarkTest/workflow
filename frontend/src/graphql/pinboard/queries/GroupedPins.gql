@@ -1,0 +1,46 @@
+#import "../PinFragment.gql"
+#import "../../GroupableFragment.gql"
+
+query GroupedPins(
+    $group: String!
+    $spaceId: ID
+    $pinboardId: ID
+    $forMapping: ID,
+    $forNode: ID,
+    $search: [String!]
+    $filters: [PinFilterInput!]
+    $isFavorited: Boolean
+    $orderBy: [PinOrderBy!]
+    $after: String
+) {
+    groupedPins(
+        group: $group,
+        spaceId: $spaceId,
+        pinboardId: $pinboardId,
+        forMapping: $forMapping,
+        forNode: $forNode,
+        search: $search,
+        filters: $filters,
+        isFavorited: $isFavorited,
+        orderBy: $orderBy,
+        after: $after,
+        first: 50,
+    ) {
+        groups {
+            groupHeader
+            group {
+                ...Groupable
+            }
+            edges {
+                node {
+                    ...Pin
+                }
+            }
+            pageInfo {
+                total
+                endCursor
+                hasNextPage
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+#import "../../spaces/SpaceFragment.gql"
+#import "../FullPageFragment.gql"
+#import "../../savedFilters/SavedFilterFragment.gql"
+
+query Page($id: ID!) {
+    page(id: $id) {
+        ...FullPage
+    }
+}

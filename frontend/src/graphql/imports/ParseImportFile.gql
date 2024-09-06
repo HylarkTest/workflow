@@ -1,0 +1,19 @@
+mutation ParseImportFile($input: ParseSpreadsheetInput!) {
+    parseSpreadsheet(input: $input) {
+        code
+        success
+        message
+        data {
+            fileId
+            data {
+                column
+                data
+            }
+            columnMapGuess {
+                column
+                fieldId
+            }
+            dateFormatGuess
+        }
+    }
+}

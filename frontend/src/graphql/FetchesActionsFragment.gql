@@ -1,0 +1,18 @@
+#import "./MemberFragment.gql"
+
+fragment FetchesActionsFragment on FetchesActions {
+    createAction {
+        id
+        type
+        performer {
+            ...MemberFragment
+        }
+    }
+    latestAction {
+        id
+        type
+        performer {
+            ...MemberFragment
+        }
+    }
+}

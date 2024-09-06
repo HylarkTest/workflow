@@ -1,0 +1,31 @@
+#import "../NotificationFragment.gql"
+
+query Notifications(
+    $filter: NotificationFilter = ONLY_UNCLEARED
+    $channel: NotificationChannelFilter = ALL
+    $after: String
+) {
+    notifications(
+        filter: $filter
+        channel: $channel
+        after: $after
+        first: 25
+    ) {
+        edges {
+            node {
+                ...Notification
+            }
+        }
+        pageInfo {
+            hasNextPage
+            endCursor
+        }
+        meta {
+            unclearedCount
+            channels {
+                channel
+                unclearedCount
+            }
+        }
+    }
+}

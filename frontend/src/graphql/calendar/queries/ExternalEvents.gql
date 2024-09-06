@@ -1,0 +1,29 @@
+#import "../ExternalEventFragment.gql"
+
+query ExternalEvents(
+    $calendarId: ID
+    $sourceId: ID
+    $forNode: ID
+    $endsAfter: DateTime
+    $startsBefore: DateTime
+    $page: Int
+    $first: Int! = 100
+) {
+    externalEvents(
+        calendarId: $calendarId,
+        sourceId: $sourceId,
+        forNode: $forNode,
+        endsAfter: $endsAfter,
+        startsBefore: $startsBefore,
+        page: $page,
+        first: $first,
+    ) {
+        data {
+            ...ExternalEvent
+        }
+        paginatorInfo {
+            hasMorePages
+            currentPage
+        }
+    }
+}

@@ -1,0 +1,142 @@
+extend type Query @guard(with: ["web", "api"]) {
+    timekeeperStats(
+        forMapping: ID @globalId(decode: "ID", type: "Mapping")
+    ): TimekeeperStats @field(resolver: "TimekeeperQuery@stats")
+    deadlineGroups(
+        first: Int! = 25,
+        after: String
+        usedByMapping: ID @globalId(type: "Mapping", decode: "ID")
+    ): DeadlineGroupConnection @field(resolver: "DeadlineGroupQuery@index")
+    deadlineGroup(id: ID! @globalId(decode: "ID", type: "DeadlineGroup")): DeadlineGroup @field(resolver: "DeadlineGroupQuery@show")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    createDeadlineGroup(input: CreateDeadlineGroupInput!): DeadlineGroupMutationResponse! @field(resolver: "DeadlineGroupQuery@store")
+    updateDeadlineGroup(input: UpdateDeadlineGroupInput!): DeadlineGroupMutationResponse! @field(resolver: "DeadlineGroupQuery@update")
+    deleteDeadlineGroup(input: DeleteDeadlineGroupInput!): SuccessfulMutationResponse! @field(resolver: "DeadlineGroupQuery@destroy")
+    createDeadline(input: CreateDeadlineInput!): DeadlineMutationResponse! @field(resolver: "DeadlineQuery@store")
+    updateDeadline(input: UpdateDeadlineInput!): DeadlineMutationResponse! @field(resolver: "DeadlineQuery@update")
+    deleteDeadline(input: DeleteDeadlineInput!): DeadlineMutationResponse! @field(resolver: "DeadlineQuery@destroy")
+    moveDeadline(input: MoveDeadlineInput!): DeadlineMutationResponse! @field(resolver: "DeadlineQuery@move")
+}
+
+interface HasDeadlines {
+    deadlines: DeadlineInfo!
+}
+
+type TimekeeperStats {
+    open: Int!
+    active: Int!
+    waitingToStart: Int!
+    overdue: Int!
+    completed: Int!
+}
+
+type DeadlineGroup implements ActionSubject @node {
+    name: String!
+    description: String
+    deadlineCount: Int! @count(relation: "deadlines")
+    deadlines: [Deadline!]! @hasMany
+    usedByMappings: [Mapping!] @field(resolver: "\\App\\GraphQL\\Queries\\DeadlineGroupQuery@usedByMappings")
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type Deadline implements Findable & ActionSubject @node {
+    name: String!
+    color: Color @color
+    order: Int!
+    group: DeadlineGroup!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type DeadlineCollection {
+    group: DeadlineGroup!
+    deadlines: [Deadline!]
+    deadlineCount: Int!
+}
+
+type DeadlineGroupConnection {
+    edges: [DeadlineGroupEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type DeadlineGroupEdge {
+    node: DeadlineGroup!
+    cursor: String!
+}
+
+type DeadlineInfo {
+    startAt: DateTime
+    dueBy: DateTime
+    isCompleted: Boolean!
+    status: DeadlineStatus!
+}
+
+input MoveDeadlineInput {
+    groupId: ID! @globalId(decode: "ID", type: "DeadlineGroup")
+    id: ID! @globalId(decode: "ID", type: "Deadline")
+    previousId: ID @globalId(decode: "ID", type: "Deadline")
+}
+
+input DeadlineOrder {
+    id: ID! @globalId(decode: "ID", type: "Deadline")
+    order: Int!
+}
+
+input CreateDeadlineGroupInput {
+    name: String! @rules(apply: ["max:255"])
+    description: String @rules(apply: ["max:4098"])
+    usedByMappings: [ID!]
+    deadlines: [NewDeadlineInput!]
+}
+
+input UpdateDeadlineGroupInput {
+    id: ID! @globalId(decode: "ID", type: "DeadlineGroup")
+    name: String @rules(apply: ["max:255"])
+    description: String @rules(apply: ["max:4098"])
+    usedByMappings: [ID!]
+}
+
+input DeleteDeadlineGroupInput {
+    id: ID! @globalId(decode: "ID", type: "DeadlineGroup")
+}
+
+input NewDeadlineInput {
+    name: String! @rules(apply: ["max:255"])
+    color: Color
+}
+
+input CreateDeadlineInput {
+    groupId: ID! @globalId(decode: "ID", type: "DeadlineGroup")
+    name: String! @rules(apply: ["max:255"])
+    color: Color
+}
+
+input UpdateDeadlineInput {
+    groupId: ID! @globalId(decode: "ID", type: "DeadlineGroup")
+    id: ID! @globalId(decode: "ID", type: "Deadline")
+    name: String @rules(apply: ["max:255"])
+    color: Color
+}
+
+input DeleteDeadlineInput {
+    groupId: ID! @globalId(decode: "ID", type: "DeadlineGroup")
+    id: ID! @globalId(decode: "ID", type: "Deadline")
+}
+
+type DeadlineGroupMutationResponse implements MutationResponse{
+    code: String!
+    success: Boolean!
+    message: String!
+    deadlineGroup: DeadlineGroup
+}
+
+type DeadlineMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    deadline: Deadline
+    deadlineGroup: DeadlineGroup
+}

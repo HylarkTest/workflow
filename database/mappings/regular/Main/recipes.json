@@ -1,0 +1,35 @@
+{
+    "mapping":    {
+        "name": "Favorite recipes",
+        "singular_name": "Recipe",
+        "type": "ITEM",
+        "description": "",
+        "features": [
+            {
+                "type": "NOTES"
+            },
+            {
+                "type": "PLANNER"
+            },
+            {
+                "type": "COMMENTS"
+            }
+        ],
+        "fields": [
+            {
+                "id": "picture",
+                "name": "Picture",
+                "type": "IMAGE"
+            },
+            {
+                "id": "meal",
+                "name": "Meal type",
+                "type": "LINE"
+            }
+        ],
+        "design": {
+            "icon": "fa-utensils-alt"
+        }
+    },
+    "items": {}
+}

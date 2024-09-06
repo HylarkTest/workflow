@@ -1,0 +1,6 @@
+fragment Features on Mapping {
+    features {
+        val
+        options
+    }
+}

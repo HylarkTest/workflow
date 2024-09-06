@@ -1,0 +1,6 @@
+mutation DeleteEvent($input: DeleteEventInput!) {
+    deleteEvent(input: $input) {
+        code
+        success
+    }
+}

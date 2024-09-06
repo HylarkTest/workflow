@@ -1,0 +1,12 @@
+#import "../MappingFieldsFragment.gql"
+
+mutation CreateMappingField($input: CreateMappingFieldInput!) {
+    createMappingField(input: $input) {
+        code
+        success
+        mapping {
+            id
+            ...Fields
+        }
+    }
+}

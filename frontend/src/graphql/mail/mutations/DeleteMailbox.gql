@@ -1,0 +1,5 @@
+mutation DeleteMailbox($input: DeleteMailboxInput!) {
+    deleteMailbox(input: $input) {
+        success
+    }
+}

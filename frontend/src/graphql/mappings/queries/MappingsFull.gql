@@ -1,0 +1,33 @@
+#import "../MappingFragment.gql"
+#import "../MappingRelationshipsFragment.gql"
+
+query Mappings(
+    $spaceId: ID
+    $after: String,
+    $name: String,
+    $type: MappingType,
+) {
+    mappings(
+        first: 100,
+        after: $after,
+        name: $name,
+        type: $type,
+        spaceId: $spaceId,
+    ) @connection(key: "mappings", filter: ["name", "type", "spaceId"]) {
+        edges {
+            node {
+                ...Mapping
+                ...Relationships
+                pages {
+                    id
+                    symbol
+                    name
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

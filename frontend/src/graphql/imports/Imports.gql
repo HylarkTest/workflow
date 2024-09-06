@@ -1,0 +1,16 @@
+#import './ImportFragment.gql'
+
+query Imports($after: String) {
+    imports(first: 15, after: $after) {
+        edges {
+            node {
+                ...Import
+            }
+        }
+        pageInfo {
+            hasNextPage
+            total
+            endCursor
+        }
+    }
+}

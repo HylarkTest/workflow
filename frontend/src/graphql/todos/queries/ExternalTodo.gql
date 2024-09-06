@@ -1,0 +1,15 @@
+#import "../ExternalTodoFragment.gql"
+
+query ExternalTodo(
+    $id: ID!
+    $todoListId: String!
+    $sourceId: ID!
+) {
+    externalTodo(
+        todoListId: $todoListId,
+        sourceId: $sourceId,
+        id: $id,
+    ) {
+        ...ExternalTodo
+    }
+}

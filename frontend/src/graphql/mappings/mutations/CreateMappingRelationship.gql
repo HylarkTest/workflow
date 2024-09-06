@@ -1,0 +1,12 @@
+#import "../MappingRelationshipsFragment.gql"
+
+mutation CreateMappingRelationship($input: CreateMappingRelationshipInput!) {
+    createMappingRelationship(input: $input) {
+        code
+        success
+        mapping {
+            id
+            ...Relationships
+        }
+    }
+}

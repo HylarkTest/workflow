@@ -1,0 +1,15 @@
+#import "../LinkFragment.gql"
+
+mutation CreateLink($input: CreateLinkInput!) {
+    createLink(input: $input) {
+        code
+        success
+        link {
+            ...Link
+        }
+        linkList {
+            id
+            count: linksCount
+        }
+    }
+}

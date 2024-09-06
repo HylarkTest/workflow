@@ -1,0 +1,11 @@
+#import "../MarkerGroupFragment.gql"
+
+mutation CreateMarkerGroup($input: CreateMarkerGroupInput!) {
+    createMarkerGroup(input: $input) {
+        code
+        success
+        markerGroup {
+            ...MarkerGroup
+        }
+    }
+}

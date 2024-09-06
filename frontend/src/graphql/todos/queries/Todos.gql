@@ -1,0 +1,66 @@
+#import "../TodoFragment.gql"
+
+query Todos(
+    $spaceId: ID,
+    $todoListId: ID
+    $forMapping: ID
+    $forNode: ID
+    $search: [String!]
+    $dueBefore: DateTime
+    $dueAfter: DateTime
+    $isScheduled: Boolean
+    $isCompleted: Boolean
+    $filters: [TodoFilterInput!]
+    $minPriority: Int
+    $maxPriority: Int
+    $orderBy: [TodoOrderBy!]
+    $after: String
+    $first: Int! = 25
+) {
+    todos(
+        spaceId: $spaceId,
+        todoListId: $todoListId,
+        forMapping: $forMapping,
+        forNode: $forNode,
+        search: $search,
+        dueBefore: $dueBefore,
+        dueAfter: $dueAfter,
+        isScheduled: $isScheduled,
+        isCompleted: $isCompleted,
+        filters: $filters,
+        minPriority: $minPriority,
+        maxPriority: $maxPriority,
+        orderBy: $orderBy,
+        after: $after,
+        first: $first,
+    # eslint-disable-next-line @graphql-eslint/value-literals-of-correct-type
+    ) @connection(key: "todos", filter: [
+        "todoListId",
+        "search",
+        "dueBefore",
+        "dueAfter",
+        "isScheduled",
+        "filters",
+        "minPriority",
+        "maxPriority",
+        "orderBy"
+    ]) {
+        edges {
+            node {
+                ...Todo
+            }
+        }
+        pageInfo {
+            startCursor
+            endCursor
+            hasNextPage
+            total
+            rawTotal
+            # eslint-disable-next-line @graphql-eslint/fields-on-correct-type
+            hasFilterApplied @client
+        }
+        meta {
+            completedCount
+        }
+    }
+}

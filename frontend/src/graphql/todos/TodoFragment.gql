@@ -1,0 +1,30 @@
+#import "../markers/MarkerCollectionFragment.gql"
+#import "../items/AssociationCollectionFragment.gql"
+#import "../bases/AssigneeCollectionFragment.gql"
+
+fragment Todo on Todo {
+    id
+    name
+    completedAt
+    dueBy
+    description
+    location
+    priority
+    createdAt
+    updatedAt
+    order
+    recurrence {
+        frequency
+        interval
+        byDay
+    }
+    list: todoList {
+        id
+        name
+        color
+        space { id name }
+    }
+    ...MarkerCollection
+    ...AssociationCollection
+    ...AssigneeCollection
+}

@@ -1,0 +1,36 @@
+#import "../markers/MarkerCollectionFragment.gql"
+#import "../items/AssociationCollectionFragment.gql"
+#import "../bases/AssigneeCollectionFragment.gql"
+
+fragment Event on Event {
+    id
+    primaryId
+    name
+    date: startAt
+    end: endAt
+    timezone
+    description
+    isAllDay
+    location
+    priority
+    createdAt
+    updatedAt
+    recurrence {
+        frequency
+        interval
+        byDay
+    }
+    calendar {
+        id
+        name
+        color
+        isDefault
+        space {
+            id
+            name
+        }
+    }
+    ...MarkerCollection
+    ...AssociationCollection
+    ...AssigneeCollection
+}

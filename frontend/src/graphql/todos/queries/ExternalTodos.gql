@@ -1,0 +1,27 @@
+#import "../ExternalTodoFragment.gql"
+
+query ExternalTodos(
+    $todoListId: String
+    $sourceId: ID
+    $forNode: ID
+    $filter: ExternalTodoFilter = ONLY_INCOMPLETE
+    $page: Int
+    $first: Int! = 100
+) {
+    externalTodos(
+        todoListId: $todoListId,
+        sourceId: $sourceId,
+        forNode: $forNode,
+        filter: $filter,
+        page: $page,
+        first: $first
+    ) {
+        data {
+            ...ExternalTodo
+        }
+        paginatorInfo {
+            hasMorePages
+            currentPage
+        }
+    }
+}

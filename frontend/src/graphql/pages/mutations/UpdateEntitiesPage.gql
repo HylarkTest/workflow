@@ -1,0 +1,11 @@
+#import "../FullPageFragment.gql"
+
+mutation UpdateEntitiesPage($input: UpdateEntitiesPageInput!) {
+    updateEntitiesPage(input: $input) {
+        code
+        success
+        page {
+            ...FullPage
+        }
+    }
+}

@@ -1,0 +1,22 @@
+#import "../CalendarFragment.gql"
+
+query Calendars(
+    $spaceIds: [ID!],
+    $forLists: [ID!],
+) {
+    lists: calendars(
+        spaceIds: $spaceIds,
+        forLists: $forLists,
+        first: 100,
+    ) {
+        edges {
+            node {
+                ...Calendar
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

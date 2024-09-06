@@ -1,0 +1,11 @@
+#import "../PinFragment.gql"
+
+mutation MovePin($input: MovePinInput!) {
+    movePin(input: $input) {
+        code
+        success
+        pin {
+            ...Pin
+        }
+    }
+}

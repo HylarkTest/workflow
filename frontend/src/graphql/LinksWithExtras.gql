@@ -1,0 +1,80 @@
+#import "./ExtrasFragmentsForLinks.gql"
+
+fragment SpaceLinksWithExtras on Space {
+    id
+    pages(first: 100) {
+        edges {
+            node {
+                id
+                ...on EntitiesPage {
+                    recentItems: items(orderBy: [{ field: "UPDATED_AT", direction: DESC }], first: 3) {
+                        ...RecentItemsFragment
+                    }
+                }
+                ...on EntityPage {
+                    item {
+                        ...RecentItemFragment
+                    }
+                }
+                ...on ListPage {
+                    recentFeatureItems: listItems(orderBy: [{ field: "UPDATED_AT", direction: DESC }], first: 3) {
+                        ...RecentFeatureItemsFragment
+                    }
+                }
+            }
+        }
+    }
+}
+
+query NavLinksWithExtras {
+    spaces(first: 100) {
+        edges {
+            node {
+                ...SpaceLinksWithExtras
+            }
+        }
+    }
+#    teams(first: 100) {
+#        edges {
+#            node {
+#                id
+#                name
+#                logo
+#                spaces(first: 100) {
+#                    edges {
+#                        node {
+#                            ...Link
+#                        }
+#                    }
+#                }
+#                mappings(first: 100, withSpace: false) {
+#                    edges {
+#                        node {
+#                            ...Mapping
+#                        }
+#                    }
+#                }
+#            }
+#        }
+#    }
+#    sharedDomains(first: 100) {
+#        edges {
+#            node {
+#                spaces(first: 100) {
+#                    edges {
+#                        node {
+#                            ...Link
+#                        }
+#                    }
+#                }
+#                mappings(first: 100) {
+#                    edges {
+#                        node {
+#                            ...Mapping
+#                        }
+#                    }
+#                }
+#            }
+#        }
+#    }
+}

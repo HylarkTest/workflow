@@ -1,0 +1,19 @@
+fragment RecentItemFragment on Item {
+    id
+    name
+    image { url }
+    createdAt
+    updatedAt
+}
+
+fragment RecentItemsFragment on ItemConnection {
+    edges {
+        node {
+            ...RecentItemFragment
+        }
+    }
+}
+
+fragment RecentFeatureItemsFragment on FeatureItemConnection {
+    edges { node { id name } }
+}

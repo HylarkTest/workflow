@@ -1,0 +1,9 @@
+#import "../CalendarFragment.gql"
+
+subscription CalendarUpdated {
+    calendarUpdated {
+        calendar {
+            ...Calendar
+        }
+    }
+}

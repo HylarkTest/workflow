@@ -1,0 +1,29 @@
+#import "../MarkerGroupFragment.gql"
+
+query MarkerGroups(
+    $types: [MarkerType],
+    $first: Int! = 25,
+    $cursor: String,
+    $usedByFeatures: [MarkableType!]
+    $usedByMappings: [ID!]
+    $spaceIds: [ID!]
+) {
+    markerGroups(
+        types: $types,
+        usedByFeatures: $usedByFeatures,
+        usedByMappings: $usedByMappings,
+        spaceIds: $spaceIds,
+        first: $first,
+        after: $cursor,
+    ) @connection(key: "markerGroups", filter: ["types", "usedByFeatures", "usedByMappings", "spaceIds"]) {
+        edges {
+            node {
+                ...MarkerGroup
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

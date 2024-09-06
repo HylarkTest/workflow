@@ -1,0 +1,21 @@
+#import "../CategoryFragment.gql"
+
+query Categories(
+    $first: Int! = 25,
+    $cursor: String,
+) {
+    categories(
+        first: $first,
+        after: $cursor,
+    ) @connection(key: "categories") {
+        edges {
+            node {
+                ...Category
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

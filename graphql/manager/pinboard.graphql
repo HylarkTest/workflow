@@ -1,0 +1,30 @@
+# If you are looking for pin queries/fields that aren't here, try checking out the `FeatureListQuery.php` file where all the common feature queries are defined.
+
+extend type Pin implements Node {
+    id: ID! @globalId(type: "Pin")
+    name: String!
+    description: String @stringArgs
+    image: Document @belongsTo
+}
+
+enum PinOrderField {
+    NAME @enum(value: "name")
+    PINBOARD @enum(value: "pinboard")
+    FAVORITES @enum(value: "favorited_at")
+    CREATED_AT @enum(value: "created_at")
+    UPDATED_AT @enum(value: "updated_at")
+}
+
+extend input CreatePinInput {
+    name: String! @rules(customPrefix: "pin", apply: ["filled", "max:255"])
+    description: String @rules(apply: ["max:5000"])
+    image: CroppedImageInput @rules(customPrefix: "pin", apply: ["required", "max:5000"])
+    # url: String @rules(apply: ["prohibits:document", "url"])
+}
+
+extend input UpdatePinInput {
+    name: String @rules(customPrefix: "pin", apply: ["filled", "max:255"])
+    description: String @rules(apply: ["max:5000"])
+    image: CroppedImageInput @rules(customPrefix: "pin", apply: ["filled", "max:5000"])
+    # url: String @rules(apply: ["prohibits:image", "url"])
+}

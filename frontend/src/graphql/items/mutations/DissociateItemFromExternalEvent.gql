@@ -1,0 +1,11 @@
+#import "../AssociationCollectionFragment.gql"
+
+mutation DissociateItemToExternalEvent($input: DissociateExternalEventInput!) {
+    dissociateExternalEvent(input: $input) {
+        code
+        node: event {
+            id
+            ...AssociationCollection
+        }
+    }
+}

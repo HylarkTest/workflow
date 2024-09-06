@@ -1,0 +1,9 @@
+mutation UpdateActiveTips($tips: [TipInput!]) {
+    # eslint-disable-next-line @graphql-eslint/fields-on-correct-type
+    updateActiveTips(input: { tips: $tips }) @client {
+        val
+        tipTitle
+        tipText
+        active
+    }
+}

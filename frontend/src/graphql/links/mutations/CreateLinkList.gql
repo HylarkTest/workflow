@@ -1,0 +1,15 @@
+#import "../LinkListWithCountFragment.gql"
+
+mutation CreateLinkList(
+    $input: CreateLinkListInput!
+    $forMapping: ID
+    $forNode: ID
+) {
+    createList: createLinkList(input: $input) {
+        code
+        success
+        list: linkList {
+            ...LinkListWithCount
+        }
+    }
+}

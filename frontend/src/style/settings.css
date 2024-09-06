@@ -1,0 +1,56 @@
+.settings-form {
+    &__section {
+        @apply
+            flex
+            flex-col
+        ;
+
+        @media (min-width: 640px) {
+            & {
+                @apply
+                    flex-row
+                    mt-2
+                ;
+            }
+        }
+    }
+
+    &__header {
+        @apply
+            font-medium
+            mb-6
+            text-lg
+            text-primary-600
+        ;
+
+        @media (min-width: 640px) {
+            & {
+                @apply
+                    mb-0
+                    pr-3
+                    w-40
+                ;
+            }
+        }
+    }
+
+    &__title {
+        @apply
+            font-semibold
+            mb-6
+            text-azure-500
+            text-xs
+            uppercase
+        ;
+    }
+
+    &__category {
+        @apply
+            font-semibold
+            mr-2
+            text-cm-700
+            text-xs
+            uppercase
+        ;
+    }
+}

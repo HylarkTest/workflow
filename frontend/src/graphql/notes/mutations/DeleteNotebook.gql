@@ -1,0 +1,5 @@
+mutation DeleteNotebook($input: DeleteNotebookInput!) {
+    deleteNotebook(input: $input) {
+        success
+    }
+}

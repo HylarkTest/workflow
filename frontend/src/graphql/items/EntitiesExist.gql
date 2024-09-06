@@ -1,0 +1,20 @@
+query EntitiesExist(
+    $type: MappingType,
+    $hasEmails: Boolean,
+    $withFeatures: [MappingFeatureType!],
+    $spaceId: ID,
+    $mappingId: ID,
+) {
+    allItems(
+        first: 0,
+        type: $type,
+        mappingId: $mappingId,
+        hasEmails: $hasEmails,
+        withFeatures: $withFeatures,
+        spaceId: $spaceId
+    ) {
+        pageInfo {
+            total
+        }
+    }
+}

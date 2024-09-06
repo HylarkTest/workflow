@@ -1,0 +1,11 @@
+#import "../EmailFragment.gql"
+
+mutation UpdateEmail($input: UpdateEmailInput!) {
+    updateEmail(input: $input) {
+        code
+        success
+        email {
+            ...EmailMessage
+        }
+    }
+}

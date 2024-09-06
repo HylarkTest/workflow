@@ -1,0 +1,6 @@
+fragment IntegrationAccount on IntegrationAccount {
+    id
+    provider
+    accountName
+    scopes
+}

@@ -1,0 +1,27 @@
+#import "../items/AssociationCollectionFragment.gql"
+
+fragment ExternalTodo on ExternalTodo {
+    id
+    name
+    completedAt
+    dueBy
+    description
+    priority
+    order
+    updatedAt
+    recurrence {
+        frequency
+        interval
+        byDay
+    }
+    list {
+        id
+        name
+    }
+    account {
+        id
+        provider
+        accountName
+    }
+    ...AssociationCollection
+}

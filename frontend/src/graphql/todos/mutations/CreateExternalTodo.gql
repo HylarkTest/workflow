@@ -1,0 +1,11 @@
+#import "../ExternalTodoFragment.gql"
+
+mutation CreateExternalTodo($input: CreateExternalTodoInput!) {
+    createExternalTodo(input: $input) {
+        code
+        success
+        todo {
+            ...ExternalTodo
+        }
+    }
+}

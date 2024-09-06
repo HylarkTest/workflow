@@ -1,0 +1,13 @@
+#import "../SavedFilterFragment.gql"
+
+query SavedFilter(
+    $id: ID,
+) {
+    # This is a local field defined in defaultApolloClient.js using cache redirect
+    # eslint-disable-next-line @graphql-eslint/fields-on-correct-type
+    savedFilter(
+        id: $id,
+    ) {
+        ...SavedFilter
+    }
+}

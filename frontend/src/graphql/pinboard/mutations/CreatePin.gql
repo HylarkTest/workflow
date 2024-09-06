@@ -1,0 +1,15 @@
+#import "../PinFragment.gql"
+
+mutation CreatePin($input: CreatePinInput!) {
+    createPin(input: $input) {
+        code
+        success
+        pin {
+            ...Pin
+        }
+        pinboard {
+            id
+            count: pinsCount
+        }
+    }
+}

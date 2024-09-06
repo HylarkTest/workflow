@@ -1,0 +1,11 @@
+#import "../EventFragment.gql"
+
+mutation MoveEvent($input: MoveEventInput!) {
+    moveEvent(input: $input) {
+        code
+        success
+        event {
+            ...Event
+        }
+    }
+}

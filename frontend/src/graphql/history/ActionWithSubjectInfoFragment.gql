@@ -1,0 +1,12 @@
+#import "../NodeFragment.gql"
+#import "../MemberFragment.gql"
+
+fragment ActionWithSubjectInfoFragment on Action {
+    id
+    type
+    createdAt
+    updatedAt
+    subject {
+        ...NodeFragment
+    }
+}

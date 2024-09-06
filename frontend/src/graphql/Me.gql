@@ -1,0 +1,11 @@
+#import "./UserFragment.gql"
+
+query Me {
+    user: me {
+        ...User
+        verified
+        finishedRegistration
+        hasEnabledTwoFactorAuthentication
+        newNotificationsCount
+    }
+}

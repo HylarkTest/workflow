@@ -1,0 +1,11 @@
+#import "../AssociationCollectionFragment.gql"
+
+mutation AssociateItemToExternalEvent($input: AssociateExternalEventInput!) {
+    associateExternalEvent(input: $input) {
+        code
+        node: event {
+            id
+            ...AssociationCollection
+        }
+    }
+}

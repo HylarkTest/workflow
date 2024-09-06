@@ -1,0 +1,13 @@
+#import "../DocumentFragment.gql"
+
+subscription DocumentCreated($forNode: ID, $forMapping: ID) {
+    documentCreated {
+        document {
+            ...Document
+        }
+        drive {
+            id
+            count: documentsCount(forNode: $forNode, forMapping: $forMapping)
+        }
+    }
+}

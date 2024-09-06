@@ -1,0 +1,15 @@
+#import "../DocumentFragment.gql"
+
+mutation CreateDocument($input: CreateDocumentInput!) {
+    createDocument(input: $input) {
+        code
+        success
+        document {
+            ...Document
+        }
+        drive {
+            id
+            count: documentsCount
+        }
+    }
+}

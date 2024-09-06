@@ -1,0 +1,25 @@
+#import "../SavedFilterFragment.gql"
+
+query SavedFilters(
+    $nodeId: ID,
+    $privacy: SavedFilterPrivacy,
+    $first: Int! = 5,
+    $after: String,
+) {
+    savedFilters(
+        nodeId: $nodeId,
+        privacy: $privacy,
+        first: $first,
+        after: $after,
+    ) @connection(key: "savedFilters") {
+        edges {
+            node {
+                ...SavedFilter
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

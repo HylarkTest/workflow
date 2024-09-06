@@ -1,0 +1,9 @@
+#import "../MarkerGroupFragment.gql"
+
+subscription MarkerGroupUpdated {
+    markerGroupUpdated {
+        markerGroup {
+            ...MarkerGroup
+        }
+    }
+}

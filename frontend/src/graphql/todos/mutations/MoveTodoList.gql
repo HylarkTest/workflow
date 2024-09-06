@@ -1,0 +1,11 @@
+#import "../TodoListFragment.gql"
+
+mutation MoveTodoList($input: MoveTodoListInput!) {
+    moveList: moveTodoList(input: $input) {
+        code
+        success
+        list: todoList {
+            ...TodoList
+        }
+    }
+}

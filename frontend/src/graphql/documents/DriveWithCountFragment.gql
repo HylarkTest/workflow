@@ -1,0 +1,6 @@
+#import "./DriveFragment.gql"
+
+fragment DriveWithCount on Drive {
+    ...Drive
+    count: documentsCount(forNode: $forNode, forMapping: $forMapping)
+}

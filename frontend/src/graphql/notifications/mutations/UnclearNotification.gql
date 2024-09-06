@@ -1,0 +1,11 @@
+#import "../NotificationFragment.gql"
+
+mutation UnclearNotification($input: NotificationUnclearInput!) {
+    unclearNotification(input: $input) {
+        code
+        success
+        notification {
+            ...Notification
+        }
+    }
+}

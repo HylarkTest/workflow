@@ -1,0 +1,24 @@
+#import "./BaseFragment.gql"
+
+fragment BaseEdge on BaseEdge {
+    id
+    node {
+        ...Base
+    }
+    displayName
+    displayAvatar
+    useAccountAvatar
+    role
+    addedAt
+    isActive
+    preferences {
+        shortcuts { id type }
+        widgets {
+            addShortcuts
+        }
+        homepage {
+            shortcuts { customize integrations }
+            spaces
+        }
+    }
+}

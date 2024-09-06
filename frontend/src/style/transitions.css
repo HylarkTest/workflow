@@ -1,0 +1,28 @@
+/* purgecss start ignore */
+
+/*
+ * Fade
+ */
+
+.t-fade-enter-active,
+.t-fade-leave-active,
+.t-fade-in-enter-active,
+.t-fade-out-leave-active {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.t-fade-fast-enter-active,
+.t-fade-fast-leave-active {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.t-fade-enter-from,
+.t-fade-leave-to,
+.t-fade-fast-enter-from,
+.t-fade-fast-leave-to,
+.t-fade-in-enter-from,
+.t-fade-out-leave-to {
+    opacity: 0;
+}
+
+/* purgecss end ignore */

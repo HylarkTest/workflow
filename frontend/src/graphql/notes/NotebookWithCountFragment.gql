@@ -1,0 +1,6 @@
+#import "./NotebookFragment.gql"
+
+fragment NotebookWithCount on Notebook {
+    ...Notebook
+    count: notesCount(forNode: $forNode, forMapping: $forMapping)
+}

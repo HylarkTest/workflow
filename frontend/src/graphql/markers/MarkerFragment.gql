@@ -1,0 +1,11 @@
+fragment Marker on Marker {
+    id
+    name
+    color
+    order
+    group {
+        id
+        name
+        type
+    }
+}

@@ -1,0 +1,12 @@
+fragment ExternalTodoList on ExternalTodoList {
+    id
+    name
+    updatedAt
+    isDefault
+    isOwner
+    isShared
+    account {
+        id
+        provider
+    }
+}

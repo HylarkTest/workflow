@@ -1,0 +1,8 @@
+subscription PinDeleted($forNode: ID, $forMapping: ID) {
+    pinDeleted {
+        pinboard {
+            id
+            count: pinsCount(forNode: $forNode, forMapping: $forMapping)
+        }
+    }
+}

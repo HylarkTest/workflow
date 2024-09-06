@@ -1,0 +1,10 @@
+#import "../LinkFragment.gql"
+
+mutation UpdateLink($input: UpdateLinkInput!) {
+    updateLink(input: $input) {
+        code
+        link {
+            ...Link
+        }
+    }
+}

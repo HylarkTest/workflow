@@ -1,0 +1,6 @@
+mutation DeleteExternalEvent($input: DeleteExternalEventInput!) {
+    deleteExternalEvent(input: $input) {
+        code
+        success
+    }
+}

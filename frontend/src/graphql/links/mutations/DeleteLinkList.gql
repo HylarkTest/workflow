@@ -1,0 +1,5 @@
+mutation DeleteLinkList($input: DeleteLinkListInput!) {
+    deleteLinkList(input: $input) {
+        success
+    }
+}

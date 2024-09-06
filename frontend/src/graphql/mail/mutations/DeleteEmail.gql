@@ -1,0 +1,6 @@
+mutation DeleteEmail($input: DeleteEmailInput!) {
+    deleteEmail(input: $input) {
+        code
+        success
+    }
+}

@@ -1,0 +1,13 @@
+#import "../LinkFragment.gql"
+
+subscription LinkCreated($forNode: ID, $forMapping: ID) {
+    linkCreated {
+        link {
+            ...Link
+        }
+        linkList {
+            id
+            count: linksCount(forNode: $forNode, forMapping: $forMapping)
+        }
+    }
+}

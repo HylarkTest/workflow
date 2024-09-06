@@ -1,0 +1,11 @@
+#import "../AssociationCollectionFragment.gql"
+
+mutation DissociateItemToExternalTodo($input: DissociateExternalTodoInput!) {
+    dissociateExternalTodo(input: $input) {
+        code
+        node: todo {
+            id
+            ...AssociationCollection
+        }
+    }
+}

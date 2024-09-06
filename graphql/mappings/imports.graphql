@@ -1,0 +1,124 @@
+extend type Query @guard(with: ["web", "api"]) {
+    imports(
+        first: Int! = 15,
+        after: String,
+    ): ImportConnection! @field(resolver: "ImportsQuery@index")
+    import(id: ID! @globalId(type: "Import", decode: "ID")): Import @field(resolver: "ImportsQuery@show")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    parseSpreadsheet(input: ParseSpreadsheetInput!): ParseSpreadsheetResponse! @field(resolver: "ImportsQuery@parse")
+    importSpreadsheet(input: ImportSpreadsheetInput!): ImportFileResponse! @field(resolver: "ImportsQuery@store")
+    cancelImport(input: CancelImportInput!): ImportFileResponse! @field(resolver: "ImportsQuery@cancel")
+    revertImport(input: RevertImportInput!): ImportFileResponse! @field(resolver: "ImportsQuery@revert")
+}
+
+type ImportConnection {
+    edges: [ImportEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type ImportEdge {
+    node: Import!
+    cursor: String!
+}
+
+type Import {
+    id: ID! @globalId
+    name: String!
+    filename: String!
+    mappingId: ID!
+    member: Member!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    progress: ProgressTracker @method(name: "taskProgress")
+}
+
+type ParseSpreadsheetResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    data: ParsedSpreadsheet
+}
+
+type ImportFileResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    import: Import!
+}
+
+type ParsedSpreadsheet {
+    fileId: String!
+    data: [SpreadsheetData]!
+    headers: [String]
+    rows(first: Int = 10, page: Int = 1): [SpreadsheetRow!]!
+    columnMapGuess: [ColumnMap!]
+    dateFormatGuess: String
+}
+
+type ColumnMap {
+    column: Int!
+    fieldId: String!
+}
+
+type SpreadsheetRow {
+    row: Int!
+    data: [String]!
+}
+
+type SpreadsheetData {
+    column: Int!
+    data(first: Int = 3, page: Int = 1): [String]!
+}
+
+type PreviewFieldErrors {
+    row: Int!
+    errors: [String!]!
+    value: String
+    fieldId: String!
+    column: Int!
+}
+
+type PreviewRecordErrors {
+    row: Int!
+    path: [String!]!
+    error: String!
+}
+
+input ParseSpreadsheetInput {
+    file: Upload @rules(apply: ["required_without:fileId", "file", "extensions:csv,tsv,xls,xlsx,ods", "nullable", "max:10240"])
+    fileId: String @rules(apply: ["required_without:file", "nullable"])
+    mappingId: ID @globalId(type: "Mapping", decode: "ID")
+}
+
+input ImportSpreadsheetInput {
+    name: String! = "Untitled"
+    file: Upload @rules(apply: ["required_without:fileId", "file", "extensions:csv,tsv,xls,xlsx,ods", "nullable", "max:10240"])
+    fileId: String @rules(apply: ["required_without:file", "filled", "nullable"])
+    mappingId: ID! @globalId(type: "Mapping", decode: "ID")
+    columnMap: [ColumnMapInput!]
+    firstRowIsHeader: Boolean = true
+    dateFormat: String
+}
+
+input PreviewSpreadsheetInput {
+    file: Upload @rules(apply: ["required_without:fileId", "file", "extensions:csv,tsv,xls,xlsx,ods", "nullable", "max:10240"])
+    fileId: String @rules(apply: ["required_without:file", "filled", "nullable"])
+    columnMap: [ColumnMapInput!]
+    firstRowIsHeader: Boolean = true
+    dateFormat: String
+}
+
+input ColumnMapInput {
+    column: Int! @rules(apply: ["required", "filled"])
+    fieldId: String! @rules(apply: ["required", "filled"])
+}
+
+input RevertImportInput {
+    id: ID! @globalId(type: "Import", decode: "ID")
+}
+
+input CancelImportInput {
+    id: ID! @globalId(type: "Import", decode: "ID")
+}

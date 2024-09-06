@@ -1,0 +1,12 @@
+mutation LeaveBase {
+    leaveBase {
+        code
+        success
+        activeBase {
+            id
+            node {
+                id
+            }
+        }
+    }
+}

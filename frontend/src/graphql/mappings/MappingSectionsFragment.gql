@@ -1,0 +1,6 @@
+fragment Sections on Mapping {
+    sections {
+        id
+        name
+    }
+}

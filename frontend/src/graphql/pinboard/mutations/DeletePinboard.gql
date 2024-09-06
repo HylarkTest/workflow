@@ -1,0 +1,5 @@
+mutation DeletePinboard($input: DeletePinboardInput!) {
+    deletePinboard(input: $input) {
+        success
+    }
+}

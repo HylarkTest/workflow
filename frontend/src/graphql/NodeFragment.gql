@@ -1,0 +1,108 @@
+#import "./todos/TodoFragment.gql"
+#import "./todos/TodoListFragment.gql"
+#import "./markers/MarkerFragment.gql"
+#import "./pages/PageFragment.gql"
+#import "./pinboard/PinFragment.gql"
+#import "./pinboard/PinboardFragment.gql"
+#import "./notes/NoteFragment.gql"
+#import "./notes/NotebookFragment.gql"
+#import "./links/LinkFragment.gql"
+#import "./links/LinkListFragment.gql"
+#import "./documents/DocumentFragment.gql"
+#import "./documents/DriveFragment.gql"
+#import "./calendar/EventFragment.gql"
+#import "./calendar/CalendarFragment.gql"
+#import "./bases/AssigneeCollectionFragment.gql"
+#import "./markers/MarkerCollectionFragment.gql"
+
+fragment NodeFragment on Node {
+    __typename
+    id
+    ...on Todo {
+        ...Todo
+    }
+    ...on TodoList {
+        ...TodoList
+    }
+    ...on Event {
+        ...Event
+    }
+    ...on Calendar {
+        ...Calendar
+    }
+    ...on Marker {
+        ...Marker
+    }
+    ...on Page {
+        ...Page
+        space {
+            id
+            name
+        }
+    }
+    ...on Pin {
+        ...Pin
+    }
+    ...on Pinboard {
+        ...Pinboard
+    }
+    ...on Note {
+        ...Note
+    }
+    ...on Notebook {
+        ...Notebook
+    }
+    ...on Link {
+        ...Link
+    }
+    ...on LinkList {
+        ...LinkList
+    }
+    ...on Document {
+        ...Document
+    }
+    ...on Drive {
+        ...Drive
+    }
+    # eslint-disable-next-line @graphql-eslint/possible-fragment-spread
+    ...on Item {
+        id
+        name
+        image {
+            filename
+            size
+            url
+            extension
+        }
+        names {
+            fieldId
+            value
+        }
+        images {
+            fieldId
+            value {
+                filename
+                size
+                url
+                extension
+            }
+        }
+        createdAt
+        pages {
+            id
+            name
+            symbol
+        }
+        mapping {
+            id
+            name
+            space {
+                id
+                name
+            }
+            ...Fields
+        }
+        ...AssigneeCollection
+        ...MarkerCollection
+    }
+}

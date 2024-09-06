@@ -1,0 +1,87 @@
+extend type Query @guard(with: ["web", "api"]) {
+    notifications(
+        first: Int! = 25,
+        after: String,
+        filter: NotificationFilter = ALL
+        channel: NotificationChannelFilter = ALL
+    ): NotificationConnection @field(resolver: "NotificationQuery@index")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    clearNotification(input: NotificationClearInput): NotificationMutationResponse @field(resolver: "NotificationQuery@clear")
+    unclearNotification(input: NotificationUnclearInput): NotificationMutationResponse @field(resolver: "NotificationQuery@unclear")
+    clearAllNotifications: SuccessfulMutationResponse @field(resolver: "NotificationQuery@clearAll")
+    markNotificationsAsSeen: NotificationsSeenMutationResponse @field(resolver: "NotificationQuery@markAsSeen")
+}
+
+type Notification {
+    id: ID! @globalId(type: "Notification")
+    header: String! @method(name: "getHeader")
+    preview: String! @method(name: "getPreview") @stringArgs
+    content: String! @method(name: "getContent") @htmlArgs
+    image: String @method(name: "getImage")
+    link: String @method(name: "getLink")
+    channel: NotificationChannel! @method(name: "getChannel")
+    clearedAt: DateTime @rename(attribute: "read_at")
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+enum NotificationFilter {
+    ALL
+    ONLY_CLEARED
+    ONLY_UNCLEARED
+}
+
+enum NotificationChannelFilter {
+    ALL
+    ACCOUNT
+    NEW_FEATURES
+    TIPS
+}
+
+type NotificationConnection {
+    edges: [NotificationEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+    meta: NotificationMeta!
+}
+
+type NotificationMeta {
+    clearedCount: Int!
+    unclearedCount: Int!
+    newCount: Int!
+    channels: [ChannelMeta!]
+}
+
+type ChannelMeta {
+    channel: NotificationChannel!
+    clearedCount: Int!
+    unclearedCount: Int!
+}
+
+type NotificationEdge {
+    node: Notification!
+    cursor: String!
+}
+
+input NotificationClearInput {
+    id: ID! @globalId(decode: "ID", type: "Notification")
+}
+
+input NotificationUnclearInput {
+    id: ID! @globalId(decode: "ID", type: "Notification")
+}
+
+type NotificationMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    notification: Notification
+}
+
+type NotificationsSeenMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    user: User!
+}

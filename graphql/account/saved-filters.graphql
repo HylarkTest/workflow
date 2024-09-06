@@ -1,0 +1,88 @@
+extend type Query {
+    savedFilters(
+        search: String,
+        nodeId: ID,
+        privacy: SavedFilterPrivacy = ONLY_PUBLIC,
+        first: Int = 25,
+        after: String,
+    ): SavedFilterConnection! @field(resolver: "SavedFilterQuery@index")
+}
+
+extend type Mutation {
+    saveFilter(input: SaveFilterInput!): SavedFilterMutationResponse! @field(resolver: "SavedFilterQuery@store") @broadcastNodeCreated(subscription: "savedFilterCreated", nodeField: "savedFilter")
+    updateSavedFilter(input: UpdateSavedFilterInput!): SavedFilterMutationResponse! @field(resolver: "SavedFilterQuery@update") @broadcastNodeUpdated(subscription: "savedFilterUpdated", nodeField: "savedFilter")
+    deleteSavedFilter(input: DeleteSavedFilterInput!): SavedFilterMutationResponse! @field(resolver: "SavedFilterQuery@destroy") @broadcastNodeDeleted(subscription: "savedFilterDeleted")
+}
+
+extend type Subscription {
+    savedFilterCreated: SavedFilterMutationResponse
+    savedFilterUpdated: SavedFilterMutationResponse
+    savedFilterDeleted: SavedFilterMutationResponse
+}
+
+input SaveFilterInput {
+    nodeId: ID!
+    name: String! @rules(apply: ["required", "max:255"])
+    private: Boolean! = false
+    filters: JSON
+    group: String
+    orderBy: [OrderByInput!]
+}
+
+input UpdateSavedFilterInput {
+    id: ID! @globalId(decode: "ID", type: "SavedFilter")
+    name: String @rules(apply: ["max:255"])
+    filters: JSON
+    group: String
+    orderBy: [OrderByInput!]
+}
+
+input DeleteSavedFilterInput {
+    id: ID! @globalId(decode: "ID", type: "SavedFilter")
+}
+
+enum SavedFilterPrivacy {
+    ALL
+    ONLY_PRIVATE
+    ONLY_PUBLIC
+}
+
+type SavedFilterConnection {
+    edges: [SavedFilterEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type SavedFilterEdge {
+    node: SavedFilter!
+    cursor: String!
+}
+
+type SavedFilter implements ActionSubject @node {
+    name: String!
+    private: Boolean!
+    # I would love to have these as a type but as they are recursive, it would not be possible to build a query to fetch them.
+    filters: JSON
+    group: String
+    orderBy: [OrderBy!]
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type OrderBy {
+    # I would love these to be a type but enums cannot be merged.
+    field: String!
+    direction: SortOrder!
+}
+
+input OrderByInput {
+    # I would love these to be a type but enums cannot be merged.
+    field: String!
+    direction: SortOrder!
+}
+
+type SavedFilterMutationResponse implements MutationResponse {
+    code: String!
+    message: String!
+    success: Boolean!
+    savedFilter: SavedFilter
+}

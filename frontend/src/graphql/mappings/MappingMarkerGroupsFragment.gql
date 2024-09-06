@@ -1,0 +1,21 @@
+#import "../markers/MarkerFragment.gql"
+
+fragment MappingMarkerGroups on Mapping {
+    markerGroups {
+        id
+        apiName
+        name
+        group {
+            id
+            name
+            type
+            items: markers {
+                ...Marker
+            }
+        }
+        relationship {
+            id
+            name
+        }
+    }
+}

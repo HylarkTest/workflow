@@ -1,0 +1,11 @@
+#import "../MarkerCollectionFragment.gql"
+
+mutation SetMarker($input: SetMarkerInput!) {
+    setMarker(input: $input) {
+        code
+        node {
+            id
+            ...MarkerCollection
+        }
+    }
+}

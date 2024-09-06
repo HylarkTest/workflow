@@ -1,0 +1,19 @@
+#import "./MemberFragment.gql"
+
+fragment Action on Action {
+    id
+    type
+    description(withPerformer: false)
+    changes(includeChildren: $collapseChildren) {
+        description
+        before
+        after
+        type
+    }
+    isPrivate
+    createdAt
+    updatedAt
+    performer {
+        ...MemberFragment
+    }
+}

@@ -1,0 +1,105 @@
+#import spaces.graphql
+#import pages.graphql
+#import bases.graphql
+#import account-integrations.graphql
+#import notifications.graphql
+#import saved-filters.graphql
+
+extend type Query @guard(with: ["web", "api"]) {
+    integrations: [IntegrationAccount!] @field(resolver: "AccountIntegrationQuery@index")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    updateProfile(input: UpdateProfileInput): BaseMutationResponse @field(resolver: "BaseQuery@updateProfile")
+    updateAssignees(input: UpdateAssigneesInput!): AssigneeMutationResponse @field(resolver: "App\\GraphQL\\Queries\\AssigningQuery@updateAssignees")
+}
+
+type User @node {
+    name: String!
+    email: String!
+    avatar: String @rename(attribute: "avatarUrl")
+    verified: Boolean! @method(name: "hasVerifiedEmail")
+    hasEnabledTwoFactorAuthentication: Boolean! @method
+    finishedRegistration: Boolean! @method
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    newNotificationsCount: Int! @method(name: "newNotificationsCount") # Using method instead of count because of citus
+    bases: [BaseEdge!]! @belongsToMany
+}
+
+type Plan {
+    name: String!
+    features: PlanFeatures!
+    used: PlanFeatures
+    historyLimit: Int!
+}
+
+type PlanFeatures {
+    storage: Float!
+    pages: Float!
+    spaces: Float!
+    records: Float!
+    tagGroups: Float!
+    pipelineGroups: Float!
+    statusGroups: Float!
+    categories: Float!
+    integrations: Float!
+    pins: Float!
+    notes: Float!
+    links: Float!
+    todos: Float!
+    events: Float!
+}
+
+input UpdateUserInput {
+    name: String @rules(apply: ["max:255", "filled"], attribute: "fullName")
+    email: String @rules(apply: ["max:255", "filled", "email", "unique:users,email"])
+    avatar: Upload @rules(apply: ["nullable", "max:2000", "image"])
+}
+
+type UserMutationResponse implements MutationResponse {
+    code: String!
+    message: String!
+    user: User
+    success: Boolean!
+}
+
+type AssigneeMutationResponse implements MutationResponse {
+    code: String!
+    message: String!
+    success: Boolean!
+    node: Assignable
+}
+
+type AssigneeGroup @node {
+    name: String!
+    isDefault: Boolean!
+    members: [Member!]! @field(resolver: "App\\GraphQL\\Queries\\AssigningQuery@resolveAssigneeGroupMembers")
+}
+
+type AssigneeInfo {
+    group: AssigneeGroup!
+    assignees: [Member!]!
+}
+
+interface Assignable @interface(resolveType: "App\\GraphQL\\TypeResolver@resolveType") {
+    id: ID!
+    assigneeGroups: [AssigneeInfo!]!
+}
+
+input AssigneesInput {
+    groupId: ID! @rules(apply: ["required"]) @globalId(type: "AssigneeGroup", decode: "ID")
+    assignees: [ID!]! @globalId(type: "Member", decode: "ID")
+}
+
+input UpdateAssigneesInput {
+    assignableId: ID!
+    assigneeGroups: [AssigneesInput!]!
+}
+
+input UpdateProfileInput {
+    displayName: String @rules(apply: ["max:255", "nullable"])
+    useAccountAvatar: Boolean @rules(apply: ["boolean"])
+    displayAvatar: Upload @rules(apply: ["nullable", "max:2000", "image"])
+    preferences: BaseUserPreferencesInput
+}

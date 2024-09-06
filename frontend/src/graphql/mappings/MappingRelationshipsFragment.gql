@@ -1,0 +1,27 @@
+fragment Relationships on Mapping {
+    relationships {
+        id
+        name
+        apiName
+        type
+        isInverse
+        to {
+            id
+            name
+            apiName
+            singularName
+            apiSingularName
+            type
+            pages {
+                id
+                symbol
+            }
+        }
+        inverse {
+            id
+            name
+            apiName
+            isInverse
+        }
+    }
+}

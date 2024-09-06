@@ -1,0 +1,20 @@
+#import "../TodoFragment.gql"
+#import "../../FetchesActionsFragment.gql"
+
+query Todo($id: ID!) {
+    todo(id: $id) {
+        ...Todo
+        associations {
+            id
+            name
+            image {
+                url
+            }
+            pages {
+                id
+                symbol
+            }
+        }
+        ...FetchesActionsFragment
+    }
+}

@@ -1,0 +1,37 @@
+# If you are looking for note queries/fields that aren't here, try checking out the `FeatureListQuery.php` file where all the common feature queries are defined.
+
+extend type Note implements Node {
+    id: ID! @globalId(type: "Note")
+    name: String!
+    delta: JSON!
+    html: String!
+    plaintext: String! @stringArgs
+    markdown: String!
+    tiptap: JSON!
+}
+
+enum NoteOrderField {
+    NAME @enum(value: "name")
+    NOTEBOOK @enum(value: "notebook")
+    FAVORITES @enum(value: "favorited_at")
+    CREATED_AT @enum(value: "created_at")
+    UPDATED_AT @enum(value: "updated_at")
+}
+
+extend input CreateNoteInput {
+    name: String @rules(customPrefix: "note", apply: ["filled", "max:255"])
+    html: String @rules(apply: ["prohibits:markdown,delta,plaintext,tiptap", "max:10000"])
+    markdown: String @rules(apply: ["prohibits:html,delta,plaintext,tiptap", "max:10000"])
+    delta: JSON @rules(apply: ["prohibits:html,markdown,plaintext,tiptap", "delta_max:10000"])
+    plaintext: String @rules(apply: ["prohibits:html,delta,markdown,tiptap", "max:10000"])
+    tiptap: JSON @rules(apply: ["prohibits:html,delta,markdown,plaintext", "max:10000"])
+}
+
+extend input UpdateNoteInput {
+    name: String @rules(customPrefix: "note", apply: ["filled", "max:255"])
+    html: String @rules(apply: ["prohibits:markdown,delta,plaintext,tiptap", "max:10000"])
+    markdown: String @rules(apply: ["prohibits:html,delta,plaintext,tiptap", "max:10000"])
+    delta: JSON @rules(apply: ["prohibits:html,markdown,plaintext,tiptap", "delta_max:10000"])
+    plaintext: String @rules(apply: ["prohibits:html,delta,markdown,tiptap", "max:10000"])
+    tiptap: JSON @rules(apply: ["prohibits:html,delta,markdown,plaintext", "max:10000"])
+}

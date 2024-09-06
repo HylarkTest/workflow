@@ -1,0 +1,15 @@
+#import "../PinboardWithCountFragment.gql"
+
+mutation CreatePinboard(
+    $input: CreatePinboardInput!,
+    $forMapping: ID,
+    $forNode: ID,
+) {
+    createList: createPinboard(input: $input) {
+        code
+        success
+        list: pinboard {
+            ...PinboardWithCount
+        }
+    }
+}

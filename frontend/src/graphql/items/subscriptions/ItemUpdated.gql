@@ -1,0 +1,28 @@
+subscription ItemUpdated {
+    itemUpdated {
+        item {
+            id
+            name
+            image {
+                filename
+                size
+                url
+                extension
+            }
+            names {
+                fieldId
+                value
+            }
+            images {
+                fieldId
+                value {
+                    filename
+                    size
+                    url
+                    extension
+                }
+            }
+            emails
+        }
+    }
+}

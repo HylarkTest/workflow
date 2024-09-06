@@ -1,0 +1,243 @@
+type Field {
+    id: ID!
+    name: String!
+    apiName: String!
+    type: FieldType! @method
+    options: JSON @method(name: "resolveOptions") @emptyObject
+    meta: JSON @emptyObject
+    section: String
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+input CreateMappingFieldInput {
+    mappingId: ID @globalId(decode: "ID", type: "Mapping")
+    id: String
+    name: String!
+    apiName: String
+    type: FieldType!
+    options: JSON
+    meta: JSON
+    section: String
+}
+
+input UpdateMappingFieldInput {
+    mappingId: ID! @globalId(decode: "ID", type: "Mapping")
+    id: String!
+    name: String
+    apiName: String
+    options: JSON
+    meta: JSON
+    section: String
+}
+
+input DeleteMappingFieldInput {
+    mappingId: ID! @globalId(decode: "ID", type: "Mapping")
+    id: String!
+}
+
+type StringRange {
+    from: String
+    to: String
+}
+
+input StringRangeInput {
+    from: String
+    to: String
+}
+
+type IntRange {
+    from: Int
+    to: Int
+}
+
+input IntRangeInput {
+    from: Int
+    to: Int
+}
+
+type FloatRange {
+    from: Float
+    to: Float
+}
+
+input FloatRangeInput {
+    from: Float
+    to: Float
+}
+
+type DateRange {
+    from: Date
+    to: Date
+}
+
+input DateRangeInput {
+    from: Date
+    to: Date
+}
+
+type DateTimeRange {
+    from: DateTime
+    to: DateTime
+}
+
+input DateTimeRangeInput {
+    from: DateTime
+    to: DateTime
+}
+
+# Image types
+type ItemImage {
+    filename: String!
+    url: String!
+    size: Int
+    extension: String
+}
+
+type CroppedImage {
+    filename: String!
+    url: String!
+    size: Int!
+    extension: String!
+    originalUrl: String!
+    xOffset: Int!
+    yOffset: Int!
+    width: Int!
+    height: Int!
+}
+
+input CroppedImageInput {
+    image: Upload
+    url: String
+    xOffset: Int
+    yOffset: Int
+    width: Int
+    height: Int
+    rotate: Int
+}
+
+# File types
+type File {
+    url: String!
+    size: Int!
+    extension: String!
+    filename: String!
+}
+
+# Money types
+type Money {
+    currency: String,
+    amount: Float,
+}
+
+input MoneyInput {
+    currency: String,
+    amount: Float,
+}
+
+type MoneyRange {
+    currency: String
+    amount: FloatRange
+}
+
+input MoneyRangeInput {
+    currency: String
+    amount: FloatRangeInput
+}
+
+# Salary types
+type Salary {
+    currency: String,
+    period: SalaryPeriod
+    amount: Float,
+}
+
+input SalaryInput {
+    currency: String,
+    period: SalaryPeriod
+    amount: Float,
+}
+
+type SalaryRange {
+    currency: String
+    period: SalaryPeriod
+    amount: FloatRange
+}
+
+input SalaryRangeInput {
+    currency: String
+    period: SalaryPeriod
+    amount: FloatRangeInput
+}
+
+# Rating types
+type Rating {
+    stars: Float
+    max: Int
+}
+
+# Select types
+type ItemSelect {
+    selectKey: String
+    selectValue: String
+}
+
+# Address types
+type Address {
+    line1: String
+    line2: String
+    city: String
+    state: String
+    country: String
+    postcode: String
+}
+
+input AddressInput {
+    line1: String
+    line2: String
+    city: String
+    state: String
+    country: String
+    postcode: String
+}
+
+# Duration types
+type Duration {
+    minutes: Int
+    hours: Int
+    days: Int
+    weeks: Int
+    months: Int
+}
+
+input DurationInput {
+    minutes: Int
+    hours: Int
+    days: Int
+    weeks: Int
+    months: Int
+}
+
+type DurationRange {
+    from: Duration
+    to: Duration
+}
+
+input DurationRangeInput {
+    from: DurationInput
+    to: DurationInput
+}
+
+type StringFieldValue {
+    fieldId: String
+    type: String
+    name: String
+    value: String
+}
+
+type ItemImageFieldValue {
+    fieldId: String
+    type: String
+    name: String
+    value: ItemImage
+}

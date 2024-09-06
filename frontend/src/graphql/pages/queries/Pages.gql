@@ -1,0 +1,23 @@
+#import "../../spaces/SpaceFragment.gql"
+#import "../PageFragment.gql"
+
+query Links {
+    spaces(first: 100) {
+        edges {
+            node {
+                ...Space
+                pages(first: 100) {
+                    edges {
+                        node {
+                            id
+                            ...Page
+                            space {
+                                ...Space
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

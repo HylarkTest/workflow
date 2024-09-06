@@ -1,0 +1,5 @@
+mutation DeleteCalendar($input: DeleteCalendarInput!) {
+    deleteCalendar(input: $input) {
+        success
+    }
+}

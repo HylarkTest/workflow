@@ -1,0 +1,32 @@
+extend type Query {
+    ui: UI
+    activeTips: [Tip]
+}
+
+extend type Mutation {
+    toggleExtendedNav: Boolean!
+    updateActiveTips(input: TipsInput): [Tip!]
+}
+
+type UI {
+    isNavExtended: Boolean
+    navExtensionClass: String
+}
+
+type Tip {
+    val: ID!
+    tipTitle: String!
+    tipText: String!
+    active: Boolean
+}
+
+input TipInput {
+    val: ID!
+    tipTitle: String!
+    tipText: String!
+    active: Boolean
+}
+
+input TipsInput {
+    tips: [TipInput!]
+}

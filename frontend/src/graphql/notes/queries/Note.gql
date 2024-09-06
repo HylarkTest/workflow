@@ -1,0 +1,13 @@
+#import "../NoteFragment.gql"
+#import "../../FetchesActionsFragment.gql"
+
+query Note(
+    $id: ID!
+) {
+    note(
+        id: $id
+    ) {
+        ...Note
+        ...FetchesActionsFragment
+    }
+}

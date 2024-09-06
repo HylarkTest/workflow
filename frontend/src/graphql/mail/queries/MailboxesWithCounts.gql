@@ -1,0 +1,11 @@
+#import "../MailboxFragment.gql"
+
+query MailboxesWithCounts($sourceId: ID!, $forNode: ID) {
+    mailboxes(sourceId: $sourceId) {
+        data {
+            ...Mailbox
+            unseenCount(forNode: $forNode)
+            total(forNode: $forNode)
+        }
+    }
+}

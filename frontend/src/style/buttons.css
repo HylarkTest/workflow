@@ -1,0 +1,367 @@
+/*ALL BUTTONS SHOULD USE THE FOLLOWING CLASSES AND NOTHING ELSE*/
+
+/*Button styles*/
+
+.hylark-app {
+    .button {
+        transition: 0.2s ease-in-out;
+
+        @apply
+            font-semibold
+            px-4
+            py-2
+            rounded-lg
+            text-sm
+        ;
+
+        &--xs {
+            transition: 0.2s ease-in-out;
+            @apply
+                font-semibold
+                px-2
+                py-0.5
+                rounded-md
+                text-xxs
+            ;
+        }
+
+        &--sm {
+            transition: 0.2s ease-in-out;
+            @apply
+                font-semibold
+                px-3
+                py-1
+                rounded-lg
+                text-xs
+            ;
+        }
+
+        &--lg {
+            transition: 0.2s ease-in-out;
+            @apply
+                font-semibold
+                px-6
+                py-3
+                rounded-xl
+                text-base
+            ;
+        }
+    }
+
+    .button-wide {
+        transition: 0.2s ease-in-out;
+        @apply
+            font-semibold
+            px-12
+            py-3
+            rounded-lg
+            text-cm-00
+        ;
+    }
+
+    .button-rounded {
+        transition: 0.2s ease-in-out;
+
+        @apply
+            font-semibold
+            px-5
+            py-1.5
+            rounded-full
+            text-sm
+        ;
+
+        &--sm {
+            transition: 0.2s ease-in-out;
+
+            @apply
+                font-semibold
+                px-3
+                py-0.5
+                rounded-full
+                text-xs
+            ;
+        }
+
+        &--xs {
+            transition: 0.2s ease-in-out;
+
+            @apply
+                font-semibold
+                px-2
+                py-0.5
+                rounded-full
+                text-xxs
+            ;
+        }
+
+        &--lg {
+            transition: 0.2s ease-in-out;
+
+            @apply
+                font-semibold
+                px-8
+                py-2
+                rounded-full
+                text-base
+            ;
+        }
+    }
+
+    /*Button colors*/
+
+    .button-primary {
+        @apply
+            bg-primary-600
+            text-cm-00
+        ;
+
+        &:hover {
+            @apply
+                bg-primary-500
+            ;
+        }
+
+        &--border {
+            @apply
+                border
+                border-primary-600
+                border-solid
+                text-primary-600
+            ;
+            &:hover {
+                @apply
+                    bg-primary-200
+                ;
+            }
+        }
+
+        &--light {
+            @apply
+                bg-primary-100
+                text-primary-600
+            ;
+
+            &:hover {
+                @apply
+                    bg-primary-200
+                ;
+            }
+        }
+
+        &--medium {
+            @apply
+                bg-primary-300
+                text-primary-800
+            ;
+
+            &:hover {
+                @apply
+                    bg-primary-400
+                    text-primary-950
+                ;
+            }
+        }
+    }
+
+    .button-secondary {
+        @apply
+            bg-secondary-600
+            text-cm-00
+        ;
+
+        &:hover {
+            @apply
+                bg-secondary-500
+            ;
+        }
+
+        &--border {
+            @apply
+                border
+                border-secondary-600
+                border-solid
+                text-secondary-600
+            ;
+            &:hover {
+                @apply
+                    bg-secondary-200
+                ;
+            }
+        }
+
+        &--light {
+            @apply
+                bg-secondary-100
+                text-secondary-600
+            ;
+
+            &:hover {
+                @apply
+                    bg-secondary-200
+                ;
+            }
+        }
+
+        &--medium {
+            @apply
+                bg-secondary-300
+                text-secondary-800
+            ;
+
+            &:hover {
+                @apply
+                    bg-secondary-400
+                    text-secondary-950
+                ;
+            }
+        }
+    }
+
+    .button-gray {
+        @apply
+            bg-cm-200
+            text-cm-700
+        ;
+
+        &:hover {
+            @apply
+                bg-cm-100
+            ;
+        }
+
+        &--medium {
+            @apply
+                bg-cm-300
+                text-cm-800
+            ;
+
+            &:hover {
+                @apply
+                    bg-cm-400
+                    text-cm-950
+                ;
+            }
+        }
+    }
+
+    .button-peach {
+        @apply
+            bg-peach-600
+            text-cm-00
+        ;
+
+        &:hover {
+            @apply
+                bg-peach-500
+            ;
+        }
+
+        &--border {
+            @apply
+                border
+                border-peach-600
+                border-solid
+                text-peach-600
+            ;
+            &:hover {
+                @apply
+                    bg-peach-200
+                ;
+            }
+        }
+
+        &--light {
+            @apply
+                bg-peach-100
+                text-peach-600
+            ;
+
+            &:hover {
+                @apply
+                    bg-peach-200
+                ;
+            }
+        }
+    }
+
+    .button-sky {
+        @apply
+            bg-sky-600
+            text-cm-00
+        ;
+
+        &:hover {
+            @apply
+                bg-sky-500
+            ;
+        }
+
+        &--border {
+            @apply
+                border
+                border-sky-600
+                border-solid
+                text-sky-600
+            ;
+            &:hover {
+                @apply
+                    bg-sky-200
+                ;
+            }
+        }
+
+        &--light {
+            @apply
+                bg-sky-100
+                text-sky-600
+            ;
+
+            &:hover {
+                @apply
+                    bg-sky-200
+                ;
+            }
+        }
+    }
+    .button-emerald {
+        @apply
+            bg-emerald-600
+            text-cm-00
+        ;
+
+        &:hover {
+            @apply
+                bg-emerald-500
+            ;
+        }
+
+        &--border {
+            @apply
+                border
+                border-emerald-600
+                border-solid
+                text-emerald-600
+            ;
+            &:hover {
+                @apply
+                    bg-emerald-200
+                ;
+            }
+        }
+
+        &--light {
+            @apply
+                bg-emerald-100
+                text-emerald-600
+            ;
+
+            &:hover {
+                @apply
+                    bg-emerald-200
+                ;
+            }
+        }
+    }
+}
+
+/*END BUTTONS*/

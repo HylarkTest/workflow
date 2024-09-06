@@ -1,0 +1,11 @@
+#import "../MarkerCollectionFragment.gql"
+
+mutation RemoveMarker($input: RemoveMarkerInput!) {
+    removeMarker(input: $input) {
+        code
+        node {
+            id
+            ...MarkerCollection
+        }
+    }
+}

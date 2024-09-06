@@ -1,0 +1,65 @@
+#import "../MemberFragment.gql"
+
+fragment Base on Base {
+    id
+    name
+    description
+    image
+    baseType: type
+    members {
+        ...MemberFragment
+    }
+    assigneeGroups {
+        id
+        name
+        isDefault
+        members {
+            ...MemberFragment
+        }
+    }
+    preferences {
+        accentColor
+        homepage {
+            spaces
+        }
+    }
+    isSubscribed
+    plan {
+        name
+        features {
+            storage
+            pages
+            spaces
+            records
+            tagGroups
+            pipelineGroups
+            statusGroups
+            categories
+            integrations
+            pins
+            notes
+            links
+            todos
+            events
+        }
+        used {
+            storage
+            pages
+            spaces
+            records
+            tagGroups
+            pipelineGroups
+            statusGroups
+            categories
+            integrations
+            pins
+            notes
+            links
+            todos
+            events
+        }
+        historyLimit
+    }
+    createdAt
+    updatedAt
+}

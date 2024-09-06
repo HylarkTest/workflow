@@ -1,0 +1,253 @@
+extend type Query @guard(with: ["web", "api"]) {
+    mailboxes(
+        sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+        first: Int! = 25
+        page: Int
+    ): MailboxPaginator! @field(resolver: "Features\\MailboxQuery@index") @actionFilters
+    emails(
+        sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+        mailboxId: ID @base64
+        forNode: ID
+        search: String
+        first: Int! = 25
+        after: String
+    ): EmailConnection! @field(resolver: "Features\\EmailQuery@index")
+    groupedEmails(
+        group: String!
+        includeGroups: [String!]
+        forNode: ID
+        search: String
+        first: Int! = 25
+        after: String
+    ): GroupedEmails! @field(resolver: "Features\\EmailQuery@indexGrouped")
+    email(
+        sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+        mailboxId: ID! @base64
+        emailId: ID!
+    ): EmailMessage! @field(resolver: "Features\\EmailQuery@show")
+    emailAddressAssociations(
+        first: Int! = 25
+        after: String
+        addresses: [String!]
+    ): EmailAddressAssociationConnection @field(resolver: "Features\\EmailQuery@resolveEmailAddressAssociations")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    createMailbox(input: CreateMailboxInput!): MailboxMutationResponse! @field(resolver: "Features\\MailboxQuery@store")
+    updateMailbox(input: UpdateMailboxInput!): MailboxMutationResponse! @field(resolver: "Features\\MailboxQuery@update")
+    deleteMailbox(input: DeleteMailboxInput!): SuccessfulMutationResponse! @field(resolver: "Features\\MailboxQuery@destroy")
+
+    createEmail(input: CreateEmailInput!): EmailMutationResponse! @field(resolver: "Features\\EmailQuery@store")
+    updateEmail(input: UpdateEmailInput!): EmailMutationResponse! @field(resolver: "Features\\EmailQuery@update")
+    deleteEmail(input: DeleteEmailInput!): SuccessfulMutationResponse! @field(resolver: "Features\\EmailQuery@destroy")
+
+    associateEmail(input: AssociateEmailInput!): EmailMutationResponse! @field(resolver: "Features\\EmailQuery@associate")
+    dissociateEmail(input: DissociateEmailInput!): EmailMutationResponse! @field(resolver: "Features\\EmailQuery@dissociate")
+    associateEmailAddress(input: AssociateEmailAddressInput!): EmailMutationResponse! @field(resolver: "Features\\EmailQuery@associateEmailAddress")
+    dissociateEmailAddress(input: DissociateEmailAddressInput!): EmailMutationResponse! @field(resolver: "Features\\EmailQuery@dissociateEmailAddress")
+}
+
+type EmailAddressAssociationConnection {
+    edges: [EmailAddressAssociationEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type EmailAddressAssociationEdge {
+    node: EmailAddressAssociation!
+    cursor: String!
+}
+
+type EmailAddressAssociation @node(model: "EmailAddressable") {
+    address: String!
+    association: Item! @morphTo(relation: "emailAddressable")
+    account: IntegrationAccount! @belongsTo(relation: "integrationAccount")
+}
+
+type Mailbox {
+    id: ID! @base64
+    name: String!
+    unseenCount(forNode: ID): Int @field(resolver: "App\\GraphQL\\Queries\\Features\\MailboxQuery@resolveUnseenCount")
+    total(forNode: ID): Int @field(resolver: "App\\GraphQL\\Queries\\Features\\MailboxQuery@resolveTotal")
+    isCollapsed: Boolean!
+    isDefault: Boolean
+    account: IntegrationAccount!
+}
+
+type EmailMessage implements Associatable {
+    id: ID!
+    subject: String
+    to: [Recipient!]
+    from: Recipient
+    cc: [Recipient!]
+    bcc: [Recipient!]
+    priority: Int!
+    isFlagged: Boolean!
+    isDraft: Boolean!
+    preview: String @stringArgs
+    html: String
+    text: String @stringArgs
+    createdAt: DateTime!
+    mailbox: Mailbox!
+    isSeen: Boolean!
+    hasAttachments: Boolean!
+    attachments: [Attachment!]
+    account: IntegrationAccount!
+    associations: [Item!] @field(resolver: "App\\GraphQL\\Queries\\Features\\EmailQuery@resolveAssociations")
+}
+
+#enum EmailAssociationSource {
+#    DIRECT
+#    ADDRESS
+#    FIELD
+#}
+
+#type EmailAssociationSourceInfo {
+#    fieldId: String
+#    address: String
+#    source: EmailAssociationSource
+#}
+
+type Attachment {
+    id: ID!
+    contentId: String
+    name: String!
+    fileType: String!
+    link: String!
+    isInline: Boolean!
+}
+
+type Recipient {
+    name: String
+    address: String
+}
+
+type MailboxPaginator {
+    data: [Mailbox!]!
+    paginatorInfo: SimplePaginatorInfo!
+}
+
+type GroupedEmails {
+    groups: [GroupedEmailConnection!]!
+}
+
+type GroupedEmailConnection {
+    groupHeader: String
+    group: Groupable
+    edges: [EmailMessageEdge!]!
+    pageInfo: EmailPageInfo!
+}
+
+type EmailConnection {
+    edges: [EmailMessageEdge!]!
+    pageInfo: EmailPageInfo!
+}
+
+type EmailMessageEdge {
+    node: EmailMessage!
+    cursor: String!
+#    associationSources: [EmailAssociationSourceInfo!]
+}
+
+type EmailPageInfo {
+    hasNextPage: Boolean!
+    hasPreviousPage: Boolean!
+    startCursor: String
+    endCursor: String
+    count: Int!
+}
+
+type MailboxMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    mailbox: Mailbox
+}
+
+type EmailMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    email: EmailMessage
+}
+
+input CreateMailboxInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    name: String! @rules(apply: ["max:255"])
+}
+
+input UpdateMailboxInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    id: ID!
+    name: String! @rules(apply: ["max:255"])
+}
+
+input DeleteMailboxInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    id: ID!
+}
+
+input CreateEmailInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    to: [Email!] @rulesForArray(apply: ["required_if:isDraft,false"])
+    cc: [Email!]
+    bcc: [Email!]
+    subject: String!
+    html: String @rules(apply: ["prohibits:delta,tiptap", "max:10000"])
+    delta: JSON @rules(apply: ["prohibits:html,tiptap", "max:10000"])
+    tiptap: JSON @rules(apply: ["prohibits:delta,html", "max:10000"])
+    attachments: [AttachmentInput]
+    fromDraft: ID
+    isDraft: Boolean = false
+    associations: [ID!] @globalId(type: "Item", decode: "ID")
+}
+
+input AttachmentInput {
+    file: Upload @rules(apply: ["file", "max:2000", "required_without:link"])
+    link: String @rules(apply: ["url", "required_without:file"])
+    isInline: Boolean = false
+    contentId: String @rules(apply: ["required_if:isInline,true"])
+    name: String
+}
+
+input UpdateEmailInput {
+    id: ID!
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    mailboxId: ID! @base64
+    isFlagged: Boolean
+    priority: Int
+    isSeen: Boolean
+}
+
+input DeleteEmailInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    mailboxId: ID! @base64
+    id: ID!
+}
+
+input AssociateEmailInput {
+    nodeId: ID!
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    mailboxId: String! @base64
+    id: ID!
+}
+
+input DissociateEmailInput {
+    nodeId: ID!
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    mailboxId: String! @base64
+    id: ID!
+}
+
+input AssociateEmailAddressInput {
+    nodeId: ID!
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    mailboxId: String @base64
+    address: String!
+}
+
+input DissociateEmailAddressInput {
+    nodeId: ID!
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    mailboxId: String @base64
+    address: String!
+}

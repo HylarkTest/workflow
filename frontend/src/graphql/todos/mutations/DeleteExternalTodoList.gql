@@ -1,0 +1,5 @@
+mutation DeleteExternalTodoList($input: DeleteExternalTodoListInput!) {
+    deleteExternalTodoList(input: $input) {
+        success
+    }
+}

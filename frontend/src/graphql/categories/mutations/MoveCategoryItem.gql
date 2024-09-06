@@ -1,0 +1,15 @@
+#import "../CategoryItemFragment.gql"
+#import "../CategoryFragment.gql"
+
+mutation MoveCategoryItem($input: MoveCategoryItemInput!) {
+    moveCategoryItem(input: $input) {
+        code
+        success
+        item {
+            ...CategoryItem
+        }
+        category {
+            ...Category
+        }
+    }
+}

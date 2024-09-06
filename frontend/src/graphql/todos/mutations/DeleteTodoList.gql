@@ -1,0 +1,5 @@
+mutation DeleteTodoList($input: DeleteTodoListInput!) {
+    deleteTodoList(input: $input) {
+        success
+    }
+}

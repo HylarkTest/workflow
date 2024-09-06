@@ -1,0 +1,24 @@
+#import "../TodoListWithCountFragment.gql"
+
+query TodoLists(
+    $spaceIds: [ID!],
+    $forNode: ID,
+    $forMapping: ID,
+    $forLists: [ID!],
+) {
+    todoLists(
+        spaceIds: $spaceIds,
+        forLists: $forLists,
+        first: 100,
+    ) {
+        edges {
+            node {
+                ...TodoListWithCount
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

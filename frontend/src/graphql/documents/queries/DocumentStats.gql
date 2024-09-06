@@ -1,0 +1,14 @@
+query DocumentStats(
+    $forMapping: ID,
+    $forLists: [ID!],
+    $forNode: ID,
+) {
+    documentStats(
+        forMapping: $forMapping,
+        forLists: $forLists,
+        forNode: $forNode,
+    ) {
+        favoritesCount
+        totalCount
+    }
+}

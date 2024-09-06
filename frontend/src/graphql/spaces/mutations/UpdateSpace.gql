@@ -1,0 +1,11 @@
+#import "../SpaceFragment.gql"
+
+mutation UpdateSpace($input: UpdateSpaceInput!) {
+    updateSpace(input: $input) {
+        code
+        success
+        space {
+            ...Space
+        }
+    }
+}

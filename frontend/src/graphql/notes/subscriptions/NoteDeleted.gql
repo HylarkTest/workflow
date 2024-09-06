@@ -1,0 +1,8 @@
+subscription NoteDeleted($forNode: ID, $forMapping: ID) {
+    noteDeleted {
+        notebook {
+            id
+            count: notesCount(forNode: $forNode, forMapping: $forMapping)
+        }
+    }
+}

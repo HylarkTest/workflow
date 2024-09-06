@@ -1,0 +1,9 @@
+#import "../SpaceFragment.gql"
+
+subscription SpaceUpdated {
+    spaceUpdated {
+        space {
+            ...Space
+        }
+    }
+}

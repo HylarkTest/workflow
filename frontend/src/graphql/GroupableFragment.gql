@@ -1,0 +1,11 @@
+#import "./markers/MarkerFragment.gql"
+#import "./FeatureListFragment.gql"
+
+fragment Groupable on Groupable {
+    ...on Marker {
+        ...Marker
+    }
+    ...on FeatureList {
+        ...FeatureList
+    }
+}

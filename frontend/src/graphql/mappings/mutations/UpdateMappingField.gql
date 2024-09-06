@@ -1,0 +1,12 @@
+#import "../MappingFieldsFragment.gql"
+
+mutation UpdateMappingField($input: UpdateMappingFieldInput!) {
+    updateMappingField(input: $input) {
+        code
+        success
+        mapping {
+            id
+            ...Fields
+        }
+    }
+}

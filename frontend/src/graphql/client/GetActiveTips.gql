@@ -1,0 +1,9 @@
+query GetActiveTips {
+    # eslint-disable-next-line @graphql-eslint/fields-on-correct-type
+    activeTips @client {
+        val
+        tipTitle
+        tipText
+        active
+    }
+}

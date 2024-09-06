@@ -1,0 +1,15 @@
+#import "../NotebookWithCountFragment.gql"
+
+mutation CreateNotebook(
+    $input: CreateNotebookInput!
+    $forMapping: ID
+    $forNode: ID
+) {
+    createList: createNotebook(input: $input) {
+        code
+        success
+        list: notebook {
+            ...NotebookWithCount
+        }
+    }
+}

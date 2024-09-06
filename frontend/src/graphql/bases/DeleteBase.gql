@@ -1,0 +1,12 @@
+mutation DeleteBase {
+    deleteBase {
+        code
+        success
+        activeBase {
+            id
+            node {
+                id
+            }
+        }
+    }
+}

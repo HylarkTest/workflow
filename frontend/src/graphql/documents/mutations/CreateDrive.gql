@@ -1,0 +1,15 @@
+#import "../DriveWithCountFragment.gql"
+
+mutation CreateDrive(
+    $input: CreateDriveInput!
+    $forMapping: ID
+    $forNode: ID
+) {
+    createList: createDrive(input: $input) {
+        code
+        success
+        list: drive {
+            ...DriveWithCount
+        }
+    }
+}

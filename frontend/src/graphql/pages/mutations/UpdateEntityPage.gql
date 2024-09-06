@@ -1,0 +1,12 @@
+#import "../PageFragment.gql"
+
+mutation UpdateEntityPage($input: UpdateEntityPageInput!) {
+    updateEntityPage(input: $input) {
+        code
+        success
+        page {
+            ...Page
+            design
+        }
+    }
+}

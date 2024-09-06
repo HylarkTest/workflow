@@ -1,0 +1,33 @@
+<?php
+
+declare(strict_types=1);
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+return new class extends Migration
+{
+    use \CitusLaravel\CitusHelpers;
+
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        $this->createTableForDistribution('categories', 'base_id', function (Blueprint $table) {
+            $table->string('template_refs')->nullable();
+            $table->string('name', 50);
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('categories');
+    }
+};

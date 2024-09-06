@@ -1,0 +1,348 @@
+{
+    "name": "hylark/site",
+    "type": "project",
+    "description": "The website for Hylark",
+    "keywords": [
+        "framework",
+        "laravel",
+        "management",
+        "hylark",
+        "everything"
+    ],
+    "license": "proprietary",
+    "require": {
+        "php": "^8.3",
+        "ext-dom": "*",
+        "ext-imagick": "*",
+        "ext-imap": "*",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "ext-redis": "*",
+        "ext-sockets": "*",
+        "ext-zip": "*",
+        "babenkoivan/elastic-migrations": "^3.0",
+        "babenkoivan/elastic-scout-driver": "^3.0",
+        "babenkoivan/elastic-scout-driver-plus": "^4.0",
+        "bensampo/laravel-enum": "^6.0",
+        "beyondcode/laravel-websockets": "^1.14",
+        "dniccum/nova-documentation": "*",
+        "doctrine/dbal": "^3.0",
+        "google/apiclient": "^2.12",
+        "guzzlehttp/guzzle": "^7.2",
+        "hylark/article-content": "@dev",
+        "hylark/select-and-create": "@dev",
+        "intervention/image": "^2.5",
+        "jenssegers/agent": "^2.6",
+        "lampager/lampager-laravel": "^0.5.0",
+        "laravel/cashier": "^14.1",
+        "laravel/forge-sdk": "^3.13",
+        "laravel/fortify": "^1.8",
+        "laravel/framework": "^10.0",
+        "laravel/horizon": "^5.0",
+        "laravel/nova": "^4.27",
+        "laravel/octane": "^1.0",
+        "laravel/passport": "^12.0",
+        "laravel/sanctum": "^3.2",
+        "laravel/scout": "^10.0",
+        "laravel/socialite": "^5.2",
+        "laravel/telescope": "^4.0",
+        "laravel/tinker": "^2.7",
+        "league/commonmark": "^2.0",
+        "league/flysystem-aws-s3-v3": "^3.0",
+        "league/html-to-markdown": "^5.0",
+        "loilo/fuse": "^6.6",
+        "maatwebsite/excel": "^3.1",
+        "mews/purifier": "^3.2",
+        "microsoft/microsoft-graph": "^1.46",
+        "nadar/quill-delta-parser": "^3",
+        "nuwave/lighthouse": "^6.0",
+        "outl1ne/nova-sortable": "^3.4",
+        "pavloniym/nova-action-buttons": "^1.1",
+        "pusher/pusher-php-server": "^7.0",
+        "sabre/vobject": "^4.4",
+        "sentry/sentry-laravel": "^3.0",
+        "socialiteproviders/apple": "^5.0",
+        "socialiteproviders/google": "^4.1",
+        "socialiteproviders/microsoft-azure": "^5.0",
+        "spatie/laravel-ray": "^1.32",
+        "spiral/roadrunner": "^2.10",
+        "stancl/tenancy": "^3.5",
+        "symfony/cache": "^6",
+        "symfony/dom-crawler": "^6.1",
+        "ueberdosis/tiptap-php": "^1.3",
+        "veewee/composer-run-parallel": "*",
+        "webklex/laravel-imap": "^5.0",
+        "xenolope/quahog": "^3.0"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.6",
+        "beyondcode/laravel-dump-server": "^1.0",
+        "danog/class-finder": "~0.4.0",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "laravel/dusk": "^7.0",
+        "laravel/pint": "*",
+        "mockery/mockery": "^1.4.2",
+        "nunomaduro/collision": "^7.0",
+        "larastan/larastan": "^2.0",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.5",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "roave/security-advisories": "dev-latest",
+        "spatie/laravel-ignition": "^2.0",
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "AccountIntegrations\\": "modules/account-integrations/src",
+            "Actions\\": "modules/actions/src",
+            "App\\": "app",
+            "CitusLaravel\\": "modules/citus-laravel/src",
+            "Color\\": "modules/color/src",
+            "Finder\\": "modules/finder/src",
+            "KeyValueStore\\": "modules/key-value-store/src",
+            "LighthouseHelpers\\": "modules/lighthouse-helpers/src",
+            "LaravelUtils\\": "modules/laravel-utils/src",
+            "Mappings\\": "modules/mappings/src",
+            "Mappings\\Database\\Factories\\": "modules/mappings/database/factories",
+            "Mappings\\Database\\Providers\\": "modules/mappings/database/providers",
+            "MarkupUtils\\": "modules/markup-utils/src",
+            "Notes\\": "modules/notes/src",
+            "Planner\\": "modules/planner/src",
+            "Planner\\Database\\Factories\\": "modules/planner/database/factories",
+            "Markers\\": "modules/markers/src",
+            "Markers\\Database\\Factories\\": "modules/markers/database/factories",
+            "Timekeeper\\": "modules/timekeeper/src",
+            "Timekeeper\\Database\\Factories\\": "modules/timekeeper/database/factories",
+            "Documents\\": "modules/documents/src",
+            "Database\\Factories\\": "database/factories",
+            "Database\\Seeders\\": "database/seeders",
+            "Database\\Providers\\": "database/providers"
+        },
+        "files": [
+            "app/Core/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests",
+            "Tests\\AccountIntegrations\\": "modules/account-integrations/tests",
+            "Tests\\Actions\\": "modules/actions/tests",
+            "Tests\\Finder\\": "modules/finder/tests",
+            "Tests\\KeyValueStore\\": "modules/key-value-store/tests",
+            "Tests\\Mappings\\": "modules/mappings/tests",
+            "Tests\\LighthouseHelpers\\": "modules/lighthouse-helpers/tests",
+            "Tests\\LaravelUtils\\": "modules/laravel-utils/tests",
+            "Tests\\Markers\\": "modules/markers/tests",
+            "Tests\\MarkupUtils\\": "modules/markup-utils/tests",
+            "Tests\\Notes\\": "modules/notes/tests",
+            "Tests\\Planner\\": "modules/planner/tests",
+            "Tests\\Timekeeper\\": "modules/timekeeper/tests",
+            "Tests\\Documents\\": "modules/documents/tests",
+            "Tests\\Color\\": "modules/color/tests",
+            "App\\PHPStan\\": "phpstan"
+        }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@php artisan ide-helper:meta"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php artisan lighthouse:ide-helper --ansi"
+        ],
+        "link-hooks": [
+            "echo \"Linking git hooks...\"",
+            "ln -sf ../../githooks/pre-commit ./.git/hooks/pre-commit",
+            "ln -sf ../../githooks/pre-push ./.git/hooks/pre-push",
+            "ln -sf ../../githooks/post-pull ./.git/hooks/post-merge",
+            "ln -sf ../../githooks/post-pull ./.git/hooks/post-rewrite"
+        ],
+        "unlink-hooks": [
+            "echo \"Unlinking git hooks...\"",
+            "rm ./.git/hooks/pre-commit",
+            "rm ./.git/hooks/pre-push",
+            "rm ./.git/hooks/post-merge",
+            "rm ./.git/hooks/post-rewrite"
+        ],
+        "lint": [
+            "vendor/bin/pint -v"
+        ],
+        "lint-check": [
+            "vendor/bin/pint --test -v"
+        ],
+        "lint-check-quiet": [
+            "vendor/bin/pint --test"
+        ],
+        "lint-js": [
+            "yarn --cwd=frontend prod-lint"
+        ],
+        "lint-style": [
+            "yarn --cwd=frontend prod-lint-style"
+        ],
+        "type-check": [
+            "vendor/bin/phpstan analyse --memory-limit=1G"
+        ],
+        "type-check-quiet": [
+            "vendor/bin/phpstan analyse --memory-limit=1G --no-progress"
+        ],
+        "test": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php artisan test --parallel"
+        ],
+        "coverage": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php artisan test --coverage"
+        ],
+        "test-quiet": [
+            "@test --stop-on-failure > /dev/null"
+        ],
+        "deploy-check": [
+            "@parallel lint-check-quiet type-check-quiet lint-js lint-style"
+        ],
+        "seed": [
+            "@php artisan migrate:fresh --ansi",
+            "@php artisan db:seed -v --ansi"
+        ],
+        "spell": [
+            "cspell --color --no-progress -u \"./**\""
+        ],
+        "watch-js": [
+            "Composer\\Config::disableProcessTimeout",
+            "yarn --cwd=frontend serve"
+        ],
+        "watch-php": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php artisan hylark:watch --ansi"
+        ],
+        "watch": [
+            "Composer\\Config::disableProcessTimeout",
+            "yarn --cwd=frontend serve & php artisan hylark:watch --ansi && fg"
+        ],
+        "create-supervisors": [
+            "scripts/create_imgproxy_supervisor.sh",
+            "scripts/create_artisan_supervisor.sh horizon",
+            "scripts/create_artisan_supervisor.sh \"octane:start\" octane",
+            "scripts/create_artisan_supervisor.sh \"websockets:serve --port=6002\" echo"
+        ],
+        "create-oauth-localhost-redirect": [
+            "sudo scripts/create_localhost_redirect.sh 7836 http://hylark.test",
+            "sudo service nginx restart"
+        ],
+        "bootstrap": [
+            "@create-supervisors",
+            "[ -f \".rr.yaml\" ] || cp vendor/laravel/octane/src/Commands/stubs/rr.yaml .rr.yaml",
+            "[ -f \"rr\" ] || vendor/bin/rr get-binary -n --ansi",
+            "chmod +777 rr",
+            "@create-oauth-localhost-redirect",
+            "@link-hooks",
+            "@php artisan migrate",
+            "@php artisan currencies:populate",
+            "@php artisan locations:populate"
+        ],
+        "bootstrap-nova-components": [
+            "npm --prefix='vendor/laravel/nova' ci",
+            "npm --prefix='nova-components/ArticleContent' install",
+            "npm --prefix='nova-components/SelectAndCreate' install"
+        ],
+        "watch-nova-article-content": [
+            "npm --prefix='nova-components/ArticleContent' run watch"
+        ],
+        "watch-nova-select-and-create": [
+            "npm --prefix='nova-components/SelectAndCreate' run watch"
+        ],
+        "make-mod-migration": [
+            "@php artisan make:migration --path=database/modifier-migrations"
+        ],
+        "make-migration": [
+            "@php artisan make:migration"
+        ],
+        "migrate": [
+            "@php artisan migrate",
+            "@php artisan migrate --path=database/modifier-migrations"
+        ],
+        "rollback": [
+            "@php artisan migrate:rollback --path=database/modifier-migrations"
+        ],
+        "elastic-reset": [
+            "@php artisan elastic:migrate:fresh",
+            "@php artisan finder:import",
+            "@php artisan scout:import \"\\App\\Models\\Item\"",
+            "@php artisan scout:import \"\\App\\Models\\Support\\SupportArticle\""
+        ],
+        "pricing-config": [
+            "@php artisan pricing:json:build > ./frontend/pricing.json"
+        ],
+        "schema": [
+            "@php artisan lighthouse:ide-helper",
+            "@php artisan lighthouse:print-schema --json > ./frontend/schema.json",
+            "node frontend/scripts/extract-possible-types.js"
+        ],
+        "timezones": [
+            "@php artisan timezones:generate --format=json > ./frontend/timezones.json"
+        ],
+        "psql-backup": [
+            "php artisan telescope:prune --hours=24",
+            "NOW=$(date \"+%Y%m%d%H%M\") && DIR=\"/vagrant/.backup/postgres_backup/$NOW\" && mkdir -p $DIR && pg_dump --host 10.211.55.2 --port 5432 --username postgres -f \"$DIR/hylark.sql\""
+        ],
+        "psql-restore": [
+            "DIR=$(ls -v /vagrant/.backup/postgres_backup | tail -n 1) && psql --host 10.211.55.2 --port 5321 --username postgres -f \"$DIR/hylark.sql\""
+        ],
+        "minio-backup": [
+            "NOW=$(date \"+%Y%m%d%H%M\") && mc cp --recursive /usr/local/share/minio/ \"/vagrant/.backup/minio_backup/$NOW/\""
+        ],
+        "minio-wipe": [
+            "sudo rm -R /usr/local/share/minio/*"
+        ],
+        "minio-restore": [
+            "DIR=$(ls -v /vagrant/.backup/minio_backup | tail -n 1) && sudo mc cp --recursive \"/vagrant/.backup/minio_backup/$DIR/\" /usr/local/share/minio/",
+            "sudo chown minio-user /usr/local/share/minio/ -R",
+            "sudo service minio restart"
+        ],
+        "passport-setup": [
+            "@php artisan passport:keys || true",
+            "@php artisan auth:app-client:generate"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "nuwave/lighthouse"
+            ]
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "php-http/discovery": true,
+            "pestphp/pest-plugin": true,
+            "veewee/composer-run-parallel": true
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/ArticleContent"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SelectAndCreate"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

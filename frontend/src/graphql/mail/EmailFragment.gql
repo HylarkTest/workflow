@@ -1,0 +1,32 @@
+#import "../items/AssociationCollectionFragment.gql"
+
+fragment Recipient on Recipient {
+    name
+    address
+}
+
+fragment EmailMessage on EmailMessage {
+    id
+    subject
+    to { ...Recipient }
+    from { ...Recipient }
+    cc { ...Recipient }
+    bcc { ...Recipient }
+    priority
+    isFlagged
+    isDraft
+    text: preview(truncate: 70)
+    date: createdAt
+    isSeen
+    hasAttachments
+    mailbox {
+        id
+        name
+    }
+    account {
+        id
+        provider
+        accountName
+    }
+    ...AssociationCollection
+}

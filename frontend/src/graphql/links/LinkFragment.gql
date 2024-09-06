@@ -1,0 +1,22 @@
+#import "../markers/MarkerCollectionFragment.gql"
+#import "../items/AssociationCollectionFragment.gql"
+#import "../bases/AssigneeCollectionFragment.gql"
+
+fragment Link on Link {
+    id
+    name
+    url
+    description
+    isFavorite
+    createdAt
+    updatedAt
+    linkList {
+        id
+        name
+        color
+        space { id name }
+    }
+    ...MarkerCollection
+    ...AssociationCollection
+    ...AssigneeCollection
+}

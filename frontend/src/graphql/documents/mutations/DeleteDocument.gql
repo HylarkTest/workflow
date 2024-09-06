@@ -1,0 +1,10 @@
+mutation DeleteDocument($input: DeleteDocumentInput!) {
+    deleteDocument(input: $input) {
+        code
+        success
+        drive {
+            id
+            count: documentsCount
+        }
+    }
+}

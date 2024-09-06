@@ -1,0 +1,5 @@
+subscription SpaceCreated {
+    spaceCreated {
+        space { id }
+    }
+}

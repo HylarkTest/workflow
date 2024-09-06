@@ -1,0 +1,5 @@
+subscription MappingCreated {
+    mappingCreated {
+        mapping { id }
+    }
+}

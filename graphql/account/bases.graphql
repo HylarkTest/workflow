@@ -1,0 +1,178 @@
+extend type Query @guard(with: ["web", "api"]) {
+    base: BaseEdge! @field(resolver: "BaseQuery@show")
+    bases: [BaseEdge!]! @field(resolver: "BaseQuery@index")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    deleteIntegration(input: DeleteIntegrationInput): SuccessfulMutationResponse @field(resolver: "AccountIntegrationQuery@destroy")
+    updateBase(input: UpdateBaseInput): BaseMutationResponse @field(resolver: "BaseQuery@update") @can(ability: "update", model: "Base")
+    deleteBase: BaseMutationResponse @field(resolver: "BaseQuery@destroy") @can(ability: "delete", model: "Base")
+    leaveBase: BaseMutationResponse @field(resolver: "BaseQuery@leave") @can(ability: "leave", model: "Base")
+
+    updateMember(input: UpdateMemberInput): BaseMutationResponse @field(resolver: "BaseQuery@updateMember") @can(ability: "update", model: "Base")
+    deleteMember(input: DeleteMemberInput): BaseMutationResponse @field(resolver: "BaseQuery@deleteMember") @can(ability: "update", model: "Base")
+}
+
+extend type Subscription {
+    baseUpdated: BaseMutationResponse
+    baseDeleted: BaseDeletedSubscription @subscription(class: "\\App\\GraphQL\\Subscriptions\\BaseSubscription")
+    memberUpdated: BaseEdge @subscription(class: "\\App\\GraphQL\\Subscriptions\\MemberSubscription")
+    memberDeleted: BaseEdge @subscription(class: "\\App\\GraphQL\\Subscriptions\\MemberSubscription")
+    memberAccepted: BaseEdge @subscription(class: "\\App\\GraphQL\\Subscriptions\\MemberSubscription")
+    memberInvited: MemberInvite @subscription(class: "\\App\\GraphQL\\Subscriptions\\InviteSubscription")
+    memberInviteUpdated: MemberInvite @subscription(class: "\\App\\GraphQL\\Subscriptions\\InviteSubscription")
+    memberInviteDeleted: MemberInvite @subscription(class: "\\App\\GraphQL\\Subscriptions\\InviteSubscription")
+}
+
+type BaseEdge {
+    id: ID! @field(resolver: "App\\GraphQL\\Queries\\BaseQuery@resolveAuthMemberGlobalId")
+    node: Base! @root
+    role: Role! @field(resolver: "App\\GraphQL\\Queries\\BaseQuery@resolveAuthMemberRole")
+    displayName: String @field(resolver: "App\\GraphQL\\Queries\\BaseQuery@resolveAuthMemberDisplayName")
+    displayAvatar: String @field(resolver: "App\\GraphQL\\Queries\\BaseQuery@resolveAuthMemberDisplayAvatar")
+    useAccountAvatar: Boolean @field(resolver: "App\\GraphQL\\Queries\\BaseQuery@resolveAuthMemberUseAccountAvatar")
+    addedAt: DateTime! @field(resolver: "App\\GraphQL\\Queries\\BaseQuery@resolveAuthMemberAddedAt")
+    isActive: Boolean! @method(name: "isActive")
+    preferences: BaseUserPreferences! @field(resolver: "App\\GraphQL\\Queries\\BaseQuery@resolveAuthMemberSettings")
+}
+
+type Member implements Performer & ActionSubject @model(class: "App\\Models\\BaseUserPivot") {
+    id: ID! @globalId(type: "Member")
+    name: String! @method(name: "displayName")
+    avatar: String @method(name: "displayAvatar")
+    email: String! @rename(attribute: "user.email")
+    role: Role! @rename(attribute: "role")
+    addedAt: DateTime! @rename(attribute: "created_at")
+    isAuthenticatedUser: Boolean! @field(resolver: "App\\GraphQL\\Queries\\BaseQuery@resolveIsAuthenticatedUser")
+    actionsPerformed: [Action]! @hasMany(type: CONNECTION)
+}
+
+type MemberInvite {
+    id: ID! @globalId
+    email: String!
+    role: Role!
+    invitedAt: DateTime! @rename(attribute: "created_at")
+}
+
+enum InviteStatus {
+    PENDING
+    ACCEPTED
+}
+
+type Base implements ActionSubject @node {
+    name: String!
+    isSubscribed: Boolean! @method
+    plan: Plan @method
+    description: String
+    image: String @rename(attribute: "imageUrl")
+    type: BaseType!
+    assigneeGroups: [AssigneeGroup!]! @field(resolver: "App\\GraphQL\\Queries\\AssigningQuery@resolveAssigneeGroups")
+    members: [Member!]! @field(resolver: "App\\GraphQL\\Queries\\BaseQuery@resolveMembers")
+    invites(status: InviteStatus): [MemberInvite!]! @field(resolver: "App\\GraphQL\\Queries\\BaseQuery@resolveInvites") @can(ability: "viewInvites", model: "Base")
+    preferences: BasePreferences! @hasOne(relation: "settings")
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type BasePreferences {
+    accentColor: String! @rename(attribute: "settings.accentColor")
+    homepage: GlobalHomepage! @rename(attribute: "settings.homepage")
+}
+
+type BaseUserPreferences {
+    shortcuts: [Shortcut]!
+    widgets: Widget!
+    homepage: PersonalHomepage!
+}
+
+type Shortcut {
+    id: String!
+    type: String!
+}
+
+type Widget {
+    addShortcuts: [String!]!
+}
+
+type PersonalHomepage {
+    shortcuts: HomepageShortcuts
+    spaces: JSON @emptyObject
+}
+
+enum ShortcutDisplay {
+    FULL
+    SMALL
+    HIDE
+}
+
+type HomepageShortcuts {
+    customize: ShortcutDisplay!
+    integrations: ShortcutDisplay!
+}
+
+type GlobalHomepage {
+    spaces: JSON @emptyObject
+}
+
+input UpdateBaseInput {
+    name: String @rules(apply: ["max:255", "filled"])
+    description: String @rules(apply: ["max:1000", "filled"])
+    image: Upload @rules(apply: ["nullable", "max:2000", "image"])
+    accentColor: String @rules(apply: ["nullable"])
+    homepage: GlobalHomepageInput
+}
+
+type BaseMutationResponse implements MutationResponse {
+    code: String!
+    message: String!
+    base: BaseEdge
+    activeBase: BaseEdge!
+    success: Boolean!
+}
+
+type DeletedBase {
+    id: ID!
+}
+
+type BaseDeletedSubscription {
+    base: DeletedBase!
+    activeBase: BaseEdge!
+}
+
+input UpdateMemberInput {
+    id: ID!
+    role: Role!
+}
+
+input DeleteMemberInput {
+    id: ID!
+}
+
+input BaseUserPreferencesInput {
+    shortcuts: [ShortcutInput!]
+    widgets: WidgetInput
+    homepage: PersonalHomepageInput
+}
+
+input WidgetInput {
+    addShortcuts: [String!]!
+}
+
+input ShortcutInput {
+    id: String!
+    type: String!
+}
+
+input PersonalHomepageInput {
+    shortcuts: HomepageShortcutInput,
+    spaces: JSON
+}
+
+input GlobalHomepageInput {
+    spaces: JSON
+}
+
+input HomepageShortcutInput {
+    customize: ShortcutDisplay!
+    integrations: ShortcutDisplay!
+}

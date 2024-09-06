@@ -1,0 +1,9 @@
+#import "../DriveFragment.gql"
+
+subscription DriveUpdated {
+    driveUpdated {
+        drive {
+            ...Drive
+        }
+    }
+}

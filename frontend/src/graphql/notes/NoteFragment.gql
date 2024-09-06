@@ -1,0 +1,22 @@
+#import "../markers/MarkerCollectionFragment.gql"
+#import "../items/AssociationCollectionFragment.gql"
+#import "../bases/AssigneeCollectionFragment.gql"
+
+fragment Note on Note {
+    id
+    name
+    tiptap
+    preview: plaintext(truncate: 255)
+    isFavorite
+    createdAt
+    updatedAt
+    notebook {
+        id
+        name
+        color
+        space { id name }
+    }
+    ...MarkerCollection
+    ...AssociationCollection
+    ...AssigneeCollection
+}

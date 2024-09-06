@@ -1,0 +1,12 @@
+#import "../MappingMarkerGroupsFragment.gql"
+
+mutation CreateMappingMarkerGroup($input: CreateMappingMarkerGroupInput!) {
+    createMappingMarkerGroup(input: $input) {
+        code
+        success
+        mapping {
+            id
+            ...MappingMarkerGroups
+        }
+    }
+}

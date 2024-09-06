@@ -1,0 +1,11 @@
+#import "../AssociationCollectionFragment.gql"
+
+mutation RemoveItem($input: RemoveItemInput!) {
+    removeItem(input: $input) {
+        code
+        node {
+            id
+            ...AssociationCollection
+        }
+    }
+}

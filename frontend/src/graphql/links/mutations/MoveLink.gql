@@ -1,0 +1,11 @@
+#import "../LinkFragment.gql"
+
+mutation MoveLink($input: MoveLinkInput!) {
+    moveLink(input: $input) {
+        code
+        success
+        link {
+            ...Link
+        }
+    }
+}

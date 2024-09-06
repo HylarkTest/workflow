@@ -1,0 +1,10 @@
+#import "../NoteFragment.gql"
+
+mutation UpdateNote($input: UpdateNoteInput!) {
+    updateNote(input: $input) {
+        code
+        note {
+            ...Note
+        }
+    }
+}

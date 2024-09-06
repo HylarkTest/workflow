@@ -1,0 +1,6 @@
+mutation DeleteEntityPage($input: DeletePageInput!) {
+    deletePage(input: $input) {
+        code
+        success
+    }
+}

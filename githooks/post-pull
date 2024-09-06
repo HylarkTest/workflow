@@ -1,0 +1,5 @@
+#! /bin/bash
+
+ssh -t vagrant@127.0.0.1 -p 2222 "sudo supervisorctl restart hylark-octane" || echo "Failed to kill Octane"
+ssh -t vagrant@127.0.0.1 -p 2222 "sudo supervisorctl restart hylark-horizon" || echo "Failed to kill Horizon"
+

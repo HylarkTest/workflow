@@ -1,0 +1,13 @@
+fragment FeatureList on FeatureList {
+    id
+    name
+    order
+    isDefault
+    templateRefs
+    color
+    space {
+        id
+        name
+        createdAt
+    }
+}

@@ -1,0 +1,13 @@
+#import "../DocumentFragment.gql"
+
+subscription DocumentUpdated($forNode: ID, $forMapping: ID) {
+    documentUpdated {
+        document {
+            ...Document
+        }
+        drive {
+            id
+            count: documentsCount(forNode: $forNode, forMapping: $forMapping)
+        }
+    }
+}

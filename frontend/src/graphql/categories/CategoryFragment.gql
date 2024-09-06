@@ -1,0 +1,11 @@
+#import "./CategoryItemFragment.gql"
+
+fragment Category on Category {
+    id
+    templateRefs
+    name
+    itemCount
+    items {
+        ...CategoryItem
+    }
+}

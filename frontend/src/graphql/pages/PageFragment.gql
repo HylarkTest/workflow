@@ -1,0 +1,51 @@
+#import "../mappings/MappingFieldsFragment.gql"
+#import "../mappings/MappingMarkerGroupsFragment.gql"
+
+fragment Page on Page {
+    id
+    templateRefs
+    name
+    description
+    folder
+    symbol
+    type
+    _image: image
+    image @client
+    ...on ListPage {
+        lists
+    }
+    ...on EntityPage {
+        mapping {
+            id
+            name
+        }
+        newData {
+            fields
+            markers
+        }
+        item { id }
+    }
+    ...on EntitiesPage {
+        singularName
+        mapping {
+            id
+            name
+            ...Fields
+            ...MappingMarkerGroups
+        }
+        fieldFilters {
+            fieldId
+            match
+            operator
+        }
+        markerFilters {
+            markerId
+            operator
+            context
+        }
+        newData {
+            fields
+            markers
+        }
+    }
+}

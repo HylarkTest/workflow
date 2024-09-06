@@ -1,0 +1,6 @@
+#import "./PinboardFragment.gql"
+
+fragment PinboardWithCount on Pinboard {
+    ...Pinboard
+    count: pinsCount(forNode: $forNode, forMapping: $forMapping)
+}

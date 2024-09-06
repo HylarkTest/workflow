@@ -1,0 +1,7 @@
+fragment CategoryItem on CategoryItem {
+    id
+    name
+    group: category {
+        id
+    }
+}

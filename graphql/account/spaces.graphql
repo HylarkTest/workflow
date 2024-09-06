@@ -1,0 +1,56 @@
+extend type Query @guard(with: ["web", "api"]) {
+    spaces(first: Int! = 25, after: String): SpaceConnection @field(resolver: "SpaceQuery@index")
+    space(id: ID! @globalId(decode: "ID", type: "Space")): Space @field(resolver: "SpaceQuery@show")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    createSpace(input: CreateSpaceInput!): SpaceMutationResponse @field(resolver: "SpaceQuery@store") @broadcastNodeCreated(subscription: "spaceCreated", nodeField: "space")
+    updateSpace(input: UpdateSpaceInput!): SpaceMutationResponse @field(resolver: "SpaceQuery@update") @broadcastNodeUpdated(subscription: "spaceUpdated", nodeField: "space")
+    deleteSpace(input: DeleteSpaceInput!): SuccessfulMutationResponse @field(resolver: "SpaceQuery@destroy") @broadcastNodeDeleted(subscription: "spaceDeleted")
+}
+
+extend type Subscription {
+    spaceCreated: SpaceMutationResponse
+    spaceUpdated: SpaceMutationResponse
+    spaceDeleted: SpaceMutationResponse
+}
+
+type Space implements ActionSubject @node {
+    name: String!
+    logo: String
+    color: String
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    mappings: [Mapping!]! @hasMany(type: CONNECTION) @actionFilters
+    pages: [Page!]! @hasMany(type: CONNECTION) @actionFilters
+}
+
+type SpaceConnection {
+    edges: [SpaceEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type SpaceEdge {
+    node: Space!
+    cursor: String!
+}
+
+input CreateSpaceInput {
+    name: String! @rules(apply: ["max:50", "required"])
+}
+
+input UpdateSpaceInput {
+    id: ID! @globalId(decode: "ID", type: "Space")
+    name: String @rules(apply: ["max:50", "filled"])
+}
+
+input DeleteSpaceInput {
+    id: ID! @globalId(decode: "ID", type: "Space")
+}
+
+type SpaceMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    space: Space
+}
