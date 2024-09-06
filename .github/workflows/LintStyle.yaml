@@ -1,0 +1,23 @@
+name: Style lint check
+on:
+  pull_request:
+    types: [labeled, review_requested, review_submitted]
+    branches: [master]
+    paths:
+      - 'frontend/**'
+
+permissions:
+  contents: read
+jobs:
+  build:
+    if: |
+      github.event.review.state == 'approved' && 
+      contains(github.event.pull_request.labels.*.name, 'Ready to go') &&
+      !contains(github.event.pull_request.labels.*.name, 'Mobile App')
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install modules
+      run: yarn --cwd=frontend install
+    - name: Lint CSS
+      run: composer lint-style
