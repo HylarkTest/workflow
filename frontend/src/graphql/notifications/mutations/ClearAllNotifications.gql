@@ -1,0 +1,6 @@
+mutation ClearAllNotifications {
+    clearAllNotifications {
+        code
+        success
+    }
+}

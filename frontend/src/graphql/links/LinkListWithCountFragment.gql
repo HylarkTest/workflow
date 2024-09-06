@@ -1,0 +1,6 @@
+#import "./LinkListFragment.gql"
+
+fragment LinkListWithCount on LinkList {
+    ...LinkList
+    count: linksCount(forNode: $forNode, forMapping: $forMapping)
+}

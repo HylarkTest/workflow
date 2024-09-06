@@ -1,0 +1,9 @@
+#import "../NotebookFragment.gql"
+
+subscription NotebookRestored {
+    notebookRestored {
+        notebook {
+            ...Notebook
+        }
+    }
+}

@@ -1,0 +1,9 @@
+#import "../LinkListFragment.gql"
+
+subscription LinkListRestored {
+    linkListRestored {
+        linkList {
+            ...LinkList
+        }
+    }
+}

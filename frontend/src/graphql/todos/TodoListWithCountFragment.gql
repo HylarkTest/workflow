@@ -1,0 +1,6 @@
+#import "./TodoListFragment.gql"
+
+fragment TodoListWithCount on TodoList {
+    ...TodoList
+    count: incompleteTodosCount(forMapping: $forMapping, forNode: $forNode)
+}

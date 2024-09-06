@@ -1,0 +1,14 @@
+#import "./BaseFragment.gql"
+
+mutation UpdateBase($input: UpdateBaseInput!) {
+    updateBase(input: $input) {
+        code
+        success
+        base {
+            id
+            node {
+                ...Base
+            }
+        }
+    }
+}

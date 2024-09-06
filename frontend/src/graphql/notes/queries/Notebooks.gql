@@ -1,0 +1,24 @@
+#import "../NotebookWithCountFragment.gql"
+
+query Notebooks(
+    $spaceIds: [ID!],
+    $forNode: ID,
+    $forMapping: ID
+    $forLists: [ID!]
+) {
+    notebooks(
+        spaceIds: $spaceIds,
+        forLists: $forLists,
+        first: 100
+    ) {
+        edges {
+            node {
+                ...NotebookWithCount
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

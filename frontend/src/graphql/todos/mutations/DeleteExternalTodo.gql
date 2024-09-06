@@ -1,0 +1,6 @@
+mutation DeleteExternalTodo($input: DeleteExternalTodoInput!) {
+    deleteExternalTodo(input: $input) {
+        code
+        success
+    }
+}

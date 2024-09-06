@@ -1,0 +1,15 @@
+#import "../PinFragment.gql"
+
+mutation DuplicatePin($input: DuplicatePinInput!) {
+    duplicatePin(input: $input) {
+        code
+        success
+        pin {
+            ...Pin
+        }
+        pinboard {
+            id
+            count: pinsCount
+        }
+    }
+}

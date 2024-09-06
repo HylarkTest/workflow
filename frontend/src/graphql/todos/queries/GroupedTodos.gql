@@ -1,0 +1,63 @@
+#import "../TodoFragment.gql"
+#import "../../GroupableFragment.gql"
+
+query GroupedTodos(
+    $group: String!
+    $spaceId: ID
+    $todoListId: ID
+    $forMapping: ID
+    $forNode: ID
+    $search: [String!]
+    $dueBefore: DateTime
+    $dueAfter: DateTime
+    $isScheduled: Boolean
+    $filters: [TodoFilterInput!]
+    $isCompleted: Boolean
+    $minPriority: Int
+    $maxPriority: Int
+    $orderBy: [TodoOrderBy!]
+    $includeGroups: [String!]
+    $after: String
+) {
+    groupedTodos(
+        group: $group,
+        spaceId: $spaceId,
+        todoListId: $todoListId,
+        forMapping: $forMapping,
+        forNode: $forNode,
+        search: $search,
+        dueBefore: $dueBefore,
+        dueAfter: $dueAfter,
+        isScheduled: $isScheduled,
+        isCompleted: $isCompleted,
+        filters: $filters,
+        minPriority: $minPriority,
+        maxPriority: $maxPriority,
+        orderBy: $orderBy,
+        includeGroups: $includeGroups,
+        after: $after,
+        first: 50,
+    ) {
+        groups {
+            groupHeader
+            group {
+                ...Groupable
+            }
+            edges {
+                node {
+                    ...Todo
+                }
+            }
+            pageInfo {
+                startCursor
+                endCursor
+                hasNextPage
+                total
+                rawTotal
+            }
+        }
+        meta {
+            completedCount
+        }
+    }
+}

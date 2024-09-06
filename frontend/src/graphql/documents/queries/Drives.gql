@@ -1,0 +1,28 @@
+#import "../DriveWithCountFragment.gql"
+
+query Drives(
+    $spaceIds: [ID!],
+    $forMapping: ID,
+    $forNode: ID,
+    $forLists: [ID!],
+) {
+    drives(
+        spaceIds: $spaceIds,
+        forLists: $forLists,
+        first: 100,
+    ) {
+        edges {
+            node {
+                ...DriveWithCount
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            total
+            rawTotal
+            # eslint-disable-next-line @graphql-eslint/fields-on-correct-type
+            hasFilterApplied @client
+        }
+    }
+}

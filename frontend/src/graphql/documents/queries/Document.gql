@@ -1,0 +1,13 @@
+#import "../DocumentFragment.gql"
+#import "../../FetchesActionsFragment.gql"
+
+query Document(
+    $id: ID!
+) {
+    document(
+        id: $id
+    ) {
+        ...Document
+        ...FetchesActionsFragment
+    }
+}

@@ -1,0 +1,39 @@
+# If you are looking for document queries/fields that aren't here, try checking out the `FeatureListQuery.php` file where all the common feature queries are defined.
+
+enum FileType {
+    IMAGE
+    PDF
+    OFFICE
+    OTHER
+}
+
+extend type Document implements Node {
+    id: ID! @globalId(type: "Document")
+    name: String! @rename(attribute: "filename")
+    filename: String!
+    url: String! @method
+    downloadUrl: String! @method
+    size: Int!
+    extension: String
+    mimeType: String
+}
+
+enum DocumentOrderField {
+    NAME @enum(value: "filename")
+    FILENAME @enum(value: "filename")
+    FAVORITES @enum(value: "favorited_at")
+    SIZE @enum(value: "size")
+    EXTENSION @enum(value: "extension")
+    DRIVE @enum(value: "drive")
+    CREATED_AT @enum(value: "created_at")
+    UPDATED_AT @enum(value: "updated_at")
+}
+
+extend input CreateDocumentInput {
+    filename: String @rules(apply: ["filled", "max:255"])
+    file: Upload @rules(customPrefix: "document", apply: ["required", "file", "max:10000"])
+}
+
+extend input UpdateDocumentInput {
+    filename: String @rules(apply: ["filled", "max:255"])
+}

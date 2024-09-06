@@ -1,0 +1,10 @@
+#import "../DocumentFragment.gql"
+
+mutation UpdateDocument($input: UpdateDocumentInput!) {
+    updateDocument(input: $input) {
+        code
+        document {
+            ...Document
+        }
+    }
+}

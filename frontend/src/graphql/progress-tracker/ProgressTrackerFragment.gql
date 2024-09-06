@@ -1,0 +1,14 @@
+fragment ProgressTracker on ProgressTracker {
+    id
+    status
+    processedCount
+    totalCount
+    progress
+    message
+    estimatedTimeRemaining
+    startedAt
+    finishedAt
+    cancelledAt
+    revertedAt
+    revertFinishedAt
+}

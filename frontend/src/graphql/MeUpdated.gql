@@ -1,0 +1,16 @@
+subscription MeUpdated {
+    meUpdated {
+        user {
+            id
+            name
+            email
+            avatar
+            createdAt
+            updatedAt
+            verified
+            finishedRegistration
+            hasEnabledTwoFactorAuthentication
+            newNotificationsCount
+        }
+    }
+}

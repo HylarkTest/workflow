@@ -1,0 +1,5 @@
+mutation DeleteDrive($input: DeleteDriveInput!) {
+    deleteDrive(input: $input) {
+        success
+    }
+}

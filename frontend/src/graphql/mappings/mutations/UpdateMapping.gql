@@ -1,0 +1,21 @@
+#import "../MappingFragment.gql"
+#import "../MappingFieldsFragment.gql"
+#import "../MappingFeaturesFragment.gql"
+#import "../MappingRelationshipsFragment.gql"
+#import "../MappingSectionsFragment.gql"
+#import "../MappingMarkerGroupsFragment.gql"
+
+mutation UpdateMapping($input: MappingUpdateInput!) {
+    updateMapping(input: $input) {
+        code
+        success
+        mapping {
+            ...Mapping
+            ...Fields
+            ...Features
+            ...Relationships
+            ...Sections
+            ...MappingMarkerGroups
+        }
+    }
+}

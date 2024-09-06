@@ -1,0 +1,7 @@
+subscription EventDeleted {
+    eventDeleted {
+        calendar {
+            id
+        }
+    }
+}

@@ -1,0 +1,337 @@
+.bg-cm {
+    &-00 {
+        @apply
+            bg-white
+        ;
+        .darkmode & {
+            @apply
+                bg-black
+            ;
+        }
+    }
+
+    &-100 {
+        @apply
+            bg-cm-100
+        ;
+        .darkmode & {
+            @apply
+                bg-cm-900
+            ;
+        }
+    }
+
+    &-200 {
+        @apply
+            bg-cm-200
+        ;
+        .darkmode & {
+            @apply
+                bg-cm-800
+            ;
+        }
+    }
+
+    &-300 {
+        @apply
+            bg-cm-300
+        ;
+        .darkmode & {
+            @apply
+                bg-cm-700
+            ;
+        }
+    }
+
+    &-400 {
+        @apply
+            bg-cm-400
+        ;
+        .darkmode & {
+            @apply
+                bg-cm-600
+            ;
+        }
+    }
+
+    &-500 {
+        @apply
+            bg-cm-500
+        ;
+        .darkmode & {
+            @apply
+                bg-cm-500
+            ;
+        }
+    }
+
+    &-600 {
+        @apply
+            bg-cm-600
+        ;
+        .darkmode & {
+            @apply
+                bg-cm-400
+            ;
+        }
+    }
+
+    &-700 {
+        @apply
+            bg-cm-700
+        ;
+        .darkmode & {
+            @apply
+                bg-cm-300
+            ;
+        }
+    }
+
+    &-800 {
+        @apply
+            bg-cm-800
+        ;
+        .darkmode & {
+            @apply
+                bg-cm-200
+            ;
+        }
+    }
+
+    &-900 {
+        @apply
+            bg-cm-900
+        ;
+        .darkmode & {
+            @apply
+                bg-cm-100
+            ;
+        }
+    }
+}
+
+.text-cm {
+    &-00 {
+        @apply
+            text-white
+        ;
+        .darkmode & {
+            @apply
+                text-black
+            ;
+        }
+    }
+
+    &-100 {
+        @apply
+            text-cm-100
+        ;
+        .darkmode & {
+            @apply
+                text-cm-900
+            ;
+        }
+    }
+
+    &-200 {
+        @apply
+            text-cm-200
+        ;
+        .darkmode & {
+            @apply
+                text-cm-800
+            ;
+        }
+    }
+
+    &-300 {
+        @apply
+            text-cm-300
+        ;
+        .darkmode & {
+            @apply
+                text-cm-700
+            ;
+        }
+    }
+
+    &-400 {
+        @apply
+            text-cm-400
+        ;
+        .darkmode & {
+            @apply
+                text-cm-600
+            ;
+        }
+    }
+
+    &-500 {
+        @apply
+            text-cm-500
+        ;
+        .darkmode & {
+            @apply
+                text-cm-500
+            ;
+        }
+    }
+
+    &-600 {
+        @apply
+            text-cm-600
+        ;
+        .darkmode & {
+            @apply
+                text-cm-400
+            ;
+        }
+    }
+
+    &-700 {
+        @apply
+            text-cm-700
+        ;
+        .darkmode & {
+            @apply
+                text-cm-300
+            ;
+        }
+    }
+
+    &-800 {
+        @apply
+            text-cm-800
+        ;
+        .darkmode & {
+            @apply
+                text-cm-200
+            ;
+        }
+    }
+
+    &-900 {
+        @apply
+            text-cm-900
+        ;
+        .darkmode & {
+            @apply
+                text-cm-100
+            ;
+        }
+    }
+}
+
+.border-cm {
+    &-00 {
+        @apply
+            border-white
+        ;
+        .darkmode & {
+            @apply
+                border-black
+            ;
+        }
+    }
+
+    &-100 {
+        @apply
+            border-cm-100
+        ;
+        .darkmode & {
+            @apply
+                border-cm-900
+            ;
+        }
+    }
+
+    &-200 {
+        @apply
+            border-cm-200
+        ;
+        .darkmode & {
+            @apply
+                border-cm-800
+            ;
+        }
+    }
+
+    &-300 {
+        @apply
+            border-cm-300
+        ;
+        .darkmode & {
+            @apply
+                border-cm-700
+            ;
+        }
+    }
+
+    &-400 {
+        @apply
+            border-cm-400
+        ;
+        .darkmode & {
+            @apply
+                border-cm-600
+            ;
+        }
+    }
+
+    &-500 {
+        @apply
+            border-cm-500
+        ;
+        .darkmode & {
+            @apply
+                border-cm-500
+            ;
+        }
+    }
+
+    &-600 {
+        @apply
+            border-cm-600
+        ;
+        .darkmode & {
+            @apply
+                border-cm-400
+            ;
+        }
+    }
+
+    &-700 {
+        @apply
+            border-cm-700
+        ;
+        .darkmode & {
+            @apply
+                border-cm-300
+            ;
+        }
+    }
+
+    &-800 {
+        @apply
+            border-cm-800
+        ;
+        .darkmode & {
+            @apply
+                border-cm-200
+            ;
+        }
+    }
+
+    &-900 {
+        @apply
+            border-cm-900
+        ;
+        .darkmode & {
+            @apply
+                border-cm-100
+            ;
+        }
+    }
+}
+
+

@@ -1,0 +1,286 @@
+# If you are looking for todo queries/fields that aren't here, try checking out the `FeatureListQuery.php` file where all the common feature queries are defined.
+
+extend type Query @guard(with: ["web", "api"]) {
+    externalTodoLists(
+        sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+        first: Int! = 25
+        page: Int
+    ): ExternalTodoListPaginator! @field(resolver: "Features\\ExternalTodoListQuery@index")
+    externalTodos(
+        sourceId: ID @globalId(decode: "ID", type: "IntegrationAccount")
+        todoListId: String @base64
+        forNode: ID
+        dueBefore: DateTime
+        dueAfter: DateTime
+        filter: ExternalTodoFilter = ALL
+        first: Int! = 25
+        page: Int
+    ): ExternalTodoPaginator! @field(resolver: "Features\\ExternalTodoQuery@index")
+    externalTodo(
+        sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+        todoListId: String! @base64
+        id: ID!
+    ): ExternalTodo @field(resolver: "Features\\ExternalTodoQuery@show")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+#    clearTodoList(input: ClearTodoListInput): TodoList
+
+    createExternalTodoList(input: CreateExternalTodoListInput!): ExternalTodoListMutationResponse! @field(resolver: "Features\\ExternalTodoListQuery@store")
+    updateExternalTodoList(input: UpdateExternalTodoListInput!): ExternalTodoListMutationResponse @field(resolver: "Features\\ExternalTodoListQuery@update")
+    deleteExternalTodoList(input: DeleteExternalTodoListInput!): SuccessfulMutationResponse @field(resolver: "Features\\ExternalTodoListQuery@destroy")
+
+    createExternalTodo(input: CreateExternalTodoInput!): ExternalTodoMutationResponse! @field(resolver: "Features\\ExternalTodoQuery@store")
+    updateExternalTodo(input: UpdateExternalTodoInput!): ExternalTodoMutationResponse! @field(resolver: "Features\\ExternalTodoQuery@update")
+    deleteExternalTodo(input: DeleteExternalTodoInput!): ExternalTodoMutationResponse! @field(resolver: "Features\\ExternalTodoQuery@destroy")
+    moveExternalTodo(input: MoveExternalTodoInput!): ExternalTodoMutationResponse! @field(resolver: "Features\\ExternalTodoQuery@move")
+
+#    moveTodoToList(input: MoveTodoToListInput!): TodoMutationResponse! @field(resolver: "Features\\TodoQuery@moveToList")
+#    copyTodoToList(input: CopyTodoToListInput!): TodoMutationResponse! @field(resolver: "Features\\TodoQuery@copyToList")
+
+    associateExternalTodo(input: AssociateExternalTodoInput!): ExternalTodoMutationResponse! @field(resolver: "Features\\ExternalTodoQuery@associate")
+    dissociateExternalTodo(input: DissociateExternalTodoInput!): ExternalTodoMutationResponse! @field(resolver: "Features\\ExternalTodoQuery@dissociate")
+}
+
+extend type TodoList {
+    incompleteTodosCount(forMapping: ID @globalId(type: "Mapping", decode: "ID"), forNode: ID): Int! @field(resolver: "App\\GraphQL\\Queries\\Features\\TodoListQuery@resolveIncompleteCount")
+}
+
+type ExternalTodoList {
+    id: ID! @base64
+    name: String!
+    updatedAt: DateTime
+    isDefault: Boolean!
+    isOwner: Boolean
+    isShared: Boolean
+    account: IntegrationAccount!
+}
+
+extend type Todo implements Node {
+    id: ID! @globalId(type: "Todo")
+    name: String!
+    completedAt: DateTime
+    startAt: DateTime
+    dueBy: DateTime
+    recurrence: Recurrence
+    until: DateTime
+    description: String
+    location: String
+    priority: Int!
+    order: Int!
+}
+
+type ExternalTodo implements Associatable {
+    id: ID!
+    name: String!
+    completedAt: DateTime
+    dueBy: DateTime
+    recurrence: Recurrence
+    description: String
+    priority: Int
+    order: Int
+    updatedAt: DateTime
+    account: IntegrationAccount!
+    list: ExternalTodoList!
+    associations: [Item!] @field(resolver: "App\\GraphQL\\Queries\\Features\\ExternalTodoQuery@resolveAssociations")
+}
+
+extend input TodoFilterInput {
+    isCompleted: Boolean
+    priority: Int
+    dueBefore: DateTime
+    dueAfter: DateTime
+    isScheduled: Boolean
+    minPriority: Int
+    maxPriority: Int
+}
+
+enum ExternalTodoFilter {
+    ONLY_COMPLETED
+    ONLY_INCOMPLETE
+    ALL
+}
+
+extend type TodoStats {
+    todayCount: Int!
+    highPriorityCount: Int!
+    scheduledCount: Int!
+    overdueCount: Int!
+}
+
+enum TodoOrderField {
+    MANUAL @enum(value: "order")
+    TODO_LIST @enum(value: "todoList")
+    NAME @enum(value: "name")
+    DUE_BY @enum(value: "due_by")
+    PRIORITY @enum(value: "priority")
+    COMPLETED_AT @enum(value: "completed_at")
+    IS_COMPLETED @enum(value: "is_completed")
+    CREATED_AT @enum(value: "created_at")
+    UPDATED_AT @enum(value: "updated_at")
+}
+
+type ExternalTodoListPaginator {
+    data: [ExternalTodoList!]!
+    paginatorInfo: SimplePaginatorInfo!
+}
+
+extend type GroupedTodos {
+    meta: TodoMeta!
+}
+
+type ExternalTodoPaginator {
+    data: [ExternalTodo!]!
+    paginatorInfo: OptionalLengthPaginatorInfo!
+}
+
+extend type TodoConnection {
+    meta: TodoMeta!
+}
+
+type TodoMeta {
+    incompleteCount: Int!
+    completedCount: Int!
+}
+
+enum RecurrenceFrequency { DAILY WEEKLY MONTHLY YEARLY }
+
+enum WeekDay { MO TU WE TH FR SA SU }
+
+type Recurrence{
+    frequency: RecurrenceFrequency!
+    interval: Int
+    byDay: [WeekDay!]
+    count: Int
+    until: DateTime
+}
+
+type ExternalTodoListMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    todoList: ExternalTodoList
+}
+
+type ExternalTodoMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    todo: ExternalTodo
+    todoList: ExternalTodoList
+}
+
+extend input CreateTodoInput {
+    name: String! @rules(customPrefix: "todo", apply: ["filled", "max:255"])
+    startAt: DateTime @rules(apply: ["nullable", "date"])
+    dueBy: DateTime @rules(apply: ["nullable", "date", "required_with:recurrence"])
+    recurrence: RecurrenceInput
+    description: String @rules(apply: ["nullable", "max:8192"])
+    location: String
+    priority: Int
+}
+
+extend input UpdateTodoInput {
+    name: String @rules(customPrefix: "todo", apply: ["filled", "max:255"])
+    completedAt: DateTime @rules(apply: ["nullable", "date"])
+    startAt: DateTime @rules(apply: ["nullable", "date"])
+    dueBy: DateTime @rules(apply: ["nullable", "date", "required_with:recurrence"])
+    recurrence: RecurrenceInput
+    description: String @rules(apply: ["nullable", "max:8192"])
+    location: String
+    priority: Int
+}
+
+input AssociateTodoInput {
+    id: ID! @globalId(decode: "ID", type: "Todo")
+    associateId: ID
+}
+
+input DissociateTodoInput {
+    id: ID! @globalId(decode: "ID", type: "Todo")
+    associateId: ID
+}
+
+input CreateExternalTodoListInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    name: String! @rules(apply: ["max:255"])
+}
+
+input UpdateExternalTodoListInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    id: ID! @base64
+    name: String! @rules(apply: ["max:255"])
+}
+
+input DeleteExternalTodoListInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    id: ID! @base64
+}
+
+input CreateExternalTodoInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    todoListId: String! @base64
+    name: String! @rules(apply: ["max:255"])
+    startAt: DateTime @rules(apply: ["nullable", "date"])
+    dueBy: DateTime @rules(apply: ["nullable", "date"])
+    recurrence: RecurrenceInput
+    description: String @rules(apply: ["nullable", "max:8192"])
+    location: String
+    priority: Int
+    associations: [ID!] @globalId(type: "Item", decode: "ID")
+}
+
+input UpdateExternalTodoInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    todoListId: String! @base64
+    id: ID!
+    name: String @rules(apply: ["filled", "max:255"])
+    completedAt: DateTime @rules(apply: ["nullable", "date"])
+    startAt: DateTime @rules(apply: ["nullable", "date"])
+    dueBy: DateTime @rules(apply: ["nullable", "date"])
+    recurrence: RecurrenceInput
+    description: String @rules(apply: ["nullable", "max:8192"])
+    location: String
+    priority: Int
+}
+
+input DeleteExternalTodoInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    todoListId: String! @base64
+    id: ID!
+}
+
+input MoveExternalTodoInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    todoListId: String! @base64
+    id: ID!
+    previousId: String!
+}
+
+input RecurrenceInput {
+    frequency: RecurrenceFrequency!
+    interval: Int @rules(apply: ["integer", "min:1"])
+    byDay: [WeekDay!]
+    until: DateTime
+    count: Int
+}
+
+input DeleteExternalTodoInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    todoListId: String! @base64
+    id: ID!
+}
+
+input AssociateExternalTodoInput {
+    nodeId: ID!
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    todoListId: String! @base64
+    id: ID!
+}
+
+input DissociateExternalTodoInput {
+    nodeId: ID!
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    todoListId: String! @base64
+    id: ID!
+}

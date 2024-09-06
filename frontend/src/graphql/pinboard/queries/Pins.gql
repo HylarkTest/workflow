@@ -1,0 +1,40 @@
+#import "../PinFragment.gql"
+
+query Pins(
+    $spaceId: ID,
+    $pinboardId: ID
+    $forMapping: ID,
+    $forNode: ID,
+    $search: [String!]
+    $filters: [PinFilterInput!]
+    $isFavorited: Boolean
+    $orderBy: [PinOrderBy!]
+    $after: String
+) {
+    pins(
+        spaceId: $spaceId,
+        pinboardId: $pinboardId,
+        forMapping: $forMapping,
+        forNode: $forNode,
+        search: $search,
+        after: $after,
+        filters: $filters,
+        isFavorited: $isFavorited,
+        orderBy: $orderBy,
+        first: 25
+    ) {
+        edges {
+            node {
+                ...Pin
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            total
+            rawTotal
+            # eslint-disable-next-line @graphql-eslint/fields-on-correct-type
+            hasFilterApplied @client
+        }
+    }
+}

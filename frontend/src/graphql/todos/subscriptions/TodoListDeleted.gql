@@ -1,0 +1,5 @@
+subscription TodoListDeleted {
+    todoListDeleted {
+        code
+    }
+}

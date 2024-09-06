@@ -1,0 +1,34 @@
+#import "../EmailFragment.gql"
+#import "../../account-integrations/AccountIntegrationFragment.gql"
+
+query GroupedEmails(
+    $search: String
+    $forNode: ID
+    $after: String
+) {
+    emails: groupedEmails(
+        group: "source",
+        forNode: $forNode,
+        search: $search,
+        after: $after,
+        first: 20
+    ) {
+        groups {
+            groupHeader
+            group {
+                ...on IntegrationAccount {
+                    ...IntegrationAccount
+                }
+            }
+            edges {
+                node {
+                    ...EmailMessage
+                }
+            }
+            pageInfo {
+                hasNextPage
+                endCursor
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+mutation DeleteCalendar($input: DeleteExternalCalendarInput!) {
+    deleteExternalCalendar(input: $input) {
+        success
+    }
+}

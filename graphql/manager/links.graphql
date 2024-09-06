@@ -1,0 +1,28 @@
+# If you are looking for link queries/fields that aren't here, try checking out the `FeatureListQuery.php` file where all the common feature queries are defined.
+
+extend type Link implements Node {
+    id: ID! @globalId(type: "Link")
+    name: String!
+    url: String!
+    description: String @stringArgs
+}
+
+enum LinkOrderField {
+    NAME @enum(value: "name")
+    LINK_LIST @enum(value: "linkList")
+    FAVORITES @enum(value: "favorited_at")
+    CREATED_AT @enum(value: "created_at")
+    UPDATED_AT @enum(value: "updated_at")
+}
+
+extend input CreateLinkInput {
+    name: String! @rules(customPrefix: "link", apply: ["filled", "max:255"])
+    description: String @rules(apply: ["max:5000"])
+    url: String @rules(customPrefix: "link", apply: ["required", "url", "max:1000"])
+}
+
+extend input UpdateLinkInput {
+    name: String @rules(customPrefix: "link", apply: ["filled", "max:255"])
+    description: String @rules(apply: ["max:5000"])
+    url: String @rules(customPrefix: "link", apply: ["filled", "url", "max:1000"])
+}

@@ -1,0 +1,9 @@
+#import "../TodoListFragment.gql"
+
+subscription TodoListMoved {
+    todoListMoved {
+        todoList {
+            ...TodoList
+        }
+    }
+}

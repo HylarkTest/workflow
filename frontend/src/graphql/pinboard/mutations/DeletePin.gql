@@ -1,0 +1,10 @@
+mutation DeletePin($input: DeletePinInput!) {
+    deletePin(input: $input) {
+        code
+        success
+        pinboard {
+            id
+            count: pinsCount
+        }
+    }
+}

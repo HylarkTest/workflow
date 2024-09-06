@@ -1,0 +1,38 @@
+{
+    "mapping":    {
+        "name": "Search firms",
+        "singular_name": "Firm",
+        "type": "ITEM",
+        "description": "Search firms I have shared my information with",
+        "features": [
+            {
+                "type": "PLANNER"
+            },
+            {
+                "type": "NOTES"
+            }
+        ],
+        "fields": [
+            {
+                "id": "logo",
+                "name": "Logo",
+                "type": "IMAGE",
+                "created_at": "2019-12-09 16:00:08",
+                "updated_at": "2019-12-09 16:00:08"
+            },
+            {
+                "id": "contact",
+                "name": "Main contact",
+                "type": "LINE",
+                "created_at": "2019-12-09 16:00:08",
+                "updated_at": "2019-12-09 16:00:08"
+            }
+        ],
+        "design": {
+            "icon": "fa-search"
+        }
+    },
+    "items": {
+
+    }
+}

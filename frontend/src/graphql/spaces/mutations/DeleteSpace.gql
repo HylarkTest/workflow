@@ -1,0 +1,6 @@
+mutation DeleteSpace($input: DeleteSpaceInput!) {
+    deleteSpace(input: $input) {
+        code
+        success
+    }
+}

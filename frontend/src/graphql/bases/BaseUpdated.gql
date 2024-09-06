@@ -1,0 +1,12 @@
+#import "./BaseFragment.gql"
+
+subscription BaseUpdated {
+    baseUpdated {
+        base {
+            id
+            node {
+                ...Base
+            }
+        }
+    }
+}

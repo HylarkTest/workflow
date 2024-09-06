@@ -1,0 +1,6 @@
+mutation DeleteMarkerGroup($input: DeleteMarkerGroupInput!) {
+    deleteMarkerGroup(input: $input) {
+        code
+        success
+    }
+}

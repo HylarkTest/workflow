@@ -1,0 +1,28 @@
+#import "../EmailFragment.gql"
+
+query Emails(
+    $mailboxId: ID
+    $sourceId: ID!
+    $search: String
+    $forNode: ID
+    $after: String
+) {
+    emails(
+        mailboxId: $mailboxId,
+        sourceId: $sourceId,
+        forNode: $forNode,
+        search: $search,
+        after: $after,
+        first: 20
+    ) {
+        edges {
+            node {
+                ...EmailMessage
+            }
+        }
+        pageInfo {
+            hasNextPage
+            endCursor
+        }
+    }
+}

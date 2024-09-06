@@ -1,0 +1,13 @@
+#import "../PinFragment.gql"
+#import "../../FetchesActionsFragment.gql"
+
+query Pin(
+    $id: ID!
+) {
+    pin(
+        id: $id,
+    ) {
+        ...Pin
+        ...FetchesActionsFragment
+    }
+}

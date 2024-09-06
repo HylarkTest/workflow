@@ -1,0 +1,39 @@
+type Relationship {
+    id: String!
+    name: String!
+    apiName: String!
+    type: RelationshipType!
+    toId: ID!
+    to: Mapping!
+    inverse: Relationship @method(name: "inverseRelationship")
+    isInverse: Boolean @rename(attribute: "inverse")
+}
+
+input CreateMappingRelationshipInput {
+    mappingId: ID! @globalId(decode: "ID", type: "Mapping")
+    name: String
+    apiName: String
+    type: RelationshipType!
+    to: ID
+    inverseName: String
+    inverseApiName: String
+}
+
+input UpdateMappingRelationshipInput {
+    mappingId: ID! @globalId(decode: "ID", type: "Mapping")
+    id: String!
+    name: String
+    apiName: String
+    inverseName: String
+    inverseApiName: String
+}
+
+input DeleteMappingRelationshipInput {
+    mappingId: ID! @globalId(decode: "ID", type: "Mapping")
+    id: String!
+}
+
+input RelationQueryInput {
+    relationId: String!
+    itemId: ID! @globalId(decode: "ID", type: "Item")
+}

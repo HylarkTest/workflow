@@ -1,0 +1,12 @@
+#import "./ImportFragment.gql"
+
+mutation CancelImport($input: CancelImportInput!) {
+    cancelImport(input: $input) {
+        code
+        success
+        message
+        import {
+            ...Import
+        }
+    }
+}

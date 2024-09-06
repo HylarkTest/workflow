@@ -1,0 +1,28 @@
+#import "../markers/MarkerCollectionFragment.gql"
+#import "../items/AssociationCollectionFragment.gql"
+#import "../bases/AssigneeCollectionFragment.gql"
+
+fragment Pin on Pin {
+    id
+    name
+    image {
+        id
+        filename
+        url
+        downloadUrl
+        mimeType
+    }
+    description
+    isFavorite
+    createdAt
+    updatedAt
+    pinboard {
+        id
+        name
+        color
+        space { id name }
+    }
+    ...MarkerCollection
+    ...AssociationCollection
+    ...AssigneeCollection
+}

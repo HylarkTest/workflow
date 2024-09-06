@@ -1,0 +1,10 @@
+#import "../PinFragment.gql"
+
+mutation UpdatePin($input: UpdatePinInput!) {
+    updatePin(input: $input) {
+        code
+        pin {
+            ...Pin
+        }
+    }
+}

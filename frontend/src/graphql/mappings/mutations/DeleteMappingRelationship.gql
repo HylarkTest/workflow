@@ -1,0 +1,12 @@
+#import "../MappingRelationshipsFragment.gql"
+
+mutation DeleteMappingRelationship($input: DeleteMappingRelationshipInput!) {
+    deleteMappingRelationship(input: $input) {
+        code
+        success
+        mapping {
+            id
+            ...Relationships
+        }
+    }
+}

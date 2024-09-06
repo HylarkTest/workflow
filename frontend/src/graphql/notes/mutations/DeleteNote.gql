@@ -1,0 +1,10 @@
+mutation DeleteNote($input: DeleteNoteInput!) {
+    deleteNote(input: $input) {
+        code
+        success
+        notebook {
+            id
+            count: notesCount
+        }
+    }
+}

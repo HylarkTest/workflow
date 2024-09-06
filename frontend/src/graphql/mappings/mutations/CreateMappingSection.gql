@@ -1,0 +1,12 @@
+#import "../MappingSectionsFragment.gql"
+
+mutation CreateMappingSection($input: CreateMappingSectionInput!) {
+    createMappingSection(input: $input) {
+        code
+        success
+        mapping {
+            id
+            ...Sections
+        }
+    }
+}

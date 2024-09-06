@@ -1,0 +1,90 @@
+#import events.graphql
+#import notes.graphql
+#import links.graphql
+#import documents.graphql
+#import pinboard.graphql
+#import markers.graphql
+#import timekeeper.graphql
+#import todos.graphql
+#import mail.graphql
+
+extend type Query {
+    search(
+        query: String,
+        first: Int! = 25,
+        after: String,
+        types: [String],
+        spaceId: ID,
+        orderBy: [SearchOrderBy],
+    ): SearchResultsConnection @field(resolver: "SearchQuery")
+}
+
+input SearchOrderBy {
+    direction: SortOrder!
+    field: SearchOrderField!
+}
+
+enum SearchOrderField {
+    MATCH
+    CREATED_AT
+    UPDATED_AT
+}
+
+type SearchResultsConnection {
+    edges: [SearchResultEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type SearchResultEdge {
+    node: Findable!
+    cursor: String!
+    highlights: [SearchResultHighlights!]
+}
+
+type SearchResultHighlights {
+    highlight: String!
+    path: String!
+}
+
+interface Findable @interface(resolveType: "App\\GraphQL\\TypeResolver@resolveType") {
+    id: ID!
+}
+
+interface FeatureList {
+    id: ID!
+    spaceId: ID!
+    name: String!
+    order: Int!
+    isDefault: Boolean!
+    templateRefs: [String!]
+    color: Color
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    space: Space!
+}
+
+interface FeatureItem {
+    id: ID!
+    name: String
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+interface FeatureItemEdge {
+    node: FeatureItem!
+    cursor: String!
+}
+
+interface FeatureItemConnection @interface(resolveType: "App\\GraphQL\\TypeResolver@resolveConnection") {
+    edges: [FeatureItemEdge!]!
+    pageInfo: PageInfo!
+}
+
+interface GroupedFeatureItemConnection {
+    groupHeader: String
+    group: Groupable
+    edges: [FeatureItemEdge!]!
+    pageInfo: PageInfo!
+}
+
+union Groupable = Marker | TodoList | Calendar | Pinboard | LinkList | Drive | Notebook | CategoryItem | IntegrationAccount

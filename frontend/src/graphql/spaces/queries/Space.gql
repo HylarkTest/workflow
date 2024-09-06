@@ -1,0 +1,19 @@
+#import "../SpaceFragment.gql"
+#import "../../pages/PageFragment.gql"
+
+query Space($id: ID!) {
+    space(id: $id) {
+        ...Space
+        pages(first: 100) {
+            edges {
+                node {
+                    id
+                    ...Page
+                    space {
+                        ...Space
+                    }
+                }
+            }
+        }
+    }
+}

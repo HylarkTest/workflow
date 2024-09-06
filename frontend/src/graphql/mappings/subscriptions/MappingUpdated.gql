@@ -1,0 +1,36 @@
+#import "../MappingFragment.gql"
+
+subscription MappingUpdated {
+    mappingUpdated {
+        mapping {
+            ...Mapping
+            pages {
+                id
+                # Mapping changes often affect the pages, so we need to refetch them
+                ...on EntityPage {
+                    newData {
+                        fields
+                        markers
+                    }
+                }
+                ...on EntitiesPage {
+                    design
+                    fieldFilters {
+                        fieldId
+                        match
+                        operator
+                    }
+                    markerFilters {
+                        markerId
+                        operator
+                        context
+                    }
+                    newData {
+                        fields
+                        markers
+                    }
+                }
+            }
+        }
+    }
+}

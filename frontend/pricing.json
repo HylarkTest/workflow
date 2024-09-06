@@ -1,0 +1,410 @@
+{
+    "planSummaries": {
+        "core": {
+            "monthlyPrice": 0,
+            "yearlyPrice": 0,
+            "features": [
+                "Full data customization, with 50+ field types",
+                "20+ design templates and personalized style options",
+                "List, Kanban, and spreadsheet views",
+                "Tasks, notes, attachments, and more",
+                "Calendar and scheduling",
+                "Up to 5 pages",
+                "Security and privacy"
+            ]
+        },
+        "early": {
+            "monthlyPrice": 5,
+            "yearlyPrice": 50,
+            "freeTrial": true,
+            "features": [
+                "Up to 50 pages and 10,000 records",
+                "More design templates, skins, and icons",
+                "8GB file storage",
+                "Full activity log"
+            ],
+            "pendingFeatures": [
+                "Unlimited sharing",
+                "Advanced statistics and metrics",
+                "Goals and time keeping"
+            ]
+        }
+    },
+    "featureSections": {
+        "fundamentals": {
+            "features": {
+                "users": {
+                    "plans": {
+                        "core": {
+                            "value": 1,
+                            "text": "Single user account"
+                        },
+                        "early": {
+                            "value": 1,
+                            "text": "Single user account"
+                        }
+                    },
+                    "title": "Users",
+                    "explanation": "The maximum number of users per account"
+                },
+                "storage": {
+                    "plans": {
+                        "core": {
+                            "value": 1,
+                            "text": "1GB file storage"
+                        },
+                        "early": {
+                            "value": 8,
+                            "text": "8GB file storage"
+                        }
+                    },
+                    "title": "File storage",
+                    "explanation": "This is your space to save your documents, images, or videos on Hylark. More space means you will be able to store more files. "
+                },
+                "spaces": {
+                    "plans": {
+                        "core": {
+                            "value": 1,
+                            "text": "1"
+                        },
+                        "early": {
+                            "value": 50,
+                            "text": "50"
+                        }
+                    },
+                    "title": "Spaces",
+                    "explanation": "Spaces group your pages, so that you can organize your data based on function. You can have a space dedicated to your work, where you manage your clients, schedule, and projects. You can have a separate space for an additional business, for hobbies, or anything else you want to keep distinct. "
+                },
+                "pages": {
+                    "plans": {
+                        "core": {
+                            "value": 8,
+                            "text": "8"
+                        },
+                        "early": {
+                            "value": 100,
+                            "text": "100"
+                        }
+                    },
+                    "title": "Pages",
+                    "explanation": "Pages are the place where you manage your work and data (e.g. your projects, contacts, or events you are planning). "
+                },
+                "records": {
+                    "plans": {
+                        "core": {
+                            "value": 500,
+                            "text": "Up to 500"
+                        },
+                        "early": {
+                            "value": 10000,
+                            "text": "Up to 10,000"
+                        }
+                    },
+                    "title": "Records",
+                    "explanation": "Pages contain records. A record can be anything - a client, a project, a meeting, an idea, a travel destination. "
+                },
+                "log": {
+                    "plans": {
+                        "core": {
+                            "value": 30,
+                            "text": " month "
+                        },
+                        "early": {
+                            "value": "INF",
+                            "text": "Unlimited"
+                        }
+                    },
+                    "title": "Activity log",
+                    "explanation": "Track all changes and see when data was modified on which date"
+                },
+                "dataTemplates": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Quick-start templates",
+                    "explanation": "Use our templates to easily and quickly create your account, ready to be used"
+                }
+            },
+            "title": "Fundamentals"
+        },
+        "customizations": {
+            "features": {
+                "data": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Data customization",
+                    "explanation": "You can customize your pages, records, and the fields you work with. You can also add your own tags and relationships."
+                },
+                "fieldTypes": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "50+ field types",
+                    "explanation": "Add rich fields to your records. Types include text, paragraph, dates, dropdowns, sliders, numbers, and more."
+                },
+                "views": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "List, Kanban, and spreadsheet views",
+                    "explanation": "Switch between views for the ideal layout for your records"
+                },
+                "designTemplates": {
+                    "plans": {
+                        "core": {
+                            "value": 24,
+                            "text": "24 templates"
+                        },
+                        "early": {
+                            "value": 50,
+                            "text": "50 templates"
+                        }
+                    },
+                    "title": "Design templates",
+                    "explanation": "Use design templates to get your data displayed as you want it. "
+                },
+                "color": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Color and basic personalization",
+                    "explanation": "Select a colour for your account"
+                },
+                "personalStyle": {
+                    "plans": {
+                        "core": {
+                            "value": false
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Expanded style options",
+                    "explanation": "Access to more icons and more options for design personalization"
+                },
+                "branded": {
+                    "plans": {
+                        "core": {
+                            "value": false
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Branded experience",
+                    "explanation": "Your Hylark experience can be branded with your logo"
+                }
+            },
+            "title": "Customizations and views"
+        },
+        "productivity": {
+            "features": {
+                "main": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Core features",
+                    "explanation": "Access tasks, meetings, notes, attachments and other features that will make managing your records easy"
+                },
+                "calendar": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Calendar sync",
+                    "explanation": "Sync your Outlook calendar, Google calendar, iCalendar, and more, so that you can view meetings and events from those calendars on Hylark, and events you add on Hylark will also be accessible in your other calendar. "
+                },
+                "email": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Email integration",
+                    "explanation": "Access your emails in context on Hylark"
+                },
+                "goals": {
+                    "pending": true,
+                    "plans": {
+                        "core": {
+                            "value": false
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Goals",
+                    "explanation": "Use goals to keep track of targets and measure progress"
+                },
+                "timeKeeper": {
+                    "pending": true,
+                    "plans": {
+                        "core": {
+                            "value": false
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Time keeper",
+                    "explanation": "Keep track of stages and progress on your records"
+                },
+                "analytics": {
+                    "pending": true,
+                    "plans": {
+                        "core": {
+                            "value": false,
+                            "text": "Basic"
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Analytics",
+                    "explanation": "Get insights into your data with custom statistics and metrics"
+                }
+            },
+            "title": "Productivity"
+        },
+        "collaboration": {
+            "features": {
+                "sharing": {
+                    "pending": true,
+                    "plans": {
+                        "core": {
+                            "value": 3,
+                            "text": " 3 invites"
+                        },
+                        "early": {
+                            "value": "INF",
+                            "text": "Unlimited"
+                        }
+                    },
+                    "title": "Sharing",
+                    "explanation": "Share your spaces, pages or records with others"
+                }
+            },
+            "title": "Collaboration"
+        },
+        "security": {
+            "features": {
+                "2fa": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Two-factor authentication",
+                    "explanation": "Logging in requires a secondary code confirmation for added security"
+                },
+                "device": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "New device verification",
+                    "explanation": "When logging in with a new device, a confirmation email is sent to protect your account from being accessed"
+                }
+            },
+            "title": "Security and privacy"
+        },
+        "support": {
+            "features": {
+                "documentation": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Self-serve knowledge base",
+                    "explanation": "Access to tutorials, videos, articles and documentation for Hylark"
+                },
+                "email": {
+                    "plans": {
+                        "core": {
+                            "value": true
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Email and live chat",
+                    "explanation": "Receive support through email or live chat"
+                },
+                "phone": {
+                    "plans": {
+                        "core": {
+                            "value": false
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Phone support",
+                    "explanation": "Receive phone support from Hylark's customer service team"
+                },
+                "priority": {
+                    "plans": {
+                        "core": {
+                            "value": false
+                        },
+                        "early": {
+                            "value": true
+                        }
+                    },
+                    "title": "Priority support",
+                    "explanation": "Receive priority support when you make a query"
+                }
+            },
+            "title": "Support"
+        }
+    }
+}

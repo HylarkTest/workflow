@@ -1,0 +1,14 @@
+@import "./reset.css";
+@import "./table-reset.css";
+@import "./global.css";
+@import "./plugins.css";
+@import "./utilities.css";
+@import "./transitions.css";
+@import "./settings.css";
+@import "./buttons.css";
+/*@import "./colorMode.css";*/
+@import url("https://fonts.googleapis.com/css?family=Figtree:400,500,600,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

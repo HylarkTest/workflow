@@ -1,0 +1,102 @@
+#import "./ExtrasFragmentsForLinks.gql"
+
+fragment SpaceLinks on Space {
+    id
+    name
+#    logo
+    createdAt
+    pages(first: 100) {
+        edges {
+            node {
+                id
+                name
+                folder
+                symbol
+                type
+                image
+                ...on EntityPage {
+                    mapping {
+                        id
+                        name
+                        apiSingularName
+                    }
+                    item @client {
+                        ...RecentItemFragment
+                    }
+                }
+                ...on EntitiesPage {
+                    mapping {
+                        id
+                        name
+                        apiSingularName
+                    }
+                    recentItems: items(
+                        orderBy: [{ field: "UPDATED_AT", direction: DESC }], first: 3
+                    ) @client {
+                        ...RecentItemsFragment
+                    }
+                }
+                ...on ListPage {
+                    recentFeatureItems: listItems(
+                        orderBy: [{ field: "UPDATED_AT", direction: DESC }], first: 3
+                    ) @client {
+                        ...RecentFeatureItemsFragment
+                    }
+                }
+            }
+        }
+    }
+}
+
+query NavLinks {
+    spaces(first: 100) {
+        edges {
+            node {
+                ...SpaceLinks
+            }
+        }
+    }
+#    teams(first: 100) {
+#        edges {
+#            node {
+#                id
+#                name
+#                logo
+#                spaces(first: 100) {
+#                    edges {
+#                        node {
+#                            ...Link
+#                        }
+#                    }
+#                }
+#                mappings(first: 100, withSpace: false) {
+#                    edges {
+#                        node {
+#                            ...Mapping
+#                        }
+#                    }
+#                }
+#            }
+#        }
+#    }
+#    sharedDomains(first: 100) {
+#        edges {
+#            node {
+#                spaces(first: 100) {
+#                    edges {
+#                        node {
+#                            ...Link
+#                        }
+#                    }
+#                }
+#                mappings(first: 100) {
+#                    edges {
+#                        node {
+#                            ...Mapping
+#                        }
+#                    }
+#                }
+#            }
+#        }
+#    }
+}

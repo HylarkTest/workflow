@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\CustomActions;
+
+use Actions\Models\Action;
+use App\Core\ActionTranslator;
+
+class MappingFieldSavedAction extends Action
+{
+    public function changes(): ?array
+    {
+        $translator = $this->getSubjectActionTranslator();
+
+        if (! $this->payload || ! $translator) {
+            return null;
+        }
+
+        return ActionTranslator::mapPayload($this->payload, function ($change, $original, $event, $field) use ($translator) {
+            return [
+                'description' => $translator->translateEvent($this, $event, $field),
+                'before' => is_string_castable($original) ? (string) $original : null,
+                'after' => is_string_castable($change) ? (string) $change : null,
+                'type' => 'line',
+            ];
+        });
+    }
+}

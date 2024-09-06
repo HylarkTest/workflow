@@ -1,0 +1,9 @@
+#import "../MailboxFragment.gql"
+
+query Mailboxes($sourceId: ID!) {
+    mailboxes(sourceId: $sourceId) {
+        data {
+            ...Mailbox
+        }
+    }
+}

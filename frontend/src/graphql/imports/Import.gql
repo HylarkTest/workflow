@@ -1,0 +1,7 @@
+#import './ImportFragment.gql'
+
+query Import($id: ID!) {
+    import(id: $id) {
+        ...Import
+    }
+}

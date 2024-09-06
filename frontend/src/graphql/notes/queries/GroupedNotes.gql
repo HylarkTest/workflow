@@ -1,0 +1,46 @@
+#import "../NoteFragment.gql"
+#import "../../GroupableFragment.gql"
+
+query GroupedNotes(
+    $group: String!
+    $spaceId: ID
+    $notebookId: ID
+    $forMapping: ID,
+    $forNode: ID,
+    $search: [String!]
+    $filters: [NoteFilterInput!]
+    $isFavorited: Boolean
+    $orderBy: [NoteOrderBy!]
+    $after: String
+) {
+    groupedNotes(
+        group: $group,
+        spaceId: $spaceId,
+        notebookId: $notebookId,
+        forMapping: $forMapping,
+        forNode: $forNode,
+        search: $search,
+        filters: $filters,
+        isFavorited: $isFavorited,
+        orderBy: $orderBy,
+        after: $after,
+        first: 50,
+    ) {
+        groups {
+            groupHeader
+            group {
+                ...Groupable
+            }
+            edges {
+                node {
+                    ...Note
+                }
+            }
+            pageInfo {
+                total
+                endCursor
+                hasNextPage
+            }
+        }
+    }
+}

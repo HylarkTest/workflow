@@ -1,0 +1,33 @@
+fragment MarkerCollection on Markable {
+    markerGroups {
+        group {
+            id
+            name
+            type
+        }
+        ...on TagMarkerCollection {
+            markers {
+                id
+                name
+                color
+                order
+            }
+        }
+        ...on PipelineMarkerCollection {
+            markers {
+                id
+                name
+                color
+                order
+            }
+        }
+        ...on StatusMarkerCollection {
+            marker {
+                id
+                name
+                color
+                order
+            }
+        }
+    }
+}

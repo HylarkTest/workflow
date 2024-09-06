@@ -1,0 +1,6 @@
+mutation DeleteSavedFilter($input: DeleteSavedFilterInput!) {
+    deleteSavedFilter(input: $input) {
+        code
+        success
+    }
+}

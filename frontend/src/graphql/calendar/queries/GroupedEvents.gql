@@ -1,0 +1,44 @@
+#import "../EventFragment.gql"
+#import "../../GroupableFragment.gql"
+
+query GroupedEvents(
+    $group: String!
+    $spaceId: ID
+    $calendarId: ID
+    $forMapping: ID,
+    $forNode: ID,
+    $search: [String!]
+    $filters: [EventFilterInput!]
+    $orderBy: [EventOrderBy!]
+    $after: String
+) {
+    groupedEvents(
+        group: $group,
+        spaceId: $spaceId,
+        calendarId: $calendarId,
+        forMapping: $forMapping,
+        forNode: $forNode,
+        search: $search,
+        filters: $filters,
+        orderBy: $orderBy,
+        after: $after,
+        first: 50,
+    ) {
+        groups {
+            groupHeader
+            group {
+                ...Groupable
+            }
+            edges {
+                node {
+                    ...Event
+                }
+            }
+            pageInfo {
+                total
+                endCursor
+                hasNextPage
+            }
+        }
+    }
+}

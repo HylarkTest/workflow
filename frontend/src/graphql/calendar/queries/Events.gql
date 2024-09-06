@@ -1,0 +1,41 @@
+#import "../EventFragment.gql"
+
+query Events(
+    $spaceId: ID,
+    $includeRecurringInstances: Boolean
+    $orderBy: [EventOrderBy!]
+    $calendarId: ID
+    $forMapping: ID
+    $forNode: ID
+    $search: [String!]
+    $filters: [EventFilterInput!]
+    $startsBefore: DateTime
+    $endsAfter: DateTime
+    $after: String
+    $first: Int! = 50
+) {
+    events(
+        spaceId: $spaceId,
+        calendarId: $calendarId,
+        includeRecurringInstances: $includeRecurringInstances,
+        orderBy: $orderBy,
+        forMapping: $forMapping,
+        forNode: $forNode,
+        search: $search,
+        filters: $filters,
+        startsBefore: $startsBefore,
+        endsAfter: $endsAfter,
+        after: $after,
+        first: $first
+    ) {
+        edges {
+            node {
+                ...Event
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

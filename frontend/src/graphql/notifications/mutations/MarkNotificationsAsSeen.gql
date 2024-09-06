@@ -1,0 +1,10 @@
+mutation MarkNotificationsAsSeen {
+    markNotificationsAsSeen {
+        code
+        success
+        user {
+            id
+            newNotificationsCount
+        }
+    }
+}

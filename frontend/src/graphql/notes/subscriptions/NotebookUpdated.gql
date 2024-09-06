@@ -1,0 +1,9 @@
+#import "../NotebookFragment.gql"
+
+subscription NotebookUpdated {
+    notebookUpdated {
+        notebook {
+            ...Notebook
+        }
+    }
+}

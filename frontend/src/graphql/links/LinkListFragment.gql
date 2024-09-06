@@ -1,0 +1,5 @@
+#import "../FeatureListFragment.gql"
+
+fragment LinkList on LinkList {
+    ...FeatureList
+}

@@ -1,0 +1,50 @@
+/* stylelint-disable at-rule-no-unknown */
+@import "./plugins.css";
+@import "./utilities.css";
+@import "./transitions.css";
+@import "./settings.css";
+@import "./buttons.css";
+/*@import "./colorMode.css";*/
+@import url("https://fonts.googleapis.com/css?family=Figtree:400,500,600,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@config "../../cookie-banner-tailwind.config.js";
+
+div {
+    border: 0;
+}
+
+#hylark-cookie-banner {
+    font-family: Figtree, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
+
+    button {
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+    /* stylelint-disable plugin/no-unsupported-browser-features */
+    input, textarea {
+        appearance: none;
+        outline: 0 !important;
+    }
+
+    .o-cookie-banner {
+        width: -moz-available;
+        width: -webkit-fill-available;
+    }
+
+    .button-primary--border {
+        border: 1px solid;
+    }
+}

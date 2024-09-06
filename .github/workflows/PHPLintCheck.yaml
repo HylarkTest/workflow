@@ -1,0 +1,43 @@
+name: PHP lint check
+
+on:
+  pull_request_review:
+    branches: [master]
+    types: [submitted]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'
+        extensions: imagick, imap, redis, sockets, xdebug, zip
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v4
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+
+    - name: Install dependencies
+      env:
+        FIXER_API_KEY: ${{ secrets.FIXER_API_KEY }}
+      run: |
+        composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_PASSWORD }}
+        composer install --no-progress --ignore-platform-reqs
+
+    - name: Lint PHP
+      run: composer lint-check-quiet

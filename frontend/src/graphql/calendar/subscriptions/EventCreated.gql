@@ -1,0 +1,12 @@
+#import "../EventFragment.gql"
+
+subscription EventCreated {
+    eventCreated {
+        event {
+            ...Event
+        }
+        calendar {
+            id
+        }
+    }
+}

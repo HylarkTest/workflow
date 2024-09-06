@@ -1,0 +1,7 @@
+#import "./BaseEdgeFragment.gql"
+
+query Bases {
+    bases {
+        ...BaseEdge
+    }
+}

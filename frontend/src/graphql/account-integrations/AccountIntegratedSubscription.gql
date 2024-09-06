@@ -1,0 +1,7 @@
+#import "./AccountIntegrationFragment.gql"
+
+subscription AccountIntegrated {
+    accountIntegrated {
+        ...IntegrationAccount
+    }
+}

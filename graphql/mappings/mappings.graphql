@@ -1,0 +1,220 @@
+#import fields.graphql
+#import categories.graphql
+#import relationships.graphql
+#import items.graphql
+#import imports.graphql
+
+extend type Query @guard(with: ["web", "api"]) {
+    mappings(
+        first: Int! = 25
+        after: String
+        name: String
+        type: MappingType
+        spaceId: ID @globalId(type: "Space", decode: "ID")
+    ): MappingConnection @field(resolver: "Mappings\\MappingQuery@index")
+    mapping(
+        id: ID @globalId(decode: "ID", type: "Mapping")
+        itemId: ID @globalId(decode: "ID", type: "Item")
+    ): Mapping @field(resolver: "Mappings\\MappingQuery@show")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    createMapping(input: MappingCreateInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingQuery@store") @broadcastNodeCreated(subscription: "mappingCreated", nodeField: "mapping")
+    updateMapping(input: MappingUpdateInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingQuery@update") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    deleteMapping(input: MappingDeleteInput): SuccessfulMutationResponse! @field(resolver: "Mappings\\MappingQuery@destroy") @broadcastNodeDeleted(subscription: "mappingDeleted")
+
+    createMappingField(input: CreateMappingFieldInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingFieldQuery@store") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    updateMappingField(input: UpdateMappingFieldInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingFieldQuery@update") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    deleteMappingField(input: DeleteMappingFieldInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingFieldQuery@destroy") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    createMappingRelationship(input: CreateMappingRelationshipInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingRelationshipQuery@store") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    updateMappingRelationship(input: UpdateMappingRelationshipInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingRelationshipQuery@update") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    deleteMappingRelationship(input: DeleteMappingRelationshipInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingRelationshipQuery@destroy") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    createMappingSection(input: CreateMappingSectionInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingSectionQuery@store") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    updateMappingSection(input: UpdateMappingSectionInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingSectionQuery@update") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    deleteMappingSection(input: DeleteMappingSectionInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingSectionQuery@destroy") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+
+    createOrUpdateMappingFeature(input: MappingFeatureInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingFeatureQuery@store") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    deleteMappingFeature(input: DeleteMappingFeatureInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingFeatureQuery@destroy") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+
+    createMappingMarkerGroup(input: CreateMappingMarkerGroupInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingMarkerGroupQuery@store") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    updateMappingMarkerGroup(input: UpdateMappingMarkerGroupInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingMarkerGroupQuery@update") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+    deleteMappingMarkerGroup(input: DeleteMappingMarkerGroupInput!): MappingMutationResponse! @field(resolver: "Mappings\\MappingMarkerGroupQuery@destroy") @broadcastNodeUpdated(subscription: "mappingUpdated", nodeField: "mapping")
+}
+
+extend type Subscription {
+    mappingCreated: MappingMutationResponse
+    mappingUpdated: MappingMutationResponse
+    mappingDeleted: MappingMutationResponse
+}
+
+type Section {
+    id: String!
+    name: String!
+}
+
+type MappingStats {
+    total: Int!
+    overdueTodos: Int
+    upcomingEvents: Int
+}
+
+type Mapping implements ActionSubject @node {
+    templateRefs: [String!]
+    name: String!
+    apiName: String!
+    singularName: String!
+    apiSingularName: String!
+    description: String
+    type: MappingType!
+    fields(sections: [String]): [Field!]! @method(name: "queryFields")
+    relationships: [Relationship!]! @method(name: "relationshipsWithMappings")
+    sections: [Section!]!
+    features: [MappingFeature!]
+    markerGroups: [MappingMarkerGroup!]
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    space: Space @belongsTo
+    pages: [ItemPage] @hasMany
+    items(
+        forRelation: RelationQueryInput
+        filter: [ItemFilterInput!]
+        fields: [FieldFilterInput!]
+        markers: [MarkerFilterInput!]
+        orderBy: [OrderByClause!]
+        first: Int! = 25
+        after: String
+    ): ItemConnection @field(resolver: "App\\GraphQL\\Queries\\Items\\ItemQuery@index")
+}
+
+type MappingMarkerGroup {
+    id: String
+    name: String!
+    apiName: String
+    type: MarkerType!
+    relationship: Relationship
+    group: MarkerGroup! @batchLoad(type: "MarkerGroup")
+}
+
+type MappingFeature {
+    val: MappingFeatureType @method(name: "type")
+    options: JSON
+}
+
+type MappingConnection {
+    edges: [MappingEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type MappingEdge {
+    node: Mapping!
+    cursor: String!
+}
+
+type MappingMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    mapping: Mapping
+}
+
+input MappingCreateInput {
+    spaceId: ID! @globalId(type: "Space", decode: "ID")
+    name: String! @rules(apply: ["max:50", "filled"])
+    apiName: String @rules(apply: ["max:50", "filled", "api_name"])
+    singularName: String @rules(apply: ["max:50", "filled"])
+    apiSingularName: String @rules(apply: ["max:50", "filled", "api_name"])
+    type: MappingType = ITEM
+    description: String @rules(apply: ["max:2000"])
+    fields: [CreateMappingFieldInput!]
+    features: [MappingFeatureInput!]
+}
+
+input MappingUpdateInput {
+    id: ID! @globalId(decode: "ID", type: "Mapping")
+    name: String @rules(apply: ["max:50", "filled"])
+    apiName: String @rules(apply: ["max:50", "filled", "api_name"])
+    singularName: String @rules(apply: ["max:50", "filled"])
+    apiSingularName: String @rules(apply: ["max:50", "filled", "api_name"])
+    description: String @rules(apply: ["max:2000"])
+    features: [MappingFeatureInput!]
+    markerGroups: [CreateMappingMarkerGroupInput!]
+}
+
+input MappingDeleteInput {
+    id: ID! @globalId(decode: "ID", type: "Mapping")
+}
+
+input CreateMappingSectionInput {
+    mappingId: ID! @globalId(decode: "ID", type: "Mapping")
+    name: String!
+}
+
+input UpdateMappingSectionInput {
+    mappingId: ID! @globalId(decode: "ID", type: "Mapping")
+    id: String!
+    name: String!
+}
+
+input DeleteMappingSectionInput {
+    mappingId: ID! @globalId(decode: "ID", type: "Mapping")
+    id: String!
+}
+
+input MappingFeatureInput {
+    mappingId: ID @globalId(decode: "ID", type: "Mapping")
+    val: MappingFeatureType
+    options: JSON
+}
+
+input DeleteMappingFeatureInput {
+    mappingId: ID! @globalId(decode: "ID", type: "Mapping")
+    val: MappingFeatureType
+}
+
+input CreateMappingMarkerGroupInput {
+    mappingId: ID @globalId(decode: "ID", type: "Mapping")
+    name: String
+    apiName: String
+    relationship: String
+    group: ID @globalId(type: "MarkerGroup", decode: "ID")
+}
+
+input UpdateMappingMarkerGroupInput {
+    mappingId: ID! @globalId(decode: "ID", type: "Mapping")
+    id: String!
+    name: String
+    apiName: String
+    type: MarkerType
+}
+
+input DeleteMappingMarkerGroupInput {
+    mappingId: ID! @globalId(decode: "ID", type: "Mapping")
+    id: String!
+}
+
+enum BooleanOperator {
+    AND
+    OR
+}
+
+input ItemFilterInput {
+    boolean: BooleanOperator = AND
+    filters: [ItemFilterInput!]
+    fields: [FieldFilterInput!]
+    markers: [MarkerFilterInput!]
+    search: [String!]
+    isFavorited: Boolean
+    priority: Int
+}
+
+input FieldFilterInput {
+    fieldId: String!
+    operator: FieldFilterOperator!
+    match: JSON!
+}
+
+input MarkerFilterInput {
+    markerId: ID!
+    context: String
+    operator: MarkerFilterOperator! = IS
+}

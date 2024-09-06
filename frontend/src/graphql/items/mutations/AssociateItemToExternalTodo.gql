@@ -1,0 +1,11 @@
+#import "../AssociationCollectionFragment.gql"
+
+mutation AssociateItemToExternalTodo($input: AssociateExternalTodoInput!) {
+    associateExternalTodo(input: $input) {
+        code
+        node: todo {
+            id
+            ...AssociationCollection
+        }
+    }
+}

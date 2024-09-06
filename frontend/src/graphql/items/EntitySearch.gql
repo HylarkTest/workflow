@@ -1,0 +1,55 @@
+query EntitySearch(
+    $first: Int! = 25,
+    $after: String,
+    $type: MappingType,
+    $hasEmails: Boolean,
+    $due: Boolean,
+    $search: String,
+    $withFeatures: [MappingFeatureType!],
+    $spaceId: ID,
+    $mappingId: ID,
+    $orderBy: [ItemSearchOrderBy!]
+) {
+    allItems(
+        first: $first,
+        after: $after,
+        type: $type,
+        mappingId: $mappingId,
+        hasEmails: $hasEmails,
+        search: $search,
+        withFeatures: $withFeatures,
+        due: $due,
+        orderBy: $orderBy,
+        spaceId: $spaceId
+    ) {
+        edges {
+            node {
+                id
+                spaceId
+                name
+                image { url }
+                emails
+                mapping {
+                    id
+                    name
+                    apiName
+                    apiSingularName
+                }
+                pages {
+                    id
+                    name
+                    symbol
+                }
+                deadlines {
+                    startAt
+                    dueBy
+                    isCompleted
+                    status
+                }
+            }
+        }
+        pageInfo {
+            endCursor
+        }
+    }
+}

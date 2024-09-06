@@ -1,0 +1,40 @@
+#import "../NoteFragment.gql"
+
+query Notes(
+    $spaceId: ID,
+    $notebookId: ID
+    $forMapping: ID,
+    $forNode: ID,
+    $search: [String!]
+    $filters: [NoteFilterInput!]
+    $isFavorited: Boolean
+    $orderBy: [NoteOrderBy!]
+    $after: String
+) {
+    notes(
+        spaceId: $spaceId,
+        notebookId: $notebookId,
+        forMapping: $forMapping,
+        forNode: $forNode,
+        search: $search,
+        after: $after,
+        filters: $filters,
+        isFavorited: $isFavorited,
+        orderBy: $orderBy,
+        first: 25
+    ) {
+        edges {
+            node {
+                ...Note
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            total
+            rawTotal
+            # eslint-disable-next-line @graphql-eslint/fields-on-correct-type
+            hasFilterApplied @client
+        }
+    }
+}

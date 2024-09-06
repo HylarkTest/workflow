@@ -1,0 +1,15 @@
+#import "../MarkerFragment.gql"
+#import "../MarkerGroupFragment.gql"
+
+mutation MoveMarker($input: MoveMarkerInput!) {
+    moveMarker(input: $input) {
+        code
+        success
+        marker {
+            ...Marker
+        }
+        markerGroup {
+            ...MarkerGroup
+        }
+    }
+}

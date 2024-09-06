@@ -1,0 +1,30 @@
+#import "../items/AssociationCollectionFragment.gql"
+
+fragment ExternalEvent on ExternalEvent {
+    id
+    primaryId
+    name
+    date: startAt
+    end: endAt
+    description
+    isAllDay
+    priority
+    updatedAt
+    location
+    recurrence {
+        frequency
+        interval
+        byDay
+    }
+    calendar {
+        id
+        name
+        color
+    }
+    account {
+        id
+        provider
+        accountName
+    }
+    ...AssociationCollection
+}

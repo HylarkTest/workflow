@@ -1,0 +1,13 @@
+fragment Field on Field {
+    id
+    name
+    apiName
+    type
+    createdAt
+    updatedAt
+    options
+    meta
+    section
+    # eslint-disable-next-line @graphql-eslint/fields-on-correct-type
+    val @client
+}

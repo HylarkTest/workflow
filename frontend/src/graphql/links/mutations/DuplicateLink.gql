@@ -1,0 +1,15 @@
+#import "../LinkFragment.gql"
+
+mutation DuplicateLink($input: DuplicateLinkInput!) {
+    duplicateLink(input: $input) {
+        code
+        success
+        link {
+            ...Link
+        }
+        linkList {
+            id
+            count: linksCount
+        }
+    }
+}

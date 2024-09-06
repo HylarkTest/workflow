@@ -1,0 +1,13 @@
+#import "../NoteFragment.gql"
+
+subscription NoteUpdated($forNode: ID, $forMapping: ID) {
+    noteUpdated {
+        note {
+            ...Note
+        }
+        notebook {
+            id
+            count: notesCount(forNode: $forNode, forMapping: $forMapping)
+        }
+    }
+}

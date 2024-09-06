@@ -1,0 +1,29 @@
+.u-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* stylelint-disable plugin/no-unsupported-browser-features */
+.u-hyphen {
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.u-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.u-text {
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    @apply
+        leading-tight
+    ;
+}
+/* stylelint-enable */

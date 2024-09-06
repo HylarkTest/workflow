@@ -1,0 +1,7 @@
+#import './ProgressTrackerFragment.gql'
+
+subscription ProgressTrackerUpdated($taskId: ID!) {
+    progressTrackerUpdated(taskId: $taskId) {
+        ...ProgressTracker
+    }
+}

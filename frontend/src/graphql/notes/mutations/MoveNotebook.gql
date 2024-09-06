@@ -1,0 +1,11 @@
+#import "../NotebookFragment.gql"
+
+mutation MoveNotebook($input: MoveNotebookInput!) {
+    moveList: moveNotebook(input: $input) {
+        code
+        success
+        list: notebook {
+            ...Notebook
+        }
+    }
+}

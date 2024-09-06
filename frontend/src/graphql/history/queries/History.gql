@@ -1,0 +1,42 @@
+#import "../../ActionFragment.gql"
+
+query History(
+    $forNode: ID,
+    $subjectType: [String!],
+    $type: [ActionType!],
+    $search: String,
+    $orderBy: [HistoryOrderBy!],
+    $collapseChildren: Boolean = false,
+    $after: String,
+    $first: Int! = 100
+) {
+    history(
+        forNode: $forNode,
+        subjectType: $subjectType,
+        type: $type,
+        search: $search,
+        orderBy: $orderBy,
+        collapseChildren: $collapseChildren,
+        first: $first,
+        after: $after
+    ) {
+        edges {
+            node {
+                ...Action
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            total
+            rawTotal
+            # eslint-disable-next-line @graphql-eslint/fields-on-correct-type
+            hasFilterApplied @client
+        }
+        meta {
+            allHistoryCount
+            allowedHistoryCount
+            filteredHistoryCount
+        }
+    }
+}

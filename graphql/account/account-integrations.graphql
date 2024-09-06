@@ -1,0 +1,13 @@
+extend type Subscription {
+    accountIntegrated: IntegrationAccount
+}
+
+type IntegrationAccount @node {
+    provider: Provider!
+    accountName: String!
+    scopes: [Scope!]!
+}
+
+input DeleteIntegrationInput {
+    id: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+}

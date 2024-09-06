@@ -1,0 +1,5 @@
+mutation AssociateItemToExternalEmailAddress($input: AssociateEmailAddressInput!) {
+    associateEmailAddress(input: $input) {
+        code
+    }
+}

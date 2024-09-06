@@ -1,0 +1,85 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+    - ./vendor/bensampo/laravel-enum/extension.neon
+
+parameters:
+
+    paths:
+        - app
+        - modules/account-integrations/src
+        - modules/actions/src
+        - modules/citus-laravel/src
+        - modules/color/src
+        - modules/documents/src
+        - modules/finder/src
+        - modules/lighthouse-helpers/src
+        - modules/mappings/src
+        - modules/markup-utils/src
+        - modules/notes/src
+        - modules/planner/src
+        - modules/markers/src
+        - modules/key-value-store/src
+
+    level: 8
+
+    checkMissingIterableValueType: false
+
+    tmpDir: /tmp/phpstan
+
+    universalObjectCratesClasses:
+        - Illuminate\Support\Fluent
+        - Lampager\Laravel\PaginationResult
+
+    stubFiles:
+        - phpstan/Collection.stub
+
+    typeAliases:
+        HttpMethod: '"GET"|"POST"|"PUT"|"PATCH"|"DELETE"'
+        PaginationArgs: 'array{first: int, after?: string}'
+        OrderByClause: 'array{field: string, direction: "ASC"|"DESC"}'
+        OrderBy: 'array<int, OrderByClause>'
+        ValidationRule: 'string|class-string|\Illuminate\Validation\Rule|Illuminate\Contracts\Validation\Rule|Illuminate\Contracts\Validation\ValidationRule|\Illuminate\Validation\Rules\In|\Illuminate\Validation\Rules\ExcludeIf|\Closure(string, mixed, \Closure(string): void): void|string[]'
+        ValidationRuleSet: 'string|ValidationRule[]'
+        ValidationRules: 'array<string, ValidationRuleSet>'
+
+    checkOctaneCompatibility: true
+    noEnvCallsOutsideOfConfig: true
+
+services:
+    -
+        class: App\PHPStan\GraphQLTypeResolverExtension
+        tags:
+            - phpstan.phpDoc.typeNodeResolverExtension
+
+    -
+        class: App\PHPStan\ActionTypeReflectionExtension
+        tags:
+            - phpstan.broker.methodsClassReflectionExtension
+
+    -
+        class: App\PHPStan\RequestReflectionExtension
+        tags:
+            - phpstan.broker.methodsClassReflectionExtension
+
+    -
+        class: App\PHPStan\ClassUsesTypeSpecifyingExtension
+        tags:
+            - phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+    -
+        class: App\PHPStan\ResolveInfoPropertiesReflectionExtension
+        tags:
+            - phpstan.broker.propertiesClassReflectionExtension
+
+    -
+        class: App\PHPStan\ColorTypeSpecifyingExtension
+        tags:
+            - phpstan.typeSpecifier.staticMethodTypeSpecifyingExtension
+
+    -
+        class: App\PHPStan\EnumConstantsExtension
+        tags:
+            - phpstan.constants.alwaysUsedClassConstantsExtension
+
+rules:
+    - LaravelUtils\PHPStan\RemainingDebugCallRule

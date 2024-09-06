@@ -1,0 +1,11 @@
+#import "../ExternalTodoFragment.gql"
+
+mutation MoveTodo($input: MoveExternalTodoInput!) {
+    moveExternalTodo(input: $input) {
+        code
+        success
+        todo {
+            ...ExternalTodo
+        }
+    }
+}

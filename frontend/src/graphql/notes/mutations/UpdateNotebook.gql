@@ -1,0 +1,11 @@
+#import "../NotebookFragment.gql"
+
+mutation UpdateNotebook($input: UpdateNotebookInput!) {
+    updateList: updateNotebook(input: $input) {
+        code
+        success
+        list: notebook {
+            ...Notebook
+        }
+    }
+}

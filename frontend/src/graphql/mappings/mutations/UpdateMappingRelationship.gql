@@ -1,0 +1,12 @@
+#import "../MappingRelationshipsFragment.gql"
+
+mutation UpdateMappingRelationship($input: UpdateMappingRelationshipInput!) {
+    updateMappingRelationship(input: $input) {
+        code
+        success
+        mapping {
+            id
+            ...Relationships
+        }
+    }
+}

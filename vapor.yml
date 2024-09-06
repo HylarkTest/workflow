@@ -1,0 +1,31 @@
+id: 25563
+name: hylark
+environments:
+    production:
+        memory: 1024
+        cli-memory: 512
+        runtime: 'php-8.0:al2'
+#        runtime: docker
+#        octane: true
+#        octane-database-session-persist: true
+#        octane-database-session-ttl: 10
+        build:
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+            - 'php artisan event:cache'
+#            - 'npm ci && npm run prod && rm -rf node_modules'
+    staging:
+        memory: 512
+        cli-memory: 512
+        runtime: 'php-8.0:al2'
+#        runtime: docker
+        database: hylark
+        cache: Hylark
+#        octane: true
+#        octane-database-session-persist: true
+#        octane-database-session-ttl: 10
+        build:
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
+            - 'php artisan event:cache'
+#            - 'npm ci && npm run dev && rm -rf node_modules'
+        deploy:
+            - 'php artisan migrate'

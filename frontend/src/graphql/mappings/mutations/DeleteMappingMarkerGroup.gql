@@ -1,0 +1,12 @@
+#import "../MappingMarkerGroupsFragment.gql"
+
+mutation DeleteMappingMarkerGroup($input: DeleteMappingMarkerGroupInput!) {
+    deleteMappingMarkerGroup(input: $input) {
+        code
+        success
+        mapping {
+            id
+            ...MappingMarkerGroups
+        }
+    }
+}

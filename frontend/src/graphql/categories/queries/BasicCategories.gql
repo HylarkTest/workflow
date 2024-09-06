@@ -1,0 +1,21 @@
+query BasicCategories(
+    $first: Int! = 25,
+    $cursor: String,
+) {
+    categories(
+        first: $first,
+        after: $cursor,
+    ) @connection(key: "categories") {
+        edges {
+            node {
+                id
+                name
+                templateRefs
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

@@ -1,0 +1,11 @@
+#import "../CategoryFragment.gql"
+
+mutation DeleteCategoryItem($input: DeleteCategoryItemInput!) {
+    deleteCategoryItem(input: $input) {
+        code
+        success
+        category {
+            ...Category
+        }
+    }
+}

@@ -1,0 +1,26 @@
+#import "../markers/MarkerCollectionFragment.gql"
+#import "../items/AssociationCollectionFragment.gql"
+#import "../bases/AssigneeCollectionFragment.gql"
+
+fragment Document on Document {
+    id
+    name
+    filename
+    url
+    downloadUrl
+    extension
+    size
+    mimeType
+    isFavorite
+    createdAt
+    updatedAt
+    drive {
+        id
+        name
+        color
+        space { id name }
+    }
+    ...MarkerCollection
+    ...AssociationCollection
+    ...AssigneeCollection
+}

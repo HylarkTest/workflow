@@ -1,0 +1,15 @@
+#import "../TodoFragment.gql"
+#import "../TodoListFragment.gql"
+
+mutation MoveTodo($input: MoveTodoInput!) {
+    moveTodo(input: $input) {
+        code
+        success
+        todo {
+            ...Todo
+        }
+        todoList {
+            ...TodoList
+        }
+    }
+}

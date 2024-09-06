@@ -1,0 +1,11 @@
+#import "../MarkerGroupFragment.gql"
+
+mutation DeleteMarker($input: DeleteMarkerInput!) {
+    deleteMarker(input: $input) {
+        code
+        success
+        markerGroup {
+            ...MarkerGroup
+        }
+    }
+}

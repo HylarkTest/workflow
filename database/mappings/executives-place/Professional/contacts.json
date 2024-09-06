@@ -1,0 +1,49 @@
+{
+    "mapping": {
+        "name": "Contacts",
+        "singular_name": "Contact",
+        "type": "PERSON",
+        "description": "People I am in contact with",
+        "features": [],
+        "fields": [
+            {
+                "id": "title",
+                "name": "Title",
+                "type": "TITLE",
+                "options": [],
+                "rules": {
+                    "required": true,
+                    "max": 20
+                }
+            },
+            {
+                "id": "profile",
+                "name": "Profile picture",
+                "type": "IMAGE"
+            },
+            {
+                "id": "email",
+                "name": "E-mail",
+                "type": "EMAIL"
+            },
+            {
+                "id": "employer",
+                "name": "Employer",
+                "type": "LINE"
+            }
+        ],
+        "design": {
+            "icon": "fa-address-card"
+        }
+    },
+    "items": {
+        "data": {
+            "title": ":title|$gender",
+            "firstName": ":firstName|$gender",
+            "lastName": ":lastName|$gender",
+            "image": ":profilePictureUrl|$gender",
+            "email": ":safeEmail",
+            "employer": ":company"
+        }
+    }
+}

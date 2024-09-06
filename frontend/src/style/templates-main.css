@@ -1,0 +1,48 @@
+/* stylelint-disable at-rule-no-unknown */
+@import "./global.css";
+@import "./plugins.css";
+@import "./utilities.css";
+@import "./transitions.css";
+@import "./settings.css";
+/*@import "./colorMode.css";*/
+@import url("https://fonts.googleapis.com/css?family=Figtree:400,500,600,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@config "../../templates-tailwind.config.js";
+
+div {
+    border: 0;
+}
+
+#hylark-templates {
+    font-family: Figtree, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @apply
+        px-24
+    ;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    button {
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+    .circle-center {
+        @apply
+            flex
+            items-center
+            justify-center
+            rounded-full
+        ;
+    }
+}

@@ -1,0 +1,19 @@
+#import "../spaces/SpaceFragment.gql"
+#import "./PageFragment.gql"
+#import "../savedFilters/SavedFilterFragment.gql"
+
+fragment FullPage on Page {
+    ...Page
+    design
+    space {
+        ...Space
+    }
+    ...on EntitiesPage {
+        defaultFilter {
+            ...SavedFilter
+        }
+        personalDefaultFilter {
+            ...SavedFilter
+        }
+    }
+}

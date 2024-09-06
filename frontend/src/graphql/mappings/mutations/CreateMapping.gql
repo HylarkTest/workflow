@@ -1,0 +1,16 @@
+#import "../MappingFragment.gql"
+
+mutation CreateMapping($input: MappingCreateInput!) {
+    createMapping(input: $input) {
+        code
+        success
+        mapping {
+            ...Mapping
+            pages {
+                id
+                symbol
+                name
+            }
+        }
+    }
+}

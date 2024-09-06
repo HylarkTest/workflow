@@ -1,0 +1,12 @@
+#import "../PageFragment.gql"
+
+query Pages($spaceId: ID!) {
+    pages(spaceId: $spaceId, first: 100) {
+        edges {
+            node {
+                id
+                ...Page
+            }
+        }
+    }
+}

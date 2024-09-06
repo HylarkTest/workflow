@@ -1,0 +1,11 @@
+fragment Mailbox on Mailbox {
+    id
+    name
+    isCollapsed
+    isDefault
+    account {
+        id
+        provider
+        accountName
+    }
+}

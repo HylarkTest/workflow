@@ -1,0 +1,23 @@
+#! /bin/bash
+
+# SUB_REMOTE="locale"
+# SUB_DIR="frontend/src/locales"
+
+# # If the locale remote has not been added then don't manage the subtree
+# [ "$1" != "$SUB_REMOTE" ] && git remote | grep "$SUB_REMOTE" >/dev/null || exit 0
+
+# git fetch "$SUB_REMOTE"
+
+# UPSTREAM='@{u}'
+# LOCAL=$(git rev-parse @)
+# REMOTE=$(git rev-parse "$UPSTREAM")
+# BASE=$(git merge-base @ "$UPSTREAM")
+
+# if [ "$LOCAL" != "$REMOTE" ] && [ "$REMOTE" = "$BASE" ]; then
+#     {
+#         git subrepo push "$SUB_DIR" -r "$SUB_REMOTE" -b main
+#     } || {
+#         echo "Failed to push to $SUB_REMOTE remote, try pulling changes \"git subrepo pull $SUB_DIR -r $SUB_REMOTE -b main\""
+#         exit 1
+#     }
+# fi

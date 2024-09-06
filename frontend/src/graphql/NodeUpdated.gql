@@ -1,0 +1,7 @@
+subscription NodeUpdated {
+    nodeUpdated {
+        node {
+            id
+        }
+    }
+}

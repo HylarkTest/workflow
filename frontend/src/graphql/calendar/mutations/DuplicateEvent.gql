@@ -1,0 +1,11 @@
+#import "../EventFragment.gql"
+
+mutation DuplicateEvent($input: DuplicateEventInput!) {
+    duplicateEvent(input: $input) {
+        code
+        success
+        event {
+            ...Event
+        }
+    }
+}

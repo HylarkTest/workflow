@@ -1,0 +1,32 @@
+#import "../ActionWithSubjectInfoFragment.gql"
+
+query DiveBackIn(
+    $performer: ID,
+) {
+    history(
+        onlyExistingSubjects: true,
+        onlyLatestActions: true,
+        performer: $performer,
+        subjectType: [
+            "Item",
+            "Todo",
+            "Event",
+            "Document",
+            "Note",
+            "Pin",
+            "Link",
+        ],
+        type: [
+            CREATE,
+            UPDATE,
+        ],
+        collapseChildren: false,
+        first: 10,
+    ) {
+        edges {
+            node {
+                ...ActionWithSubjectInfoFragment
+            }
+        }
+    }
+}

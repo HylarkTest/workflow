@@ -1,0 +1,14 @@
+fragment Mapping on Mapping {
+    id
+    templateRefs
+    name
+    apiName
+    singularName
+    apiSingularName
+    type
+    description
+    createdAt
+    updatedAt
+    features { val }
+    space { id name }
+}

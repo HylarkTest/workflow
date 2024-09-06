@@ -1,0 +1,5 @@
+mutation DissociateItemFromExternalEmailAddress($input: DissociateEmailAddressInput!) {
+    dissociateEmailAddress(input: $input) {
+        code
+    }
+}

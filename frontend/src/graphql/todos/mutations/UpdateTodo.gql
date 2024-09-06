@@ -1,0 +1,15 @@
+#import "../TodoFragment.gql"
+
+mutation UpdateTodo($input: UpdateTodoInput!, $forMapping: ID) {
+    updateTodo(input: $input) {
+        code
+        success
+        todo {
+            ...Todo
+        }
+        todoList {
+            id
+            count: incompleteTodosCount(forMapping: $forMapping)
+        }
+    }
+}

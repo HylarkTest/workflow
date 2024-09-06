@@ -1,0 +1,15 @@
+#import "../ExternalEventFragment.gql"
+
+query ExternalEvent(
+    $sourceId: ID!
+    $calendarId: ID!
+    $id: ID!
+) {
+    externalEvent(
+        sourceId: $sourceId,
+        calendarId: $calendarId,
+        id: $id
+    ) {
+        ...ExternalEvent
+    }
+}

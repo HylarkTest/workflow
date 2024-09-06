@@ -1,0 +1,9 @@
+fragment MemberFragment on Member {
+    id
+    name
+    email
+    avatar
+    role
+    addedAt
+    isAuthenticatedUser
+}

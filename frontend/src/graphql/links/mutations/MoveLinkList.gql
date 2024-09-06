@@ -1,0 +1,11 @@
+#import "../LinkListFragment.gql"
+
+mutation MoveLinkList($input: MoveLinkListInput!) {
+    moveList: moveLinkList(input: $input) {
+        code
+        success
+        list: linkList {
+            ...LinkList
+        }
+    }
+}

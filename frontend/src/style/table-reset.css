@@ -1,0 +1,28 @@
+/* The 'table-reset' class is intended to be used on <table> elements,
+which will then affect all table-related decendants of that <table> */
+
+/* Keep an eye out for:
+Any scenario where you want an injected <table> that should NOT be affected by the 'table-reset' class
+as a descendant of a <table class="table-reset"> element. (i.e. a table within a table).
+If that is required this would need adjusted. */
+
+table.table-reset,
+.table-reset table,
+.table-reset thead,
+.table-reset tbody,
+.table-reset tfoot,
+.table-reset tr,
+.table-reset th,
+.table-reset td {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+table.table-reset,
+.table-reset table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}

@@ -1,0 +1,227 @@
+# If you are looking for event queries/fields that aren't here, try checking out the `FeatureListQuery.php` file where all the common feature queries are defined.
+
+extend type Query @guard(with: ["web", "api"]) {
+    externalCalendars(
+        sourceId: ID! @globalId(decode: "ID")
+        first: Int! = 25
+        page: Int
+    ): ExternalCalendarPaginator! @field(resolver: "Features\\ExternalCalendarQuery@index")
+    externalEvents(
+        sourceId: ID @globalId(decode: "ID")
+        calendarId: ID @base64
+        forNode: ID
+        startsBefore: DateTime
+        endsAfter: DateTime
+        includeRecurringInstances: Boolean
+        first: Int! = 25
+        page: Int
+    ): ExternalEventPaginator! @field(resolver: "Features\\ExternalEventQuery@index")
+    externalEvent(
+        sourceId: ID! @globalId(decode: "ID")
+        calendarId: ID! @base64
+        id: ID!
+    ): ExternalEvent @field(resolver: "Features\\ExternalEventQuery@show")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    createExternalCalendar(input: CreateExternalCalendarInput!): ExternalCalendarMutationResponse! @field(resolver: "Features\\ExternalCalendarQuery@store")
+    updateExternalCalendar(input: UpdateExternalCalendarInput!): ExternalCalendarMutationResponse @field(resolver: "Features\\ExternalCalendarQuery@update")
+    deleteExternalCalendar(input: DeleteExternalCalendarInput!): SuccessfulMutationResponse @field(resolver: "Features\\ExternalCalendarQuery@destroy")
+
+    createExternalEvent(input: CreateExternalEventInput!): ExternalEventMutationResponse! @field(resolver: "Features\\ExternalEventQuery@store")
+    updateExternalEvent(input: UpdateExternalEventInput!): ExternalEventMutationResponse! @field(resolver: "Features\\ExternalEventQuery@update")
+    deleteExternalEvent(input: DeleteExternalEventInput!): ExternalEventMutationResponse! @field(resolver: "Features\\ExternalEventQuery@destroy")
+
+    associateExternalEvent(input: AssociateExternalEventInput!): ExternalEventMutationResponse! @field(resolver: "Features\\ExternalEventQuery@associate")
+    dissociateExternalEvent(input: DissociateExternalEventInput!): ExternalEventMutationResponse! @field(resolver: "Features\\ExternalEventQuery@dissociate")
+}
+
+extend type Event implements Node {
+    id: ID! @method(name: "globalInstanceId")
+    name: String!
+    primaryId: ID @rename(attribute: "id") @globalId(type: "Event")
+    startAt: DateTime!
+    endAt: DateTime!
+    timezone: String
+    isAllDay: Boolean!
+    recurrence: Recurrence
+    until: DateTime
+    description: String
+    location: String
+    priority: Int!
+}
+
+type ExternalCalendar {
+    id: ID! @base64
+    name: String!
+    updatedAt: DateTime
+    isDefault: Boolean!
+    color: Color @color @field(resolver: "\\App\\GraphQL\\Queries\\Features\\ExternalCalendarQuery@colorOrDefault")
+    isOwner: Boolean
+    isShared: Boolean
+    isReadOnly: Boolean
+    account: IntegrationAccount!
+}
+
+type ExternalEvent implements Associatable{
+    id: ID!
+    primaryId: ID
+    name: String! @nullToEmptyString
+    startAt: DateTime!
+    endAt: DateTime!
+    isAllDay: Boolean!
+    recurrence: Recurrence
+    until: DateTime
+    description: String
+    location: String
+    priority: Int
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    calendar: ExternalCalendar!
+    account: IntegrationAccount!
+    associations: [Item!] @field(resolver: "App\\GraphQL\\Queries\\Features\\ExternalEventQuery@resolveAssociations")
+}
+
+enum EventOrderField {
+    NAME @enum(value: "name")
+    CREATED_AT @enum(value: "created_at")
+    UPDATED_AT @enum(value: "updated_at")
+    DATE @enum(value: "start_at")
+    CALENDAR @enum(value: "calendar")
+}
+
+extend input EventFilterInput {
+    startsBefore: DateTime
+    startsAfter: DateTime
+    endsBefore: DateTime
+    endsAfter: DateTime
+}
+
+type ExternalCalendarPaginator {
+    data: [ExternalCalendar!]!
+    paginatorInfo: SimplePaginatorInfo!
+}
+
+type GroupedEventConnection {
+    group: String
+    edges: [EventEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type ExternalEventPaginator {
+    data: [ExternalEvent!]!
+    paginatorInfo: OptionalLengthPaginatorInfo!
+}
+
+type ExternalCalendarMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    calendar: ExternalCalendar
+}
+
+type ExternalEventMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    event: ExternalEvent
+    calendar: ExternalCalendar
+}
+
+extend input CreateEventInput {
+    name: String! @rules(customPrefix: "event", apply: ["filled", "max:255"])
+    startAt: DateTime @rules(apply: ["nullable", "date"])
+    endAt: DateTime @rules(apply: ["nullable", "date", "after_or_equal:startAt"])
+    timezone: String @rules(customPrefix: "event", apply: ["required", "timezone"])
+    isAllDay: Boolean
+    recurrence: RecurrenceInput
+    description: String @rules(apply: ["nullable", "max:8192"])
+    location: String
+    priority: Int
+}
+
+extend input UpdateEventInput {
+    name: String @rules(customPrefix: "event", apply: ["filled", "max:255"])
+    startAt: DateTime @rules(apply: ["nullable", "date"])
+    endAt: DateTime @rules(apply: ["nullable", "date", "after_or_equal:startAt"])
+    timezone: String @rules(apply: ["timezone"])
+    isAllDay: Boolean
+    recurrence: RecurrenceInput
+    description: String @rules(apply: ["nullable", "max:8192"])
+    location: String
+    priority: Int
+    thisAndFuture: Boolean = false
+}
+
+extend input DeleteEventInput {
+    thisAndFuture: Boolean = false
+}
+
+input CreateExternalCalendarInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    name: String! @rules(apply: ["max:255"])
+    tags: [ID!] @globalId(type: "Marker", decode: "ID")
+}
+
+input UpdateExternalCalendarInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    id: ID! @base64
+    name: String! @rules(apply: ["max:255"])
+    color: Color
+}
+
+input DeleteExternalCalendarInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    id: ID! @base64
+}
+
+input CreateExternalEventInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    calendarId: String! @base64
+    name: String! @rules(apply: ["max:255"])
+    startAt: DateTime @rules(apply: ["nullable", "date"])
+    endAt: DateTime @rules(apply: ["nullable", "date"])
+    timezone: String @rules(apply: ["timezone"])
+    isAllDay: Boolean
+    recurrence: RecurrenceInput
+    description: String @rules(apply: ["nullable", "max:8192"])
+    location: String
+    priority: Int
+    tags: [ID!] @globalId(type: "Marker", decode: "ID")
+    associations: [ID!] @globalId(type: "Item", decode: "ID")
+}
+
+input UpdateExternalEventInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    calendarId: String! @base64
+    id: ID!
+    name: String @rules(apply: ["filled", "max:255"])
+    startAt: DateTime @rules(apply: ["nullable", "date"])
+    endAt: DateTime @rules(apply: ["nullable", "date"])
+    timezone: String @rules(apply: ["timezone"])
+    isAllDay: Boolean
+    recurrence: RecurrenceInput
+    description: String @rules(apply: ["nullable", "max:8192"])
+    location: String
+    priority: Int
+}
+
+input DeleteExternalEventInput {
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    calendarId: String! @base64
+    id: ID!
+}
+
+input AssociateExternalEventInput {
+    nodeId: ID!
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    calendarId: String! @base64
+    id: ID!
+}
+
+input DissociateExternalEventInput {
+    nodeId: ID!
+    sourceId: ID! @globalId(decode: "ID", type: "IntegrationAccount")
+    calendarId: String! @base64
+    id: ID!
+}

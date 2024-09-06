@@ -1,0 +1,17 @@
+query TodoStats(
+    $forMapping: ID,
+    $forLists: [ID!],
+    $forNode: ID,
+) {
+    todoStats(
+        forMapping: $forMapping,
+        forLists: $forLists,
+        forNode: $forNode,
+    ) {
+        todayCount
+        scheduledCount
+        highPriorityCount
+        totalCount
+        overdueCount
+    }
+}

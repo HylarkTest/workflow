@@ -1,0 +1,9 @@
+#import "../SavedFilterFragment.gql"
+
+subscription SavedFilterUpdated {
+    savedFilterUpdated {
+        savedFilter {
+            ...SavedFilter
+        }
+    }
+}

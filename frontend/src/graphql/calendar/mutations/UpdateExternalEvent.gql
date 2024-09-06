@@ -1,0 +1,11 @@
+#import "../ExternalEventFragment.gql"
+
+mutation ExternalUpdateEvent($input: UpdateExternalEventInput!) {
+    updateExternalEvent(input: $input) {
+        code
+        success
+        event {
+            ...ExternalEvent
+        }
+    }
+}

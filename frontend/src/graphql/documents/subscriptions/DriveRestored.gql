@@ -1,0 +1,9 @@
+#import "../DriveFragment.gql"
+
+subscription DriveRestored {
+    driveRestored {
+        drive {
+            ...Drive
+        }
+    }
+}

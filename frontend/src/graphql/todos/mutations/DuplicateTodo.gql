@@ -1,0 +1,15 @@
+#import "../TodoFragment.gql"
+
+mutation DuplicateTodo($input: DuplicateTodoInput!, $forMapping: ID) {
+    duplicateTodo(input: $input) {
+        code
+        success
+        todo {
+            ...Todo
+        }
+        todoList {
+            id
+            count: incompleteTodosCount(forMapping: $forMapping)
+        }
+    }
+}

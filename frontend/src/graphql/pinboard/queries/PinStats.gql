@@ -1,0 +1,14 @@
+query PinStats(
+    $forMapping: ID,
+    $forLists: [ID!],
+    $forNode: ID,
+) {
+    pinboardStats: pinStats(
+        forMapping: $forMapping,
+        forLists: $forLists,
+        forNode: $forNode,
+    ) {
+        favoritesCount
+        totalCount
+    }
+}

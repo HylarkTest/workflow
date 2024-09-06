@@ -1,0 +1,48 @@
+extend type Query {
+    locations(
+        levels: [LocationLevel!],
+        search: String,
+        country: ID, @globalId(type: "Location", decode: "ID")
+        orderBy: [LocationOrderBy!]
+        first: Int! = 25,
+        after: String
+    ): LocationConnection @field(resolver: "LocationQuery@index")
+}
+
+input LocationOrderBy {
+    field: LocationOrderField!
+    direction: SortOrder!
+}
+
+enum LocationOrderField {
+    MATCH @enum(value: "match")
+    NAME @enum(value: "name")
+    LEVEL @enum(value: "level")
+    POPULATION @enum(value: "population")
+}
+
+type Location @node {
+    name: String!
+    level: LocationLevel! @rename(attribute: "locationLevel")
+    parent: Location @belongsTo
+    longitude: Float
+    latitude: Float
+    population: Int
+}
+
+enum LocationLevel {
+    CITY
+    STATE
+    COUNTRY
+    CONTINENT
+}
+
+type LocationConnection {
+    edges: [LocationEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type LocationEdge {
+    node: Location!
+    cursor: String!
+}

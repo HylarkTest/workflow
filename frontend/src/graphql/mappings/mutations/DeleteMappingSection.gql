@@ -1,0 +1,14 @@
+#import "../MappingSectionsFragment.gql"
+#import "../MappingFieldsFragment.gql"
+
+mutation DeleteMappingSection($input: DeleteMappingSectionInput!) {
+    deleteMappingSection(input: $input) {
+        code
+        success
+        mapping {
+            id
+            ...Sections
+            ...Fields
+        }
+    }
+}

@@ -1,0 +1,5 @@
+subscription SpaceDeleted {
+    spaceDeleted {
+        space { id }
+    }
+}

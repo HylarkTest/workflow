@@ -1,0 +1,194 @@
+extend type Query @guard(with: ["web", "api"]) {
+    markerGroups(
+        types: [MarkerType],
+        first: Int! = 25,
+        after: String
+        usedByFeatures: [MarkableType]
+        spaceIds: [ID!] @globalId(decode: "ID", type: "Space")
+        usedByMappings: [ID!] @globalId(type: "Mapping", decode: "ID")
+    ): MarkerGroupConnection @field(resolver: "MarkerGroupQuery@index")
+    markerGroup(id: ID! @globalId(decode: "ID", type: "MarkerGroup")): MarkerGroup @field(resolver: "MarkerGroupQuery@show")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    createMarkerGroup(input: CreateMarkerGroupInput!): MarkerGroupMutationResponse! @field(resolver: "MarkerGroupQuery@store") @broadcastNodeCreated(subscription: "markerGroupCreated", nodeField: "markerGroup")
+    updateMarkerGroup(input: UpdateMarkerGroupInput!): MarkerGroupMutationResponse! @field(resolver: "MarkerGroupQuery@update") @broadcastNodeUpdated(subscription: "markerGroupUpdated", nodeField: "markerGroup")
+    deleteMarkerGroup(input: DeleteMarkerGroupInput!): SuccessfulMutationResponse! @field(resolver: "MarkerGroupQuery@destroy") @broadcastNodeDeleted(subscription: "markerGroupDeleted")
+    createMarker(input: CreateMarkerInput!): MarkerMutationResponse! @field(resolver: "MarkerQuery@store") @broadcast(subscription: "markerGroupUpdated")
+    updateMarker(input: UpdateMarkerInput!): MarkerMutationResponse! @field(resolver: "MarkerQuery@update") @broadcast(subscription: "markerGroupUpdated")
+    deleteMarker(input: DeleteMarkerInput!): MarkerMutationResponse! @field(resolver: "MarkerQuery@destroy") @broadcast(subscription: "markerGroupUpdated")
+    moveMarker(input: MoveMarkerInput!): MarkerMutationResponse! @field(resolver: "MarkerQuery@move") @broadcast(subscription: "markerGroupUpdated")
+    setMarker(input: SetMarkerInput!): MarkerSetMutationResponse! @field(resolver: "MarkerQuery@setMarker")
+    removeMarker(input: RemoveMarkerInput!): MarkerSetMutationResponse! @field(resolver: "MarkerQuery@removeMarker")
+}
+
+extend type Subscription {
+    markerGroupCreated: MarkerGroupMutationResponse
+    markerGroupUpdated: MarkerGroupMutationResponse
+    markerGroupDeleted: MarkerGroupMutationResponse
+}
+
+type MarkerGroup @node {
+    name: String!
+    templateRefs: [String!] @rename(attribute: "template_refs")
+    type: MarkerType!
+    description: String
+    markerCount: Int! @count(relation: "markers")
+    markers: [Marker!]! @hasMany
+    usedByMappings: [Mapping!] @field(resolver: "App\\GraphQL\\Queries\\MarkerGroupQuery@usedByMappings")
+    usedByFeatures: [MarkableTypesBySpace] @field(resolver: "App\\GraphQL\\Queries\\MarkerGroupQuery@usedByFeatures")
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+type MarkableTypesBySpace {
+    space: Space!
+    features: [MarkableType!]!
+}
+
+type Marker implements Findable @node {
+    name: String!
+    color: Color @color
+    order: Int!
+    group: MarkerGroup! @belongsTo
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+interface MarkerCollection @interface(resolveType: "\\App\\GraphQL\\Queries\\MarkerQuery@resolveCollectionType") {
+    group: MarkerGroup!
+}
+
+type TagMarkerCollection implements MarkerCollection {
+    group: MarkerGroup!
+    markers: [Marker!]
+    markerCount: Int!
+}
+
+type PipelineMarkerCollection implements MarkerCollection {
+    group: MarkerGroup!
+    markers: [Marker!]
+    markerCount: Int!
+}
+
+type StatusMarkerCollection implements MarkerCollection {
+    group: MarkerGroup!
+    marker: Marker!
+}
+
+type MarkerGroupConnection {
+    edges: [MarkerGroupEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type MarkerGroupEdge {
+    node: MarkerGroup!
+    cursor: String!
+}
+
+input MoveMarkerInput {
+    groupId: ID! @globalId(decode: "ID", type: "MarkerGroup")
+    id: ID! @globalId(decode: "ID", type: "Marker")
+    previousId: ID @globalId(decode: "ID", type: "Marker")
+}
+
+input MarkerOrder {
+    id: ID! @globalId(decode: "ID", type: "Marker")
+    order: Int!
+}
+
+input CreateMarkerGroupInput {
+    name: String! @rules(apply: ["max:255"])
+    type: MarkerType!
+    description: String @rules(apply: ["max:4098"])
+    usedByMappings: [ID!]
+    usedByFeatures: [MarkableTypesBySpaceInput!]
+    markers: [NewMarkerInput!]
+}
+
+input UpdateMarkerGroupInput {
+    id: ID! @globalId(decode: "ID", type: "MarkerGroup")
+    name: String @rules(apply: ["max:255"])
+    description: String @rules(apply: ["max:4098"])
+    usedByFeatures: [MarkableTypesBySpaceInput!]
+    usedByMappings: [ID!]
+}
+
+input MarkableTypesBySpaceInput {
+    spaceId: ID! @globalId(decode: "ID", type: "Space")
+    features: [MarkableType!]!
+}
+
+input DeleteMarkerGroupInput {
+    id: ID! @globalId(decode: "ID", type: "MarkerGroup")
+}
+
+input NewMarkerInput {
+    name: String! @rules(apply: ["max:255"])
+    color: Color
+}
+
+input CreateMarkerInput {
+    groupId: ID! @globalId(decode: "ID", type: "MarkerGroup")
+    name: String! @rules(apply: ["max:255"])
+    color: Color
+}
+
+input UpdateMarkerInput {
+    groupId: ID! @globalId(decode: "ID", type: "MarkerGroup")
+    id: ID! @globalId(decode: "ID", type: "Marker")
+    name: String @rules(apply: ["max:255"])
+    color: Color
+}
+
+input DeleteMarkerInput {
+    groupId: ID! @globalId(decode: "ID", type: "MarkerGroup")
+    id: ID! @globalId(decode: "ID", type: "Marker")
+    context: String
+}
+
+input SetMarkerInput {
+    markerId: ID! @globalId(decode: "ID", type: "Marker")
+    markableId: ID!
+    context: String
+}
+
+input RemoveMarkerInput {
+    markerId: ID! @globalId(decode: "ID", type: "Marker")
+    markableId: ID!
+    context: String
+}
+
+input MarkersInput {
+    groupId: ID! @globalId(decode: "ID", type: "MarkerGroup")
+    markers: [ID!] @globalId(decode: "ID", type: "Marker")
+    context: String
+}
+
+type MarkerGroupMutationResponse implements MutationResponse{
+    code: String!
+    success: Boolean!
+    message: String!
+    markerGroup: MarkerGroup
+}
+
+type MarkerMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    marker: Marker
+    markerGroup: MarkerGroup
+}
+
+type MarkerSetMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    marker: Marker
+    node: Markable
+}
+
+interface Markable @interface(resolveType: "\\App\\GraphQL\\TypeResolver@resolveType") {
+    id: ID!
+    markerGroups: [MarkerCollection!]
+}

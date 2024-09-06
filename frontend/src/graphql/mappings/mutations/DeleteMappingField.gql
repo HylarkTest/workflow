@@ -1,0 +1,22 @@
+#import "../MappingFieldsFragment.gql"
+
+mutation DeleteMappingField($input: DeleteMappingFieldInput!) {
+    deleteMappingField(input: $input) {
+        code
+        success
+        mapping {
+            id
+            ...Fields
+            pages {
+                id
+                design
+                ...on EntitiesPage {
+                    newData {
+                        fields
+                        markers
+                    }
+                }
+            }
+        }
+    }
+}

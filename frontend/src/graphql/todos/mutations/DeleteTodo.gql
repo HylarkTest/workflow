@@ -1,0 +1,10 @@
+mutation DeleteTodo($input: DeleteTodoInput!) {
+    deleteTodo(input: $input) {
+        code
+        success
+        todoList {
+            id
+            count: incompleteTodosCount
+        }
+    }
+}

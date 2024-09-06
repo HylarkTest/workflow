@@ -1,0 +1,15 @@
+fragment ExternalCalendar on ExternalCalendar {
+    id
+    name
+    color
+    updatedAt
+    isDefault
+    isOwner
+    isShared
+    isReadOnly
+    account {
+        id
+        provider
+        accountName
+    }
+}

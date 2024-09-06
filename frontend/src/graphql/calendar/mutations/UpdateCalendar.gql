@@ -1,0 +1,11 @@
+#import "../CalendarFragment.gql"
+
+mutation UpdateCalendar($input: UpdateCalendarInput!) {
+    updateList: updateCalendar(input: $input) {
+        code
+        success
+        list: calendar {
+            ...Calendar
+        }
+    }
+}

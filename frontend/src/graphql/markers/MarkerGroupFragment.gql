@@ -1,0 +1,29 @@
+#import "./MarkerFragment.gql"
+
+fragment MarkerGroup on MarkerGroup {
+    id
+    templateRefs
+    name
+    type
+    description
+    markerCount
+    usedByMappings {
+        id
+        name
+        pages {
+            id
+            name
+            symbol
+        }
+    }
+    usedByFeatures {
+        space {
+            id
+            name
+        }
+        features
+    }
+    items: markers {
+        ...Marker
+    }
+}

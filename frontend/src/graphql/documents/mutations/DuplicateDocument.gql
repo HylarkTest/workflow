@@ -1,0 +1,15 @@
+#import "../DocumentFragment.gql"
+
+mutation DuplicateDocument($input: DuplicateDocumentInput!) {
+    duplicateDocument(input: $input) {
+        code
+        success
+        document {
+            ...Document
+        }
+        drive {
+            id
+            count: documentsCount
+        }
+    }
+}

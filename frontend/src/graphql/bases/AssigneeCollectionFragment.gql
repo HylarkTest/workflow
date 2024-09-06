@@ -1,0 +1,13 @@
+#import "../MemberFragment.gql"
+
+fragment AssigneeCollection on Assignable {
+    assigneeGroups {
+        group {
+            id
+            name
+        }
+        assignees {
+            ...MemberFragment
+        }
+    }
+}

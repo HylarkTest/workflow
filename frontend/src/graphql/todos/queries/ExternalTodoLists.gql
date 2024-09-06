@@ -1,0 +1,9 @@
+#import "../ExternalTodoListFragment.gql"
+
+query ExternalTodoLists($sourceId: ID!) {
+    externalTodoLists(sourceId: $sourceId) {
+        data {
+            ...ExternalTodoList
+        }
+    }
+}

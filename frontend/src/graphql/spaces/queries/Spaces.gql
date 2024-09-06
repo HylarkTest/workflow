@@ -1,0 +1,21 @@
+#import "../SpaceFragment.gql"
+
+query Spaces(
+    $first: Int! = 25,
+    $cursor: String,
+) {
+    spaces(
+        first: $first,
+        after: $cursor,
+    ) @connection(key: "spaces") {
+        edges {
+            node {
+                ...Space
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
+    }
+}

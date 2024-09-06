@@ -1,0 +1,13 @@
+{
+    "schemaPath": "schema.json",
+    "projects": {
+        "hylark": {
+            "schemaPath": "schema.json",
+            "extensions": {
+                "endpoints": {
+                    "dev": "http://hylark.test/graphql"
+                }
+            }
+        }
+    }
+}

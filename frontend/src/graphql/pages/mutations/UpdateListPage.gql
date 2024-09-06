@@ -1,0 +1,12 @@
+#import "../PageFragment.gql"
+
+mutation UpdateListPage($input: UpdateListPageInput!) {
+    updateListPage(input: $input) {
+        code
+        success
+        page {
+            ...Page
+            design
+        }
+    }
+}

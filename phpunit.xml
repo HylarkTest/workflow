@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd" bootstrap="vendor/autoload.php" colors="true">
+  <testsuites>
+    <testsuite name="Unit">
+      <directory suffix="Test.php">./tests/Unit</directory>
+    </testsuite>
+    <testsuite name="Feature">
+      <directory suffix="Test.php">./tests/Feature</directory>
+    </testsuite>
+    <testsuite name="AccountIntegrations">
+      <directory suffix="Test.php">./modules/account-integrations/tests</directory>
+    </testsuite>
+    <testsuite name="Actions">
+      <directory suffix="Test.php">./modules/actions/tests</directory>
+    </testsuite>
+    <testsuite name="Documents">
+      <directory suffix="Test.php">./modules/documents/tests</directory>
+    </testsuite>
+    <testsuite name="Color">
+      <directory suffix="Test.php">./modules/color/tests</directory>
+    </testsuite>
+    <testsuite name="Mappings">
+      <directory suffix="Test.php">./modules/mappings/tests</directory>
+    </testsuite>
+    <testsuite name="LighthouseHelpers">
+      <directory suffix="Test.php">./modules/lighthouse-helpers/tests</directory>
+    </testsuite>
+    <testsuite name="MarkupUtils">
+      <directory suffix="Test.php">./modules/markup-utils/tests</directory>
+    </testsuite>
+    <testsuite name="Notes">
+      <directory suffix="Test.php">./modules/notes/tests</directory>
+    </testsuite>
+    <testsuite name="Tags">
+      <directory suffix="Test.php">./modules/markers/tests</directory>
+    </testsuite>
+    <testsuite name="KeyValueStore">
+      <directory suffix="Test.php">./modules/key-value-store/tests</directory>
+    </testsuite>
+    <testsuite name="LaravelUtils">
+      <directory suffix="Test.php">./modules/laravel-utils/tests</directory>
+    </testsuite>
+  </testsuites>
+  <coverage/>
+  <php>
+    <ini name="memory_limit" value="4G"/>
+    <env name="APP_ENV" value="testing"/>
+    <env name="APP_DEBUG" value="true"/>
+    <env name="BCRYPT_ROUNDS" value="4"/>
+    <env name="DB_CONNECTION" value="sqlite"/>
+    <env name="DB_DATABASE" value=":memory:"/>
+    <env name="CACHE_DRIVER" value="array"/>
+    <env name="REDIS_CACHE_DB" value="8"/>
+    <env name="QUEUE_CONNECTION" value="sync"/>
+    <env name="MAIL_MAILER" value="array"/>
+    <env name="SESSION_DRIVER" value="array"/>
+    <env name="TELESCOPE_ENABLED" value="false"/>
+    <env name="LIGHTHOUSE_CACHE_ENABLE" value="true"/>
+    <env name="LIGHTHOUSE_CACHE_VERSION" value="1"/>
+    <env name="LIGHTHOUSE_SUBSCRIPTION_STORAGE" value="array"/>
+    <env name="LIGHTHOUSE_DEBUG" value="15"/>
+    <env name="SCOUT_PREFIX" value="test-"/>
+    <env name="FINDER_PREFIX" value="test-"/>
+    <env name="SCOUT_DRIVER" value="null"/>
+    <env name="FINDER_DRIVER" value="null"/>
+    <env name="REDIS_DB" value="9"/>
+    <env name="FILESYSTEM_DISK" value="local"/>
+    <env name="PUBLIC_FILESYSTEM_DISK" value="local"/>
+    <env name="DOCUMENTS_FILESYSTEM_DISK" value="local"/>
+    <env name="IP_LOCATION_DRIVER" value="App\Core\IPLocation\Drivers\Local"/>
+    <env name="CLAMAV_ENABLED" value="false"/>
+    <env name="CURRENCIES_DRIVER" value="mock"/>
+    <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
+    <env name="SUPPORT_DATABASE" value="null"/>
+    <env name="SUPPORT_CACHE_ENABLED" value="false"/>
+    <env name="BROADCAST_DRIVER" value="null"/>
+  </php>
+  <source>
+    <include>
+      <directory suffix=".php">./app</directory>
+    </include>
+  </source>
+</phpunit>

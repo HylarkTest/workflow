@@ -1,0 +1,11 @@
+#import "../DriveFragment.gql"
+
+mutation UpdateDrive($input: UpdateDriveInput!) {
+    updateList: updateDrive(input: $input) {
+        code
+        success
+        list: drive {
+            ...Drive
+        }
+    }
+}

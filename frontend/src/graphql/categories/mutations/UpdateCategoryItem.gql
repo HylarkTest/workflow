@@ -1,0 +1,11 @@
+#import "../CategoryItemFragment.gql"
+
+mutation UpdateCategoryItem($input: UpdateCategoryItemInput!) {
+    updateCategoryItem(input: $input) {
+        code
+        success
+        item {
+            ...CategoryItem
+        }
+    }
+}

@@ -1,0 +1,73 @@
+#!/bin/bash
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=$(git hash-object -t tree /dev/null)
+fi
+
+if ! git diff-index --quiet --cached ${against} -- app modules/*/src
+then
+    echo "Running PHP type checker"
+    composer type-check
+
+    if [[ $? -ne 0 ]]
+    then
+        echo "Could not commit due to type errors"
+        exit 1
+    fi
+fi
+
+CHANGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.php$')
+if [[ -n "$CHANGED_FILES" ]]
+then
+    UNSTAGED_FILES=$(git diff --name-only | grep -E '\.php$')
+    # Check if there are any files that have staged and unstaged changes
+    STAGED_AND_UNSTAGED_FILES=$(comm -12 <(echo "$CHANGED_FILES" | sort) <(echo "$UNSTAGED_FILES" | sort))
+    ONLY_STAGED_FILES=$(comm -23 <(echo "$CHANGED_FILES" | sort) <(echo "$UNSTAGED_FILES" | sort))
+    echo "Running the PHP linter"
+    echo $ONLY_STAGED_FILES | xargs vendor/bin/pint
+    git add ${ONLY_STAGED_FILES};
+    # If there are files with both stages and unstaged files we don't want to
+    # blindly stage the files after linting as the developer obviously didn't
+    # want to stage the changes yet, so we just fail the commit and tell the
+    # developer to lint manually.
+    if [[ -n "$STAGED_AND_UNSTAGED_FILES" ]]
+    then
+        echo "Running PHP linter on files with staged and unstaged changes"
+        echo $STAGED_AND_UNSTAGED_FILES | xargs vendor/bin/pint -v --test
+        if [[ $? -ne 0 ]]
+        then
+            echo "Could not commit due to PHP lint errors"
+            exit 1
+        fi
+    fi
+fi
+
+cd frontend
+shopt -s extglob
+FE_CHANGED_FILES=$(git diff --cached --name-only --relative --diff-filter=ACM -- ./src/**/*.@(js|vue|gql))
+if [[ -n "$FE_CHANGED_FILES" ]]
+then
+    echo "Running ES linter"
+    NODE_ENV=production yarn eslint ${FE_CHANGED_FILES}
+    if [[ $? -ne 0 ]]
+    then
+        echo "Could not commit due to ES lint errors"
+        exit 1
+    fi
+    git add ${FE_CHANGED_FILES};
+fi
+cd ..
+
+NEW_CHANGED_FILES=$(git diff --cached --name-only)
+echo "$NEW_CHANGED_FILES"
+
+if [[ -n "$CHANGED_FILES" && -z "$NEW_CHANGED_FILES" ]]
+then
+    echo "All changes were reverted"
+    exit 1
+fi
+
+exit 0

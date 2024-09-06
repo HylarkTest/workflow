@@ -1,0 +1,261 @@
+extend type Query @guard(with: ["web", "api"]) {
+    page(id: ID! @globalId(decode: "ID", type: "Page")): Page @field(resolver: "PageQuery@show")
+    pages(first: Int! = 25, after: String, spaceId: ID! @globalId(decode: "ID", type: "Space")): PageConnection! @field(resolver: "PageQuery@index")
+}
+
+extend type Mutation @guard(with: ["web", "api"]) {
+    createListPage(input: CreateListPageInput!): PageMutationResponse @field(resolver: "PageQuery@storeListPage") @broadcastNodeCreated(subscription: "pageCreated", nodeField: "page")
+    createEntitiesPage(input: CreateEntitiesPageInput!): PageMutationResponse @field(resolver: "PageQuery@storeEntitiesPage") @broadcastNodeCreated(subscription: "pageCreated", nodeField: "page")
+    createEntityPage(input: CreateEntityPageInput!): PageMutationResponse @field(resolver: "PageQuery@storeEntitiesPage") @broadcastNodeCreated(subscription: "pageCreated", nodeField: "page")
+    updateListPage(input: UpdateListPageInput!): PageMutationResponse @field(resolver: "PageQuery@updateListPage") @broadcastNodeUpdated(subscription: "pageUpdated", nodeField: "page")
+    updateEntitiesPage(input: UpdateEntitiesPageInput!): PageMutationResponse @field(resolver: "PageQuery@updateEntitiesPage") @broadcastNodeUpdated(subscription: "pageUpdated", nodeField: "page")
+    updateEntityPage(input: UpdateEntityPageInput!): PageMutationResponse @field(resolver: "PageQuery@updateEntitiesPage") @broadcastNodeUpdated(subscription: "pageUpdated", nodeField: "page")
+    deletePage(input: DeletePageInput!): SuccessfulMutationResponse @field(resolver: "PageQuery@destroy") @broadcastNodeDeleted(subscription: "pageDeleted")
+}
+
+extend type Subscription {
+    pageCreated: PageMutationResponse
+    pageUpdated: PageMutationResponse
+    pageDeleted: PageMutationResponse
+}
+
+type PageConnection {
+    edges: [PageEdge!]! @connectionEdge
+    pageInfo: PageInfo! @pageInfo
+}
+
+type PageEdge {
+    node: Page!
+    cursor: String!
+}
+
+interface Page @interface(resolveType: "App\\GraphQL\\TypeResolver@resolveType") {
+    id: ID!
+    templateRefs: [String!]
+    path: String!
+    name: String!
+    folder: String!
+    description: String
+    symbol: String
+    design: JSON @emptyObject
+    type: PageType!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    space: Space!
+    image: String @rename(attribute: "imageUrl")
+}
+
+interface ItemPage @interface(resolveType: "App\\GraphQL\\TypeResolver@resolveType") {
+    id: ID!
+    templateRefs: [String!]
+    path: String!
+    name: String!
+    folder: String!
+    description: String
+    symbol: String
+    design: JSON @emptyObject
+    type: PageType!
+    image: String @rename(attribute: "imageUrl")
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    space: Space!
+    mapping: Mapping!
+}
+
+type ListPage implements Page & Findable & ActionSubject @node(model: "App\\Models\\Page", type: "Page") {
+    templateRefs: [String!] @rename(attribute: "template_refs")
+    path: String!
+    name: String!
+    folder: String!
+    description: String
+    design: JSON @emptyObject
+    symbol: String
+    lists: [ID!]
+    type: PageType!
+    image: String @rename(attribute: "imageUrl")
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    space: Space! @belongsTo
+    listItems(
+        orderBy: [OrderByClause!]
+        first: Int! = 25
+        after: String
+    ): FeatureItemConnection @field(resolver: "App\\GraphQL\\Queries\\PageQuery@indexListItems")
+}
+
+type EntityPage implements Page & ItemPage & Findable & ActionSubject @node(model: "App\\Models\\Page", type: "Page") {
+    templateRefs: [String!] @rename(attribute: "template_refs")
+    path: String!
+    name: String!
+    folder: String!
+    description: String
+    symbol: String
+    type: PageType!
+    image: String @rename(attribute: "imageUrl")
+    design: JSON @emptyObject
+    newData: NewItemFormData!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    space: Space! @belongsTo
+    mapping: Mapping! @hasOne
+    item: Item @field(resolver: "App\\GraphQL\\Queries\\PageQuery@resolveEntity")
+}
+
+type EntitiesPage implements Page & ItemPage & Findable & ActionSubject @node(model: "App\\Models\\Page", type: "Page") {
+    templateRefs: [String!] @rename(attribute: "template_refs")
+    path: String!
+    name: String!
+    singularName: String @rename(attribute: "config.singularName")
+    folder: String!
+    description: String
+    design: JSON @emptyObject
+    symbol: String
+    type: PageType!
+    newData: NewItemFormData!
+    image: String @rename(attribute: "imageUrl")
+    newFields: [String!]
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    space: Space! @belongsTo
+    fieldFilters: [FieldFilter!] @rename(attribute: "config.fieldFilters")
+    markerFilters: [MarkerFilter!] @rename(attribute: "config.markerFilters")
+    mapping: Mapping! @hasOne
+    defaultFilter: SavedFilter @field(resolver: "App\\GraphQL\\Queries\\PageQuery@resolveDefaultFilter")
+    personalDefaultFilter: SavedFilter @field(resolver: "App\\GraphQL\\Queries\\PageQuery@resolvePersonalDefaultFilter")
+    items(
+        orderBy: [OrderByClause!]
+        first: Int! = 25
+        after: String
+    ): ItemConnection @field(resolver: "App\\GraphQL\\Queries\\PageQuery@indexItems")
+}
+
+type NewItemFormData {
+    fields: [String!]!
+    markers: [String!]!
+}
+
+type FieldFilter {
+    fieldId: String!
+    operator: FieldFilterOperator!
+    match: JSON!
+}
+
+type MarkerFilter {
+    markerId: ID!
+    context: String
+    operator: MarkerFilterOperator!
+}
+
+input DeletePageInput {
+    id: ID! @globalId(decode: "ID", type: "Page")
+}
+
+input CreateListPageInput {
+    spaceId: ID! @globalId(decode: "ID", type: "Space")
+    path: String @rules(apply: ["max:100", "filled", "prohibits:name,folder"])
+    name: String @rules(apply: ["max:50", "filled"])
+    folder: String @rules(apply: ["max:50"])
+    symbol: String! @rules(apply: ["max:255"])
+    description: String @rules(apply: ["max:2000"])
+    type: PageType!
+    design: JSON
+    lists: [ID!]! @rulesForArray(apply: ["required"])
+    templateRefs: [String!] @rules(apply: ["filled", "max:255"]) @rulesForArray(apply: ["max:10"])
+    image: Upload @rules(apply: ["nullable", "max:2000", "image"])
+}
+
+input UpdateListPageInput {
+    id: ID! @globalId(decode: "ID", type: "Page")
+    path: String @rules(apply: ["max:100", "filled", "prohibits:name,folder"])
+    name: String @rules(apply: ["max:50", "filled"])
+    folder: String @rules(apply: ["max:50"])
+    symbol: String @rules(apply: ["max:255"])
+    description: String @rules(apply: ["max:2000"])
+    design: JSON
+    lists: [ID!] @rulesForArray(apply: ["array"])
+    image: Upload @rules(apply: ["nullable", "max:2000", "image"])
+}
+
+input CreateEntityPageInput {
+    spaceId: ID! @globalId(decode: "ID", type: "Space")
+    path: String @rules(apply: ["max:100", "filled", "prohibits:name,folder"])
+    name: String @rules(apply: ["max:50", "filled"])
+    folder: String @rules(apply: ["max:50"])
+    symbol: String! @rules(apply: ["max:255"])
+    description: String @rules(apply: ["max:2000"])
+    design: JSON
+    mappingId: ID! @globalId(type: "Mapping", decode: "ID")
+    entityId: ID @globalId(type: "Item", decode: "ID")
+    newData: NewItemFormDataInput
+    image: Upload @rules(apply: ["nullable", "max:2000", "image"])
+}
+
+input UpdateEntityPageInput {
+    id: ID! @globalId(decode: "ID", type: "Page")
+    path: String @rules(apply: ["max:100", "filled", "prohibits:name,folder"])
+    name: String @rules(apply: ["max:50", "filled"])
+    folder: String @rules(apply: ["max:50"])
+    symbol: String @rules(apply: ["max:255"])
+    description: String @rules(apply: ["max:2000"])
+    design: JSON
+    newData: NewItemFormDataInput
+    entityId: ID @globalId(type: "Item", decode: "ID")
+    image: Upload @rules(apply: ["nullable", "max:2000", "image"])
+}
+
+input CreateEntitiesPageInput {
+    spaceId: ID! @globalId(decode: "ID", type: "Space")
+    path: String @rules(apply: ["max:100", "filled", "prohibits:name,folder"])
+    name: String @rules(apply: ["max:50", "filled"])
+    folder: String @rules(apply: ["max:50"])
+    singularName: String @rules(apply: ["max:50", "filled"])
+    symbol: String! @rules(apply: ["max:255"])
+    description: String @rules(apply: ["max:2000"])
+    design: JSON
+    fieldFilters: [FieldFilterInput!]
+    markerFilters: [MarkerFilterInput!]
+    newData: NewItemFormDataInput
+    mappingId: ID! @globalId(type: "Mapping", decode: "ID")
+    image: Upload @rules(apply: ["nullable", "max:2000", "image"])
+}
+
+input UpdateEntitiesPageInput {
+    id: ID! @globalId(decode: "ID", type: "Page")
+    path: String @rules(apply: ["max:100", "filled", "prohibits:name,folder"])
+    name: String @rules(apply: ["max:50", "filled"])
+    folder: String @rules(apply: ["max:50"])
+    singularName: String @rules(apply: ["max:50", "filled"])
+    symbol: String @rules(apply: ["max:255"])
+    fieldFilters: [FieldFilterInput!]
+    markerFilters: [MarkerFilterInput!]
+    description: String @rules(apply: ["max:2000"])
+    design: JSON
+    newData: NewItemFormDataInput
+    image: Upload @rules(apply: ["nullable", "max:2000", "image"])
+    defaultFilterId: ID @globalId(type: "SavedFilter", decode: "ID")
+    personalDefaultFilterId: ID @globalId(type: "SavedFilter", decode: "ID")
+}
+
+input NewItemFormDataInput {
+    fields: [String!]!
+    markers: [String!]!
+}
+
+type PageMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    page: Page
+}
+
+type Design {
+    icon: String
+    item: JSON
+    full: JSON
+}
+
+input DesignInput {
+    icon: String
+    item: JSON
+    full: JSON
+}

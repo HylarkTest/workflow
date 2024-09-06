@@ -1,0 +1,11 @@
+#import "../AssociationCollectionFragment.gql"
+
+mutation AssociateItemToExternalEmail($input: AssociateEmailInput!) {
+    associateEmail(input: $input) {
+        code
+        node: email {
+            id
+            ...AssociationCollection
+        }
+    }
+}

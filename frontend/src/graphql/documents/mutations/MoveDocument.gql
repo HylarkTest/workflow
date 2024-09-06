@@ -1,0 +1,11 @@
+#import "../DocumentFragment.gql"
+
+mutation MoveDocument($input: MoveDocumentInput!) {
+    moveDocument(input: $input) {
+        code
+        success
+        document {
+            ...Document
+        }
+    }
+}

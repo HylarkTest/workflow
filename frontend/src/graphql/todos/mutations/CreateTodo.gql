@@ -1,0 +1,15 @@
+#import "../TodoFragment.gql"
+
+mutation CreateTodo($input: CreateTodoInput!, $forMapping: ID) {
+    createTodo(input: $input) {
+        code
+        success
+        todo {
+            ...Todo
+        }
+        todoList {
+            id
+            count: incompleteTodosCount(forMapping: $forMapping)
+        }
+    }
+}

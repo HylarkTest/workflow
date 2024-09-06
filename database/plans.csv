@@ -1,0 +1,19 @@
+feature,description,core,ascend,soar
+users,The maximum number of users per account,1,1,50
+storage,The amount of space (in GB) for storing files,1,8,8
+spaces,The maximum number of spaces to group data,2,5,5
+pages,The maximum number of pages,12,50,50
+records,The maximum number of individual records,500,10000,10000
+log,How long (in days) the user can view the history,30,INF,INF
+tag_groups,The maximum number of tag groups,4,12,12
+pipeline_groups,The maximum number of pipeline groups,3,12,12
+status_groups,The maximum number of pipeline groups,3,12,12
+categories,The maximum number of categories,3,12,12
+deadline_groups,The maximum number of deadline groups,3,12,12
+integrations,The maximum number of integrations,2,5,5
+email_associations,How many emails can be associated to a single record,5,5,5
+pinboard,The maximum number of pins,50,500,500
+notes,The maximum number of notes,50,500,500
+links,The maximum number of links,50,500,500
+todos,The maximum number of todos,1000,1000,1000
+events,The maximum number of events,1000,1000,1000

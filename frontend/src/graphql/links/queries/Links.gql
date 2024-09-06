@@ -1,0 +1,41 @@
+#import "../LinkFragment.gql"
+
+query Links(
+    $spaceId: ID,
+    $linkListId: ID
+    $forMapping: ID,
+    $forNode: ID,
+    $search: [String!]
+    $filters: [LinkFilterInput!]
+    $isFavorited: Boolean
+    $orderBy: [LinkOrderBy!]
+    $after: String
+    $first: Int! = 50
+) {
+    links(
+        spaceId: $spaceId,
+        linkListId: $linkListId,
+        forMapping: $forMapping,
+        forNode: $forNode,
+        search: $search,
+        after: $after,
+        filters: $filters,
+        isFavorited: $isFavorited,
+        orderBy: $orderBy,
+        first: $first,
+    ) {
+        edges {
+            node {
+                ...Link
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            total
+            rawTotal
+            # eslint-disable-next-line @graphql-eslint/fields-on-correct-type
+            hasFilterApplied @client
+        }
+    }
+}

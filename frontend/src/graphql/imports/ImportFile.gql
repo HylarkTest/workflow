@@ -1,0 +1,12 @@
+#import './ImportFragment.gql'
+
+mutation ImportFile($input: ImportSpreadsheetInput!) {
+    importSpreadsheet(input: $input) {
+        code
+        success
+        message
+        import {
+            ...Import
+        }
+    }
+}

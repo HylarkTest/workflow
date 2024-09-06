@@ -1,0 +1,12 @@
+#import "./AssigneeCollectionFragment.gql"
+
+mutation UpdateAssignees($input: UpdateAssigneesInput!) {
+    updateAssignees(input: $input) {
+        code
+        success
+        node {
+            id
+            ...AssigneeCollection
+        }
+    }
+}

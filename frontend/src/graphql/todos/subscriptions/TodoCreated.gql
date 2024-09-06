@@ -1,0 +1,13 @@
+#import "../TodoFragment.gql"
+
+subscription TodoCreated($forNode: ID, $forMapping: ID) {
+    todoCreated {
+        todo {
+            ...Todo
+        }
+        todoList {
+            id
+            count: incompleteTodosCount(forNode: $forNode, forMapping: $forMapping)
+        }
+    }
+}

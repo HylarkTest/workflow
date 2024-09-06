@@ -1,0 +1,5 @@
+#import "../FeatureListFragment.gql"
+
+fragment TodoList on TodoList {
+    ...FeatureList
+}

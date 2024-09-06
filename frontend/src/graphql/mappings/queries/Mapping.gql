@@ -1,0 +1,38 @@
+#import "../MappingFragment.gql"
+#import "../MappingFieldsFragment.gql"
+#import "../MappingFeaturesFragment.gql"
+#import "../MappingRelationshipsFragment.gql"
+#import "../MappingSectionsFragment.gql"
+#import "../MappingMarkerGroupsFragment.gql"
+
+query Mapping($id: ID, $itemId: ID) {
+    mapping(id: $id, itemId: $itemId) {
+        ...Mapping
+        ...Fields
+        ...Features
+        ...Relationships
+        ...Sections
+        ...MappingMarkerGroups
+        pages {
+            id
+            name
+            symbol
+            ...on EntitiesPage {
+                fieldFilters {
+                    fieldId
+                    match
+                    operator
+                }
+                markerFilters {
+                    markerId
+                    operator
+                    context
+                }
+            }
+        }
+        space {
+            id
+            name
+        }
+    }
+}

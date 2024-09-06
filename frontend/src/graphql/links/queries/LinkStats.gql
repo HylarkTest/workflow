@@ -1,0 +1,14 @@
+query LinkStats(
+    $forMapping: ID,
+    $forLists: [ID!],
+    $forNode: ID,
+) {
+    linkStats(
+        forMapping: $forMapping,
+        forLists: $forLists,
+        forNode: $forNode,
+    ) {
+        favoritesCount
+        totalCount
+    }
+}

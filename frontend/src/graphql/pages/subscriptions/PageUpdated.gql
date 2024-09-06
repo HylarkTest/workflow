@@ -1,0 +1,9 @@
+#import "../FullPageFragment.gql"
+
+subscription PageUpdated {
+    pageUpdated {
+        page {
+            ...FullPage
+        }
+    }
+}

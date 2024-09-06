@@ -1,0 +1,23 @@
+name: JS lint check
+
+on:
+  pull_request_review:
+    branches: [master]
+    types: [submitted]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install modules
+      run: yarn --cwd=frontend install
+
+    - name: Lint JS
+      run: composer lint-js

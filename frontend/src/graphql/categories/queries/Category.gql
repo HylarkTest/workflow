@@ -1,0 +1,7 @@
+#import "../CategoryFragment.gql"
+
+query Category($id: ID!) {
+    category(id: $id) {
+        ...Category
+    }
+}

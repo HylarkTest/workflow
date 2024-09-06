@@ -1,0 +1,11 @@
+#import "../ExternalTodoListFragment.gql"
+
+mutation CreateExternalTodoList($input: CreateExternalTodoListInput!) {
+    createExternalTodoList(input: $input) {
+        code
+        success
+        todoList {
+            ...ExternalTodoList
+        }
+    }
+}

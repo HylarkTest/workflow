@@ -1,0 +1,13 @@
+#import "../MailboxFragment.gql"
+
+mutation CreateMailbox($input: CreateMailboxInput!) {
+    createMailbox(input: $input) {
+        code
+        success
+        mailbox {
+            ...Mailbox
+            unseenCount
+            total
+        }
+    }
+}

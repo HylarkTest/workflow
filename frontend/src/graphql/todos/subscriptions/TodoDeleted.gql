@@ -1,0 +1,8 @@
+subscription TodoDeleted($forNode: ID, $forMapping: ID) {
+    todoDeleted {
+        todoList {
+            id
+            count: incompleteTodosCount(forNode: $forNode, forMapping: $forMapping)
+        }
+    }
+}

@@ -1,0 +1,11 @@
+#import "../UserFragment.gql"
+
+mutation UpdateUser($input: UpdateUserInput!) {
+    updateMe(input: $input) {
+        code
+        success
+        user {
+            ...User
+        }
+    }
+}

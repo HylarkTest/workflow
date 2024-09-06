@@ -1,0 +1,12 @@
+fragment Notification on Notification {
+    id
+    title: header
+    fullContent: content
+    preview
+    image
+    link
+    channel
+    clearedAt
+    createdAt
+    updatedAt
+}

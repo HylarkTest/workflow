@@ -1,0 +1,83 @@
+# ------------------------------------------
+#               Storage files
+# ------------------------------------------
+/storage/*.key
+/public/storage
+/storage/base*
+/storage/tenant_test*
+/tests/Feature/base*
+!/tests/Feature/BaseTest.php
+base1/
+
+# ------------------------------------------
+#                 Tool files
+# ------------------------------------------
+docker-compose.override.yml
+frontend/.stylelintcache
+frontend/.eslintcache
+.phpunit.result.cache
+.php-cs-fixer.cache
+.phpunit.cache
+.DS_Store
+.rr.yaml
+.~lock*
+*.swp
+rr
+
+# ------------------------------------------
+#                Build files
+# ------------------------------------------
+.expo
+public/js
+public/assets
+public/sw.js*
+public/workbox-*
+public/templates/
+public/cookie-banner/
+!/public/css/colors.*
+public/latest_release.txt
+public/templates-index.html
+public/cookie-banner-index.html
+resources/views/index.blade.php
+public/legacy-assets-index.html.json
+resources/views/templates-index.blade.php
+resources/views/cookie-banner-index.blade.php
+
+# ------------------------------------------
+#               Laravel files
+# ------------------------------------------
+Homestead.json
+Homestead.yaml
+.env*
+
+# ------------------------------------------
+#            Dependency libraries
+# ------------------------------------------
+node_modules
+/vendor
+
+# ------------------------------------------
+#                 IDE files
+# ------------------------------------------
+_lighthouse_ide_helper.php
+programmatic-types.graphql
+schema-directives.graphql
+.phpstorm.meta.php
+.phpactor.json
+_ide_helper*
+/.phpintel
+.vscode
+/.idea
+/tags
+.vs
+
+# ------------------------------------------
+#                Log files
+# ------------------------------------------
+yarn-error.log
+npm-debug.log
+logs
+.vapor/
+.env.production
+.env.staging
+eas.json

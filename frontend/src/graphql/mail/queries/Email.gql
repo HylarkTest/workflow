@@ -1,0 +1,24 @@
+#import "../EmailFragment.gql"
+
+query Email(
+    $mailboxId: ID!
+    $sourceId: ID!
+    $emailId: ID!
+) {
+    email(
+        mailboxId: $mailboxId,
+        sourceId: $sourceId,
+        emailId: $emailId,
+    ) {
+        ...EmailMessage
+        html
+        attachments {
+            id
+            contentId
+            name
+            fileType
+            link
+            isInline
+        }
+    }
+}

@@ -1,0 +1,73 @@
+{
+    "mapping": {
+        "name": "Vacation destinations",
+        "singular_name": "Vacation destination",
+        "type": "ITEM",
+        "description": "Places I want to go",
+        "features": [
+            {
+                "type": "NOTES"
+            },
+            {
+                "type": "PLANNER"
+            },
+            {
+                "type": "COMMENTS"
+            }
+        ],
+        "fields": [
+            {
+                "id": "picture",
+                "name": "Picture",
+                "type": "IMAGE"
+            },
+            {
+                "id": "time",
+                "name": "Travel time",
+                "type": "LINE"
+            },
+            {
+                "id": "ideal",
+                "name": "Ideal time",
+                "type": "LINE"
+            }
+        ],
+        "design": {
+            "icon": "fa-tree-palm"
+        }
+    },
+    "items": [
+        {
+            "data": {
+                "name": "Jamaica",
+                "image": "https://en.wikipedia.org/wiki/Jamaica#/media/File:Stoplight-parrotfish.jpg",
+                "time": "12 hours",
+                "ideal": "Dec - May"
+            }
+        },
+        {
+            "data": {
+                "name": "Paris",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Seine_and_Eiffel_Tower_from_Tour_Saint_Jacques_2013-08.JPG",
+                "time": "2 hours",
+                "ideal": "All year round"
+            }
+        },
+        {
+            "data": {
+                "name": "Thailand",
+                "image": "https://content.tui.co.uk/adamtui/2016_12/18_13/2300128e-a1b8-424d-bec1-a6e000d73321/TLD_AON_F016WebOriginalCompressed.jpg",
+                "time": "24 hours",
+                "ideal": "Nov - Mar"
+            }
+        },
+        {
+            "data": {
+                "name": "Morocco",
+                "image": "https://en.wikipedia.org/wiki/Morocco#/media/File:Volubilis_Longshot_II.jpg",
+                "time": "24 hours",
+                "ideal": "Spring, Autumn"
+            }
+        }
+    ]
+}

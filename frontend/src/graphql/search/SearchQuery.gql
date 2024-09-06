@@ -1,0 +1,35 @@
+#import "../mappings/MappingFieldsFragment.gql"
+#import "../NodeFragment.gql"
+
+query Search(
+    $query: String!,
+    $after: String,
+    $types: [String],
+    $spaceId: ID,
+    $orderBy: [SearchOrderBy],
+) {
+    search(
+        query: $query,
+        first: 25,
+        after: $after,
+        types: $types,
+        orderBy: $orderBy,
+        spaceId: $spaceId,
+    ) {
+        edges {
+            node {
+                ...NodeFragment
+            }
+            cursor
+            highlights {
+                highlight
+                path
+            }
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            total
+        }
+    }
+}

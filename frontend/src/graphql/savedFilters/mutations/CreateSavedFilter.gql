@@ -1,0 +1,11 @@
+#import "../SavedFilterFragment.gql"
+
+mutation CreateSavedFilter($input: SaveFilterInput!) {
+    saveFilter(input: $input) {
+        code
+        success
+        savedFilter {
+            ...SavedFilter
+        }
+    }
+}

@@ -1,0 +1,5598 @@
+{
+    "access": {
+        "2fa": "",
+        "2faSubtitle": "",
+        "activated": "",
+        "activationEmailSent": "",
+        "alreadyActivated": "",
+        "inviteEmailSent": "",
+        "notActivated": "",
+        "otp": "",
+        "otpSubtitle": "",
+        "resetPassword": "",
+        "resetSubtitle": "",
+        "setPassword": "",
+        "setSubtitle": ""
+    },
+    "bases": {
+        "information": {
+            "collaborativeBases": {
+                "1": {
+                    "answer": "",
+                    "question": ""
+                },
+                "2": {
+                    "answer": "",
+                    "question": ""
+                },
+                "3": {
+                    "answer": "",
+                    "question": ""
+                }
+            }
+        }
+    },
+    "calendar": {
+        "new": {
+            "title": ""
+        },
+        "repeating": {
+            "allEvents": "",
+            "allFutureEvents": "",
+            "changing": "",
+            "deleting": "",
+            "thisEvent": "",
+            "whatChanging": "",
+            "whatDeleting": "",
+            "whatExternalChanging": "",
+            "whatExternalDeleting": ""
+        }
+    },
+    "colors": {
+        "bright": "",
+        "regular": ""
+    },
+    "common": {
+        "activate": "",
+        "add": "",
+        "addName": "",
+        "all": "",
+        "areYouSure": "",
+        "attach": "",
+        "back": "",
+        "blueprint": "",
+        "calendar": "",
+        "cancel": "",
+        "changeDetails": "",
+        "clear": "",
+        "clearAll": "",
+        "close": "",
+        "collapseAll": "",
+        "collapseGroup": "",
+        "comingSoon": "",
+        "completed": "",
+        "confirm": "",
+        "continue": "",
+        "createCopy": "",
+        "dates": {
+            "daily": "",
+            "date": "",
+            "dateAtTime": "",
+            "dates": "",
+            "days": [
+                {
+                    "full": "",
+                    "min": "",
+                    "one": "",
+                    "short": ""
+                },
+                {
+                    "full": "",
+                    "min": "",
+                    "one": "",
+                    "short": ""
+                },
+                {
+                    "full": "",
+                    "min": "",
+                    "one": "",
+                    "short": ""
+                },
+                {
+                    "full": "",
+                    "min": "",
+                    "one": "",
+                    "short": ""
+                },
+                {
+                    "full": "",
+                    "min": "",
+                    "one": "",
+                    "short": ""
+                },
+                {
+                    "full": "",
+                    "min": "",
+                    "one": "",
+                    "short": ""
+                },
+                {
+                    "full": "",
+                    "min": "",
+                    "one": "",
+                    "short": ""
+                }
+            ],
+            "durations": {
+                "durationHours": "",
+                "durationMinutes": "",
+                "none": "",
+                "overHours": "",
+                "underMinutes": ""
+            },
+            "month": "",
+            "monthly": "",
+            "monthsChoice": "",
+            "suffixes": {
+                "daily": "",
+                "hourly": "",
+                "minutely": "",
+                "monthly": "",
+                "weekly": "",
+                "yearly": ""
+            },
+            "weekly": "",
+            "year": "",
+            "yearly": ""
+        },
+        "deactivate": "",
+        "default": "",
+        "delete": "",
+        "discard": "",
+        "discover": "",
+        "done": "",
+        "duplicate": "",
+        "edit": "",
+        "emails": "",
+        "enter": "",
+        "expandAll": "",
+        "expandGroup": "",
+        "false": "",
+        "featured": "",
+        "features": "",
+        "filterBy": "",
+        "filteredBy": "",
+        "filters": "",
+        "finish": "",
+        "free": "",
+        "fullscreen": "",
+        "fullsize": "",
+        "general": "",
+        "getStarted": "",
+        "group": "",
+        "hello": "",
+        "import": "",
+        "instructions": "",
+        "integrate": "",
+        "learnMore": "",
+        "leave": "",
+        "less": "",
+        "loadMore": "",
+        "logIn": "",
+        "logOut": "",
+        "maximize": "",
+        "menu": "",
+        "minimize": "",
+        "more": "",
+        "mostRecent": "",
+        "myBase": "",
+        "new": "",
+        "next": "",
+        "no": "",
+        "noFilterMatches": "",
+        "noFilterResults": "",
+        "noFiltersAvailable": "",
+        "noName": "",
+        "none": "",
+        "numbers": {
+            "capitalized": {
+                "1": "",
+                "2": "",
+                "3": "",
+                "4": "",
+                "5": ""
+            }
+        },
+        "page": "",
+        "pages": "",
+        "pageTypes": {
+            "calendar": "",
+            "documents": "",
+            "entities": "",
+            "entity": "",
+            "freedoc": "",
+            "links": "",
+            "notes": "",
+            "pinboard": "",
+            "record": "",
+            "records": "",
+            "todos": ""
+        },
+        "previous": "",
+        "priorities": {
+            "high": "",
+            "low": "",
+            "normal": "",
+            "urgent": ""
+        },
+        "proceed": "",
+        "recent": "",
+        "recentRecords": "",
+        "rename": "",
+        "resend": "",
+        "reset": "",
+        "results": "",
+        "revert": "",
+        "roles": {
+            "admin": "",
+            "member": "",
+            "owner": ""
+        },
+        "save": "",
+        "saveAndApply": "",
+        "saves": {
+            "saveAndAnother": "",
+            "saveAndClone": "",
+            "saveAndOpen": ""
+        },
+        "search": "",
+        "select": "",
+        "selected": "",
+        "selections": {
+            "color": ""
+        },
+        "send": "",
+        "showCompleted": "",
+        "signIn": "",
+        "signOut": "",
+        "signUp": "",
+        "sort": "",
+        "sortBy": "",
+        "sortByAscending": "",
+        "sortByDescending": "",
+        "space": "",
+        "spaces": "",
+        "submit": "",
+        "subscribe": "",
+        "todos": "",
+        "toggleDropdown": "",
+        "toggleSection": "",
+        "true": "",
+        "unclear": "",
+        "unset": "",
+        "update": "",
+        "updateAndApply": "",
+        "upgrade": "",
+        "uses": "",
+        "verify": "",
+        "view": "",
+        "views": {
+            "calendar": "",
+            "kanban": "",
+            "line": "",
+            "new": "",
+            "spreadsheet": "",
+            "tile": "",
+            "view": ""
+        },
+        "wishToContinue": "",
+        "yes": ""
+    },
+    "customizations": {
+        "allowedLabels": {
+            "categories": "",
+            "pages": "",
+            "pipelineGroups": "",
+            "statusGroups": "",
+            "tagGroups": ""
+        },
+        "blueprint": {
+            "features": {
+                "documents": {
+                    "deactivation": "",
+                    "description": "",
+                    "hideAssociations": "",
+                    "reactivation": ""
+                },
+                "emails": {
+                    "deactivation": "",
+                    "description": "",
+                    "hideAssociations": "",
+                    "reactivation": ""
+                },
+                "events": {
+                    "deactivation": "",
+                    "description": "",
+                    "hideAssociations": "",
+                    "reactivation": ""
+                },
+                "favorites": {
+                    "description": ""
+                },
+                "links": {
+                    "deactivation": "",
+                    "description": "",
+                    "hideAssociations": "",
+                    "reactivation": ""
+                },
+                "notes": {
+                    "deactivation": "",
+                    "description": "",
+                    "hideAssociations": "",
+                    "reactivation": ""
+                },
+                "pinboard": {
+                    "deactivation": "",
+                    "description": "",
+                    "hideAssociations": "",
+                    "reactivation": ""
+                },
+                "priorities": {
+                    "description": ""
+                },
+                "timekeeper": {
+                    "deactivation": "",
+                    "description": "",
+                    "reactivation": ""
+                },
+                "todos": {
+                    "deactivation": "",
+                    "description": "",
+                    "hideAssociations": "",
+                    "reactivation": ""
+                }
+            },
+            "markers": {
+                "deactivation": "",
+                "reactivation": ""
+            },
+            "noneOnSpace": "",
+            "type": {
+                "item": "",
+                "person": ""
+            }
+        },
+        "category": {
+            "edit": {
+                "deleteDescription": "",
+                "name": "",
+                "sure": "",
+                "warning": ""
+            },
+            "item": {
+                "add": "",
+                "edit": "",
+                "name": "",
+                "new": ""
+            },
+            "name": "",
+            "new": {
+                "add": "",
+                "header": "",
+                "label": ""
+            },
+            "none": {
+                "header": "",
+                "message": ""
+            }
+        },
+        "editView": {
+            "tabs": {
+                "appearance": {
+                    "description": ""
+                },
+                "columns": {
+                    "description": ""
+                },
+                "data": {
+                    "description": ""
+                },
+                "design": {
+                    "description": ""
+                }
+            }
+        },
+        "filters": {
+            "defineFilters": "",
+            "explanations": {
+                "personalFilter": ""
+            },
+            "filterConfiguration": "",
+            "filterName": "",
+            "giveName": "",
+            "headers": {
+                "collabPublic": "",
+                "createNewPersonal": "",
+                "createNewPublic": "",
+                "editFilter": "",
+                "myPersonal": "",
+                "personalPublic": ""
+            },
+            "labels": {
+                "createNew": "",
+                "saveFilter": ""
+            },
+            "setDefault": "",
+            "setDefaultPersonal": ""
+        },
+        "footer": {
+            "actions": {
+                "description": "",
+                "header": ""
+            }
+        },
+        "navigation": {
+            "header": "",
+            "links": {
+                "description": "",
+                "header": ""
+            }
+        },
+        "pages": {
+            "addPage": "",
+            "addPages": "",
+            "newPageModal": {
+                "descriptionRecord": "",
+                "header": ""
+            },
+            "noPages": "",
+            "potential": {
+                "description": "",
+                "header": "",
+                "headerInitial": "",
+                "prompt": ""
+            }
+        },
+        "pageWizard": {
+            "blueprint": {
+                "bestMatches": {
+                    "item": "",
+                    "items": "",
+                    "people": "",
+                    "person": ""
+                },
+                "subset": {
+                    "cannotCreate": {
+                        "description": "",
+                        "header": ""
+                    }
+                }
+            },
+            "naming": {
+                "addDescription": "",
+                "addSingularName": "",
+                "instructions": "",
+                "pluralName": "",
+                "singularName": ""
+            },
+            "pageSections": {
+                "calendar": "",
+                "documents": "",
+                "entities": "",
+                "links": "",
+                "pinboard": "",
+                "todos": ""
+            },
+            "review": {
+                "addMorePrompt": "",
+                "allSet": "",
+                "createRelatedPages": "",
+                "dataReuse": {
+                    "dataSelection": "",
+                    "header": "",
+                    "optionNew": "",
+                    "optionReuse": "",
+                    "prompt": "",
+                    "reuseCategories": "",
+                    "reuseItem": "",
+                    "reuseList": "",
+                    "reuseMarkerGroup": ""
+                },
+                "linkData": "",
+                "selection": "",
+                "usedInPages": ""
+            }
+        },
+        "pipeline": {
+            "customize": "",
+            "edit": {
+                "deleteDescription": "",
+                "name": "",
+                "sure": "",
+                "warning": ""
+            },
+            "item": {
+                "add": "",
+                "edit": "",
+                "name": "",
+                "new": ""
+            },
+            "name": "",
+            "new": {
+                "add": "",
+                "header": "",
+                "label": ""
+            },
+            "noContent": {
+                "description": "",
+                "header": ""
+            },
+            "noneOnBase": ""
+        },
+        "prompts": {
+            "base": "",
+            "myBase": ""
+        },
+        "spaces": {
+            "add": "",
+            "edit": "",
+            "noContent": {
+                "pages": {
+                    "description": "",
+                    "header": ""
+                }
+            }
+        },
+        "status": {
+            "customize": "",
+            "edit": {
+                "deleteDescription": "",
+                "name": "",
+                "sure": "",
+                "warning": ""
+            },
+            "item": {
+                "add": "",
+                "edit": "",
+                "name": "",
+                "new": ""
+            },
+            "name": "",
+            "new": {
+                "add": "",
+                "header": "",
+                "label": ""
+            },
+            "noContent": {
+                "description": "",
+                "header": ""
+            },
+            "noneOnBase": "",
+            "uses": {
+                "description": ""
+            }
+        },
+        "tabs": {
+            "display": {
+                "description": "",
+                "name": "",
+                "subtitle": ""
+            },
+            "featureLists": {
+                "calendar": "",
+                "documents": "",
+                "events": "",
+                "links": "",
+                "notes": "",
+                "pinboard": "",
+                "todos": ""
+            },
+            "features": {
+                "name": "",
+                "subtitleBlueprint": ""
+            },
+            "fields": {
+                "name": "",
+                "subtitleBlueprint": ""
+            },
+            "filter": {
+                "name": ""
+            },
+            "form": {
+                "description": "",
+                "name": "",
+                "subtitle": ""
+            },
+            "general": {
+                "name": "",
+                "subtitle": "",
+                "subtitleBlueprint": ""
+            },
+            "history": {
+                "name": "",
+                "subtitle": "",
+                "subtitleBlueprint": ""
+            },
+            "lists": {
+                "subtitle": ""
+            },
+            "markers": {
+                "name": "",
+                "subtitleBlueprint": "",
+                "subtitleFeature": ""
+            },
+            "options": {
+                "name": ""
+            },
+            "personal": {
+                "description": "",
+                "name": "",
+                "subtitle": ""
+            },
+            "relationships": {
+                "name": "",
+                "subtitleBlueprint": ""
+            },
+            "views": {
+                "defaultFilterHeader": "",
+                "defaultFilterPlaceholder": "",
+                "deleteWarningHeader": "",
+                "deleteWarningMessage": "",
+                "description": "",
+                "editAndCreate": "",
+                "maxViews": "",
+                "name": "",
+                "selectDefault": "",
+                "subtitle": ""
+            }
+        },
+        "tag": {
+            "customize": "",
+            "edit": {
+                "deleteDescription": "",
+                "name": "",
+                "sure": "",
+                "warning": ""
+            },
+            "item": {
+                "add": "",
+                "edit": "",
+                "name": "",
+                "new": ""
+            },
+            "name": "",
+            "new": {
+                "add": "",
+                "header": "",
+                "label": ""
+            },
+            "noContent": {
+                "description": "",
+                "header": ""
+            },
+            "noneOnBase": ""
+        },
+        "timekeeper": {
+            "edit": {
+                "deleteDescription": "",
+                "name": "",
+                "sure": "",
+                "warning": ""
+            },
+            "item": {
+                "add": "",
+                "edit": "",
+                "name": "",
+                "new": ""
+            },
+            "name": "",
+            "new": {
+                "add": "",
+                "header": "",
+                "label": ""
+            }
+        },
+        "uses": {
+            "description": ""
+        }
+    },
+    "defaultPages": {
+        "calendar": {
+            "childrensCalendar": "",
+            "coachingCalendar": "",
+            "contractorCalendar": "",
+            "furtherEducationCalendar": "",
+            "gardeningCalendar": "",
+            "genericCalendar": "",
+            "hiringCalendar": "",
+            "mealCalendar": "",
+            "meetings": "",
+            "networkCalendar": "",
+            "photographyCalendar": "",
+            "recipeCalendar": "",
+            "staffSchedule": "",
+            "teachingCalendar": "",
+            "tutoringCalendar": "",
+            "viewingsCalendar": "",
+            "workCalendar": ""
+        },
+        "documents": {
+            "careerDocuments": "",
+            "documents": ""
+        },
+        "entities": {
+            "accommodation": "",
+            "accommodations": "",
+            "activities": "",
+            "activity": "",
+            "applicant": "",
+            "artProjects": "",
+            "assignments": "",
+            "authors": "",
+            "bill": "",
+            "bills": "",
+            "blogPost": "",
+            "bookInterviews": "",
+            "books": "",
+            "bucketIdeas": "",
+            "bucketList": "",
+            "businessContact": "",
+            "businessContacts": "",
+            "businessGoals": "",
+            "candidate": "",
+            "careerCompany": "",
+            "careerContact": "",
+            "careerDocuments": "",
+            "casualContacts": "",
+            "casualContactsSubset": "",
+            "child": "",
+            "childrensActivity": "",
+            "class": "",
+            "classStudent": "",
+            "clientContacts": "",
+            "clientContactsAfterSales": "",
+            "clientContactsLeads": "",
+            "clientGeneric": "",
+            "clientOrganization": "",
+            "clientPerson": "",
+            "coachingStudent": "",
+            "collectionItem": "",
+            "company": "",
+            "conferences": "",
+            "contentPost": "",
+            "contractorCompanies": "",
+            "contractors": "",
+            "course": "",
+            "courseFurther": "",
+            "courses": "",
+            "courseSearch": "",
+            "coursework": "",
+            "designProjects": "",
+            "destination": "",
+            "educationCourse": "",
+            "educationInstitution": "",
+            "educationPerson": "",
+            "educationProgram": "",
+            "employees": "",
+            "event": "",
+            "eventPerson": "",
+            "events": "",
+            "eventSupplier": "",
+            "eventVenue": "",
+            "extracurricular": "",
+            "extracurriculars": "",
+            "findRentals": "",
+            "findSales": "",
+            "findVehicles": "",
+            "furtherEducationCourse": "",
+            "gameItem": "",
+            "gardeningProject": "",
+            "gift": "",
+            "headhunterSubset": "",
+            "hobbiesArt": "",
+            "hobbiesBook": "",
+            "hobbiesCollection": "",
+            "hobbiesProject": "",
+            "hobbyProjects": "",
+            "homeBuyingContact": "",
+            "homeImprovementProject": "",
+            "homeProjects": "",
+            "ideas": "",
+            "inspiration": "",
+            "items": "",
+            "jewelryMaking": "",
+            "jewelryProjects": "",
+            "jobOpenings": "",
+            "jobPosition": "",
+            "knitting": "",
+            "knittingProjects": "",
+            "listingRentals": "",
+            "listingSales": "",
+            "mangementProperties": "",
+            "meals": "",
+            "medications": "",
+            "meetings": "",
+            "multiPeople": "",
+            "networkContact": "",
+            "networkOrganization": "",
+            "nonFictionBook": "",
+            "openPosition": "",
+            "organization": "",
+            "parties": "",
+            "party": "",
+            "peopleGiftsSubset": "",
+            "peopleXmasSubset": "",
+            "person": "",
+            "personPersonal": "",
+            "pet": "",
+            "pets": "",
+            "photographyClients": "",
+            "photographyGallery": "",
+            "photographyGoals": "",
+            "photographyHobby": "",
+            "photographyJobs": "",
+            "photographyLocations": "",
+            "photographySubjects": "",
+            "plants": "",
+            "position": "",
+            "professionalProduct": "",
+            "professionalProject": "",
+            "projectTasks": "",
+            "propertyOwners": "",
+            "propertyTenants": "",
+            "publisher": "",
+            "realEstateContacts": "",
+            "recipe": "",
+            "refereeSubset": "",
+            "resources": "",
+            "scholarship": "",
+            "school": "",
+            "sewing": "",
+            "sewingProjects": "",
+            "socialMediaPost": "",
+            "socialPost": "",
+            "softwareBugs": "",
+            "softwareFeatures": "",
+            "starterItem": "",
+            "stories": "",
+            "story": "",
+            "storyChapters": "",
+            "storyCharacter": "",
+            "storyCharacters": "",
+            "storyEvents": "",
+            "storyItems": "",
+            "storyLocations": "",
+            "storyOrganizations": "",
+            "storySetting": "",
+            "student": "",
+            "students": "",
+            "subscription": "",
+            "supplierCompanies": "",
+            "supplierContacts": "",
+            "targetCompany": "",
+            "taughtCourse": "",
+            "teachingAssignment": "",
+            "teams": "",
+            "travelActivity": "",
+            "tutoringStudent": "",
+            "vehicle": "",
+            "vehicles": "",
+            "venue": "",
+            "venues": "",
+            "wedding": "",
+            "weddingClients": "",
+            "weddingGuestSubset": "",
+            "weddings": "",
+            "weddingService": "",
+            "weddingVenue": "",
+            "woodworking": "",
+            "woodworkingProjects": "",
+            "worldCharacters": "",
+            "worldEvents": "",
+            "worldItems": "",
+            "worldLocations": "",
+            "worldOrganizations": "",
+            "worlds": ""
+        },
+        "entity": {
+            "accommodation": "",
+            "activity": "",
+            "applicant": "",
+            "bill": "",
+            "booksNonFiction": "",
+            "bucketList": "",
+            "careerContact": "",
+            "child": "",
+            "childrensActivity": "",
+            "class": "",
+            "classStudent": "",
+            "clientGeneric": "",
+            "clientOrganization": "",
+            "clientPerson": "",
+            "coachingStudent": "",
+            "conference": "",
+            "course": "",
+            "coursework": "",
+            "destination": "",
+            "educationCourse": "",
+            "educationInstitution": "",
+            "educationPerson": "",
+            "educationProgram": "",
+            "event": "",
+            "eventPerson": "",
+            "eventSingle": "",
+            "eventSupplier": "",
+            "eventVenue": "",
+            "extracurricular": "",
+            "furtherEducationCourse": "",
+            "gardeningProject": "",
+            "gift": "",
+            "headhunterSubset": "",
+            "hobbiesArt": "",
+            "hobbiesBook": "",
+            "hobbiesCollection": "",
+            "hobbiesProject": "",
+            "homeImprovementProject": "",
+            "jewelryMaking": "",
+            "jobPosition": "",
+            "knitting": "",
+            "myProfessionalProfile": "",
+            "networkContact": "",
+            "networkOrganization": "",
+            "nonFictionBook": "",
+            "openPosition": "",
+            "organization": "",
+            "party": "",
+            "partySingle": "",
+            "person": "",
+            "personPersonal": "",
+            "pet": "",
+            "photographyHobby": "",
+            "professionalProduct": "",
+            "professionalProject": "",
+            "publisher": "",
+            "recipe": "",
+            "refereeSubset": "",
+            "scholarship": "",
+            "sewing": "",
+            "singleActivity": "",
+            "singleProduct": "",
+            "singleProject": "",
+            "socialMediaPost": "",
+            "starterItem": "",
+            "story": "",
+            "storyCharacter": "",
+            "storySetting": "",
+            "student": "",
+            "subscription": "",
+            "targetCompany": "",
+            "teachingAssignment": "",
+            "travelActivity": "",
+            "tutoringStudent": "",
+            "vehicle": "",
+            "venue": "",
+            "wedding": "",
+            "weddingGuestSubset": "",
+            "weddingService": "",
+            "weddingVenue": "",
+            "woodworking": ""
+        },
+        "links": {
+            "artLinks": "",
+            "bookSources": "",
+            "bucketLinks": "",
+            "carLinks": "",
+            "collectionLinks": "",
+            "competitorResources": "",
+            "designLinks": "",
+            "gamesLinks": "",
+            "giftLinks": "",
+            "ideasLinks": "",
+            "jewelryLinks": "",
+            "knittingLinks": "",
+            "projectLinks": "",
+            "recipeLinks": "",
+            "resources": "",
+            "sewingLinks": "",
+            "tutoringLinks": "",
+            "woodworkingLinks": "",
+            "worldBuildingLinks": ""
+        },
+        "pinboard": {
+            "giftBoard": "",
+            "inspiration": ""
+        },
+        "todos": {
+            "connectionsTodos": "",
+            "contentTodos": "",
+            "genericTodos": "",
+            "homeTodos": "",
+            "thingsToDo": ""
+        }
+    },
+    "designElements": {
+        "cloud": "",
+        "diamond": "",
+        "flower": "",
+        "heart": "",
+        "hexagon": "",
+        "octagon": "",
+        "pointedCorners": "",
+        "round": "",
+        "roundedCorners": "",
+        "star": ""
+    },
+    "devices": {
+        "types": {
+            "desktop": "",
+            "mobile": "",
+            "phone": ""
+        }
+    },
+    "emails": {
+        "actions": {
+            "createEvent": "",
+            "createRecord": "",
+            "createTodo": "",
+            "delete": "",
+            "draft": "",
+            "flag": "",
+            "forward": "",
+            "link": "",
+            "move": "",
+            "reply": "",
+            "replyAll": "",
+            "starred": ""
+        },
+        "emailsFor": "",
+        "integrationError": {
+            "description": "",
+            "header": ""
+        },
+        "newMessage": "",
+        "noContent": {
+            "empty": {
+                "header": "",
+                "headerNode": "",
+                "headerNodeAll": ""
+            },
+            "entity": {
+                "description": "",
+                "header": ""
+            },
+            "main": {
+                "description": "",
+                "header": ""
+            },
+            "noneAssociated": {
+                "header": ""
+            }
+        }
+    },
+    "errors": {
+        "403": {
+            "explanation": "",
+            "message": ""
+        },
+        "404": {
+            "explanation": "",
+            "message": ""
+        },
+        "500": {
+            "explanation": "",
+            "message": ""
+        },
+        "backHome": "",
+        "other": {
+            "explanation": "",
+            "message": ""
+        }
+    },
+    "explanations": {
+        "yesNo": {
+            "mergeBlueprint": {
+                "no": {
+                    "distinct": "",
+                    "neverBoth": ""
+                },
+                "yes": {
+                    "appearBoth": "",
+                    "context": "",
+                    "similar": ""
+                }
+            }
+        }
+    },
+    "features": {
+        "calendar": {
+            "description": "",
+            "listName": "",
+            "listNameSingular": "",
+            "title": ""
+        },
+        "documents": {
+            "add": "",
+            "description": "",
+            "go": "",
+            "headers": {
+                "edit": "",
+                "new": ""
+            },
+            "itemName": "",
+            "listName": "",
+            "listNameSingular": "",
+            "noContent": {
+                "description": "",
+                "favorites": "",
+                "header": ""
+            },
+            "noLists": {
+                "description": "",
+                "header": ""
+            },
+            "pluralName": "",
+            "title": ""
+        },
+        "emails": {
+            "description": "",
+            "go": "",
+            "listName": "",
+            "noLists": {
+                "description": "",
+                "header": ""
+            },
+            "pluralName": "",
+            "title": ""
+        },
+        "events": {
+            "add": "",
+            "currentTimezone": "",
+            "description": "",
+            "differentTimezone": "",
+            "form": {
+                "placeholders": {
+                    "description": "",
+                    "location": ""
+                }
+            },
+            "go": "",
+            "headers": {
+                "edit": "",
+                "new": "",
+                "view": ""
+            },
+            "itemName": "",
+            "labels": {
+                "location": "",
+                "repeat": "",
+                "timezone": "",
+                "when": ""
+            },
+            "listName": "",
+            "listNameSingular": "",
+            "noContent": {
+                "description": "",
+                "header": "",
+                "today": ""
+            },
+            "noLists": {
+                "description": "",
+                "header": ""
+            },
+            "pluralName": "",
+            "title": ""
+        },
+        "favorites": {
+            "description": "",
+            "title": ""
+        },
+        "general": {
+            "recurrence": {
+                "text": "",
+                "weeklyText": ""
+            }
+        },
+        "links": {
+            "add": "",
+            "description": "",
+            "form": {
+                "placeholders": {
+                    "description": "",
+                    "url": ""
+                }
+            },
+            "go": "",
+            "headers": {
+                "edit": "",
+                "new": ""
+            },
+            "itemName": "",
+            "listName": "",
+            "listNameSingular": "",
+            "noContent": {
+                "description": "",
+                "favorites": "",
+                "header": ""
+            },
+            "noLists": {
+                "description": "",
+                "header": ""
+            },
+            "pluralName": "",
+            "title": ""
+        },
+        "markers": {
+            "description": "",
+            "title": ""
+        },
+        "notes": {
+            "add": "",
+            "description": "",
+            "go": "",
+            "headers": {
+                "edit": "",
+                "new": ""
+            },
+            "itemName": "",
+            "listName": "",
+            "listNameSingular": "",
+            "noContent": {
+                "description": "",
+                "favorites": "",
+                "header": ""
+            },
+            "noLists": {
+                "description": "",
+                "header": ""
+            },
+            "pluralName": "",
+            "quickAdd": "",
+            "title": ""
+        },
+        "pinboard": {
+            "add": "",
+            "description": "",
+            "form": {
+                "placeholders": {
+                    "description": ""
+                }
+            },
+            "go": "",
+            "headers": {
+                "edit": "",
+                "new": ""
+            },
+            "itemName": "",
+            "listName": "",
+            "listNameSingular": "",
+            "noContent": {
+                "description": "",
+                "favorites": "",
+                "header": ""
+            },
+            "noLists": {
+                "description": "",
+                "header": ""
+            },
+            "pluralName": "",
+            "title": ""
+        },
+        "priorities": {
+            "description": "",
+            "title": ""
+        },
+        "timekeeper": {
+            "description": "",
+            "title": ""
+        },
+        "todos": {
+            "add": "",
+            "description": "",
+            "form": {
+                "placeholders": {
+                    "description": ""
+                }
+            },
+            "go": "",
+            "headers": {
+                "edit": "",
+                "new": ""
+            },
+            "itemName": "",
+            "listName": "",
+            "listNameSingular": "",
+            "noContent": {
+                "description": "",
+                "header": "",
+                "highPriority": "",
+                "overdue": "",
+                "scheduled": "",
+                "today": ""
+            },
+            "noLists": {
+                "description": "",
+                "header": ""
+            },
+            "pluralName": "",
+            "quickAdd": "",
+            "title": ""
+        },
+        "upload": {
+            "browseFiles": "",
+            "browseImages": "",
+            "connector": "",
+            "document": "",
+            "documentPrompt": "",
+            "dropFiles": "",
+            "dropImages": "",
+            "image": "",
+            "imagePrompt": ""
+        }
+    },
+    "feedback": {
+        "members": {
+            "invites": {
+                "header": "",
+                "message": ""
+            }
+        },
+        "records": {
+            "dissociation": {
+                "header": "",
+                "message": ""
+            },
+            "pageCreation": {
+                "header": ""
+            },
+            "pageCreationAssociation": {
+                "message": ""
+            }
+        },
+        "responses": {
+            "429": {
+                "header": "",
+                "message": ""
+            },
+            "addressLimit": {
+                "header": "",
+                "message": ""
+            },
+            "error": {
+                "defaultMessage": "",
+                "header": ""
+            },
+            "imageSearch": {
+                "400": {
+                    "header": "",
+                    "message": ""
+                }
+            },
+            "info": {
+                "header": ""
+            },
+            "inputValidation": {
+                "letterOnly": "",
+                "numberOnly": "",
+                "numberOrLetterOnly": ""
+            },
+            "invalidAttachment": {
+                "header": "",
+                "message": ""
+            },
+            "invalidImageFormat": {
+                "header": "",
+                "message": ""
+            },
+            "limit": {
+                "defaultMessage": "",
+                "header": ""
+            },
+            "login": {
+                "header": "",
+                "message": ""
+            },
+            "missing": {
+                "header": ""
+            },
+            "multipleInvalidAttachments": {
+                "header": "",
+                "message": ""
+            },
+            "network": {
+                "explanation": "",
+                "message": ""
+            },
+            "otpExpired": {
+                "header": "",
+                "message": ""
+            },
+            "password": {
+                "updated": ""
+            },
+            "saved": {
+                "defaultMessage": "",
+                "header": "",
+                "preferences": "",
+                "updated": ""
+            },
+            "success": {
+                "defaultMessage": "",
+                "header": ""
+            },
+            "validation": {
+                "header": ""
+            },
+            "warning": {
+                "header": ""
+            }
+        },
+        "signingOut": "",
+        "switchingBases": "",
+        "undo": "",
+        "undoAction": ""
+    },
+    "fields": {
+        "list": {
+            "options": {
+                "listCount": "",
+                "listFirst": "",
+                "listMain": ""
+            }
+        },
+        "sections": {
+            "connection": "",
+            "datesTime": "",
+            "locations": "",
+            "main": "",
+            "money": "",
+            "names": "",
+            "other": "",
+            "selections": "",
+            "trueFalse": ""
+        },
+        "types": {
+            "address": "",
+            "boolean": "",
+            "category": "",
+            "checkbox": "",
+            "checkboxList": "",
+            "city": "",
+            "continent": "",
+            "country": "",
+            "currency": "",
+            "date": "",
+            "dateRange": "",
+            "dateTime": "",
+            "dateTimeRange": "",
+            "dropdown": "",
+            "duration": "",
+            "durationRange": "",
+            "email": "",
+            "file": "",
+            "firstName": "",
+            "fullName": "",
+            "icon": "",
+            "iconToggle": "",
+            "image": "",
+            "lastName": "",
+            "line": "",
+            "location": "",
+            "money": "",
+            "moneyRange": "",
+            "multi": "",
+            "name": "",
+            "nickname": "",
+            "number": "",
+            "numberRange": "",
+            "paragraph": "",
+            "percentage": "",
+            "phone": "",
+            "preferredName": "",
+            "radioList": "",
+            "rating": "",
+            "salary": "",
+            "salaryRange": "",
+            "select": "",
+            "slider": "",
+            "state": "",
+            "systemName": "",
+            "time": "",
+            "timeRange": "",
+            "timezone": "",
+            "title": "",
+            "toggle": "",
+            "toggleList": "",
+            "url": "",
+            "worldwide": ""
+        }
+    },
+    "finder": {
+        "findAnything": "",
+        "noResults": "",
+        "tags": {
+            "calendar": "",
+            "drive": "",
+            "entitiesPage": "",
+            "entityPage": "",
+            "linkList": "",
+            "notebook": "",
+            "pinboard": "",
+            "todoList": ""
+        },
+        "typeAQuery": ""
+    },
+    "functionality": {
+        "duplication": {
+            "items": {
+                "description": "",
+                "header": ""
+            }
+        }
+    },
+    "helper": {
+        "basic": {
+            "spaces": {
+                "explanation1": "",
+                "explanation2": "",
+                "explanation3": "",
+                "explanation4": "",
+                "title": ""
+            }
+        }
+    },
+    "history": {
+        "noContent": ""
+    },
+    "home": {
+        "activate": {
+            "descriptions": {
+                "collaborative": "",
+                "personal": ""
+            }
+        },
+        "customize": {
+            "headers": {
+                "general": "",
+                "personal": "",
+                "self": ""
+            },
+            "pages": {
+                "explanations": {
+                    "all": "",
+                    "default": "",
+                    "specific": ""
+                },
+                "headers": {
+                    "all": "",
+                    "default": "",
+                    "specific": ""
+                },
+                "none": {
+                    "header": "",
+                    "message": ""
+                },
+                "usesPersonal": ""
+            },
+            "shortcutOptions": {
+                "full": "",
+                "hide": "",
+                "small": ""
+            },
+            "tabs": {
+                "defaults": {
+                    "name": ""
+                },
+                "pages": {
+                    "name": ""
+                },
+                "widgets": {
+                    "name": ""
+                }
+            }
+        },
+        "features": {
+            "calendar": {
+                "prompt": ""
+            },
+            "documents": {
+                "prompt": ""
+            },
+            "links": {
+                "prompt": ""
+            },
+            "pinboard": {
+                "prompt": ""
+            },
+            "timekeeper": {
+                "prompt": ""
+            },
+            "todos": {
+                "prompt": ""
+            }
+        },
+        "prompts": {
+            "calendar": {
+                "action": "",
+                "title": ""
+            },
+            "integrations": {
+                "action": "",
+                "title": ""
+            },
+            "todos": {
+                "action": "",
+                "title": ""
+            }
+        },
+        "side": {
+            "events": {
+                "createItem": "",
+                "header": "",
+                "noItems": "",
+                "noItemsPrompt": "",
+                "noItemsToday": "",
+                "selectDate": ""
+            },
+            "todos": {
+                "createItem": "",
+                "header": "",
+                "noItems": "",
+                "noItemsPrompt": "",
+                "noItemsToday": ""
+            }
+        },
+        "spaces": {
+            "noContent": {
+                "description": "",
+                "header": ""
+            },
+            "pagesNumber": ""
+        },
+        "thisWeek": "",
+        "todaysSchedule": "",
+        "whatDo": ""
+    },
+    "imageSearch": {
+        "description": "",
+        "header": "",
+        "noResults": "",
+        "prompt": ""
+    },
+    "imports": {
+        "cancel": {
+            "1": "",
+            "2": ""
+        },
+        "failed": {
+            "header": "",
+            "view": ""
+        },
+        "headers": {
+            "dataPreview": "",
+            "fileName": "",
+            "importCompletedAt": "",
+            "importingBlueprint": "",
+            "importStartedAt": "",
+            "inProgress": "",
+            "notIncluded": "",
+            "progressTime": "",
+            "revertCompletedAt": "",
+            "revertStartedAt": "",
+            "unmappedColumns": ""
+        },
+        "history": {
+            "none": {
+                "header": "",
+                "message": ""
+            }
+        },
+        "importName": "",
+        "prompts": {
+            "check": "",
+            "mapColumns": "",
+            "name": "",
+            "ready": "",
+            "upload": "",
+            "whichBlueprint": ""
+        },
+        "revert": {
+            "1": "",
+            "2": ""
+        },
+        "success": {
+            "headBack": "",
+            "header": "",
+            "view": ""
+        },
+        "warnings": {
+            "cannotBeImported": "",
+            "giveName": "",
+            "mapName": "",
+            "nameField": "",
+            "rowCannotBeImported": "",
+            "wrongHeaders": ""
+        },
+        "youMayLeave": ""
+    },
+    "integrations": {
+        "ableTo": "",
+        "apple": {
+            "abilities": {
+                "1": "",
+                "2": "",
+                "3": ""
+            },
+            "getCode": "",
+            "steps": {
+                "1": "",
+                "2": ""
+            }
+        },
+        "currentIntegrations": "",
+        "disclaimers": {
+            "bases": {
+                "collaborative": "",
+                "personal": ""
+            }
+        },
+        "google": {
+            "abilities": {
+                "1": "",
+                "2": "",
+                "3": ""
+            },
+            "steps": {
+                "1": "",
+                "2": ""
+            }
+        },
+        "integrateWith": "",
+        "microsoft": {
+            "abilities": {
+                "1": "",
+                "2": "",
+                "3": ""
+            },
+            "steps": {
+                "1": "",
+                "2": ""
+            }
+        },
+        "selectOption": ""
+    },
+    "labels": {
+        "accepted": "",
+        "accommodation": "",
+        "accommodations": "",
+        "accomodation": "",
+        "accomodations": "",
+        "achievements": "",
+        "acquaintance": "",
+        "action": "",
+        "actionStatus": "",
+        "activities": "",
+        "activity": "",
+        "activityCost": "",
+        "additional": "",
+        "address": "",
+        "addresses": "",
+        "advantages": "",
+        "afterCare": "",
+        "all": "",
+        "allMyBooks": "",
+        "allMyCharacters": "",
+        "allMyNonFictionBooks": "",
+        "allMySettings": "",
+        "allMyStories": "",
+        "amenities": "",
+        "amount": "",
+        "annually": "",
+        "appearance": "",
+        "applicant": "",
+        "applicantPipeline": "",
+        "applicants": "",
+        "applicantTags": "",
+        "applications": "",
+        "applicationStatus": "",
+        "applying": "",
+        "april": "",
+        "artLinks": "",
+        "artProject": "",
+        "artProjects": "",
+        "assignees": "",
+        "assignment": "",
+        "assignments": "",
+        "associations": "",
+        "attendance": "",
+        "attending": "",
+        "august": "",
+        "author": "",
+        "authors": "",
+        "averageNightCost": "",
+        "awaitingReply": "",
+        "basicFilters": {
+            "all": "",
+            "favorites": "",
+            "highPriority": "",
+            "overdue": "",
+            "scheduled": "",
+            "today": ""
+        },
+        "benefits": "",
+        "bestSeason": "",
+        "bill": "",
+        "bills": "",
+        "birthday": "",
+        "blog": "",
+        "blogPost": "",
+        "blogPosts": "",
+        "blueprint": "",
+        "blueprintCustomization": "",
+        "blueprints": "",
+        "bonus": "",
+        "book": "",
+        "bookChapter": "",
+        "bookChapters": "",
+        "bookInterview": "",
+        "bookInterviews": "",
+        "books": "",
+        "bookSource": "",
+        "bookSources": "",
+        "booksToSend": "",
+        "bookTitle": "",
+        "boolean": "",
+        "bucketIdea": "",
+        "bucketIdeas": "",
+        "bucketListItem": "",
+        "bucketListItems": "",
+        "bucketListLinks": "",
+        "bug": "",
+        "bugs": "",
+        "bus": "",
+        "business": "",
+        "calendar": "",
+        "calendarList": "",
+        "campusLife": "",
+        "cancelled": "",
+        "cancelling": "",
+        "candidate": "",
+        "candidateDescriptor": "",
+        "candidatePipeline": "",
+        "candidates": "",
+        "car": "",
+        "career": "",
+        "careerContact": "",
+        "careerContactDescriptorTags": "",
+        "careerContacts": "",
+        "careerDescriptor": "",
+        "careerDocuments": "",
+        "careerNetwork": "",
+        "careerPipeline": "",
+        "carLinks": "",
+        "casualContact": "",
+        "casualContacts": "",
+        "casualProject": "",
+        "casualProjects": "",
+        "category": "",
+        "character": "",
+        "characters": "",
+        "charity": "",
+        "checkbox": "",
+        "checkboxList": "",
+        "child": "",
+        "children": "",
+        "childrensActivities": "",
+        "childrensActivity": "",
+        "childrensCalendar": "",
+        "chipId": "",
+        "city": "",
+        "class": "",
+        "classAssignment": "",
+        "classAssignments": "",
+        "classes": "",
+        "classic": "",
+        "classStudent": "",
+        "classStudents": "",
+        "client": "",
+        "clientContact": "",
+        "clientContacts": "",
+        "clientOrganization": "",
+        "clientPipeline": "",
+        "clients": "",
+        "clientsOrganization": "",
+        "clientsPeople": "",
+        "clientsPerson": "",
+        "clubName": "",
+        "coaching": "",
+        "coachingCalendar": "",
+        "coachingSchedule": "",
+        "coachingStudent": "",
+        "coachingStudents": "",
+        "collaboration": "",
+        "colleagues": "",
+        "collectionItem": "",
+        "collectionItems": "",
+        "collectionLinks": "",
+        "color": "",
+        "columns": "",
+        "comedy": "",
+        "commuteDuration": "",
+        "commuteTime": "",
+        "companies": "",
+        "company": "",
+        "competitorCompanies": "",
+        "competitorCompany": "",
+        "competitorLinks": "",
+        "competitorProduct": "",
+        "competitorProducts": "",
+        "completed": "",
+        "completedAt": "",
+        "completionDate": "",
+        "conference": "",
+        "conferences": "",
+        "contact": "",
+        "contacted": "",
+        "contactedPipeline": "",
+        "contacts": "",
+        "contain": "",
+        "content": "",
+        "contentTitle": "",
+        "contentTodos": "",
+        "contract": "",
+        "contractor": "",
+        "contractorCalendar": "",
+        "contractorCompanies": "",
+        "contractorCompany": "",
+        "contractorJob": "",
+        "contractorJobs": "",
+        "contractors": "",
+        "contractorStatus": "",
+        "contractorTags": "",
+        "cost": "",
+        "country": "",
+        "course": "",
+        "courseContacts": "",
+        "courses": "",
+        "coursesOfInterest": "",
+        "coursework": "",
+        "courseworkContacts": "",
+        "courseworkStatus": "",
+        "cover": "",
+        "coverageDetails": "",
+        "createdAt": "",
+        "createdBy": "",
+        "credits": "",
+        "crm": "",
+        "cuisine": "",
+        "currency": "",
+        "currentPassword": "",
+        "custom": "",
+        "daily": "",
+        "data": "",
+        "date": "",
+        "datePurchased": "",
+        "dateRange": "",
+        "dateTime": "",
+        "dateTimeRange": "",
+        "days": "",
+        "december": "",
+        "department": "",
+        "description": "",
+        "descriptor": "",
+        "design": "",
+        "designLinks": "",
+        "designProject": "",
+        "designProjects": "",
+        "destination": "",
+        "destinations": "",
+        "destinationWishlist": "",
+        "details": "",
+        "dietInfo": "",
+        "difficulty": "",
+        "disadvantages": "",
+        "document": "",
+        "documents": "",
+        "documentsList": "",
+        "doIHaveItAlready": "",
+        "drama": "",
+        "dropdown": "",
+        "due": "",
+        "dueDate": "",
+        "duration": "",
+        "durationRange": "",
+        "education": "",
+        "educationContact": "",
+        "educationContacts": "",
+        "educationCourse": "",
+        "educationCourses": "",
+        "educationInstitution": "",
+        "educationInstitutions": "",
+        "educationSearch": "",
+        "email": "",
+        "emails": "",
+        "employee": "",
+        "employees": "",
+        "employeeStatus": "",
+        "employeeTags": "",
+        "endDate": "",
+        "enterprise": "",
+        "entities": "",
+        "entity": "",
+        "equipment": "",
+        "errands": "",
+        "estimatedCost": "",
+        "event": "",
+        "eventName": "",
+        "eventPeople": "",
+        "eventPerson": "",
+        "eventPlanning": "",
+        "events": "",
+        "eventSupplier": "",
+        "eventSuppliers": "",
+        "eventSuppliersAndServices": "",
+        "eventThemeTags": "",
+        "eventVenue": "",
+        "eventVenues": "",
+        "every": "",
+        "executiveJobSearch": "",
+        "expense": "",
+        "expenses": "",
+        "extension": "",
+        "extracurricular": "",
+        "extracurricularContacts": "",
+        "extracurriculars": "",
+        "failed": "",
+        "family": "",
+        "favorited": "",
+        "favorites": "",
+        "feature": "",
+        "featureCustomization": "",
+        "featurePage": "",
+        "features": "",
+        "february": "",
+        "ferry": "",
+        "fields": "",
+        "firstName": "",
+        "food": "",
+        "frequency": "",
+        "friend": "",
+        "from": "",
+        "fullName": "",
+        "furtherEducation": "",
+        "furtherEducationCalendar": "",
+        "furtherEducationCourse": "",
+        "furtherEducationCourses": "",
+        "gallery": "",
+        "galleryImage": "",
+        "game": "",
+        "gameDescription": "",
+        "games": "",
+        "gamesLinks": "",
+        "gardeningCalendar": "",
+        "gardeningProject": "",
+        "gardeningProjects": "",
+        "general": "",
+        "generalInfo": "",
+        "genericCalendars": "",
+        "genericTodos": "",
+        "genre": "",
+        "genreTags": "",
+        "gettingThere": "",
+        "gift": "",
+        "giftBoard": "",
+        "giftIdea": "",
+        "giftIdeas": "",
+        "giftLinks": "",
+        "gifts": "",
+        "giftStatus": "",
+        "giftTags": "",
+        "goal": "",
+        "goals": "",
+        "goodSource": "",
+        "grade": "",
+        "guests": "",
+        "haveIMadeIt": "",
+        "headhunters": "",
+        "helpers": "",
+        "highPriority": "",
+        "hiring": "",
+        "hiringCalendar": "",
+        "history": "",
+        "hobbies": "",
+        "hobbiesProject": "",
+        "hobbiesProjects": "",
+        "hobbyProjects": "",
+        "home": "",
+        "homeBuying": "",
+        "homeBuyingContact": "",
+        "homeBuyingContacts": "",
+        "homeImprovementProject": "",
+        "homeImprovementProjects": "",
+        "homeProject": "",
+        "homeProjects": "",
+        "homeTodos": "",
+        "horror": "",
+        "hours": "",
+        "household": "",
+        "hybrid": "",
+        "icon": "",
+        "iconToggle": "",
+        "idea": "",
+        "ideas": "",
+        "ideasLinks": "",
+        "image": "",
+        "industries": "",
+        "industry": "",
+        "info": "",
+        "inPerson": "",
+        "inspiration": "",
+        "institution": "",
+        "instructedCourse": "",
+        "instructedCourses": "",
+        "instructor": "",
+        "instructorRole": "",
+        "instructors": "",
+        "insurance": "",
+        "insuranceInfo": "",
+        "insuranceProvider": "",
+        "interest": "",
+        "interval": "",
+        "is": "",
+        "isAutoRenew": "",
+        "isCurrent": "",
+        "isNot": "",
+        "isWeddingGuest": "",
+        "item": "",
+        "itemDescription": "",
+        "items": "",
+        "iveDoneIt": "",
+        "january": "",
+        "jewelryLinks": "",
+        "jewelryProject": "",
+        "jewelryProjects": "",
+        "job": "",
+        "jobLocation": "",
+        "jobOpening": "",
+        "jobOpenings": "",
+        "jobPositionStatus": "",
+        "jobSearch": "",
+        "jobTitle": "",
+        "july": "",
+        "june": "",
+        "knitting": "",
+        "knittingLinks": "",
+        "knittingPinboard": "",
+        "knittingProject": "",
+        "knittingProjects": "",
+        "large": "",
+        "lastName": "",
+        "lastPromotion": "",
+        "lastUpdatedAt": "",
+        "lastUpdatedBy": "",
+        "lead": "",
+        "leads": "",
+        "learning": "",
+        "licensePlate": "",
+        "line": "",
+        "line1": "",
+        "line2": "",
+        "link": "",
+        "links": "",
+        "linksList": "",
+        "location": "",
+        "locationLine": "",
+        "locations": "",
+        "logo": "",
+        "make": "",
+        "manual": "",
+        "manuscriptRequirements": "",
+        "march": "",
+        "markers": "",
+        "max": "",
+        "may": "",
+        "maybe": "",
+        "meal": "",
+        "mealPlanning": "",
+        "mealPrep": "",
+        "meals": "",
+        "mealsCalendar": "",
+        "mealTags": "",
+        "medicalInfo": "",
+        "medication": "",
+        "medications": "",
+        "medium": "",
+        "meetings": "",
+        "members": "",
+        "micro": "",
+        "min": "",
+        "minutes": "",
+        "model": "",
+        "money": "",
+        "moneyRange": "",
+        "monthly": "",
+        "monthlyAccommodationPriceRange": "",
+        "months": "",
+        "multi": "",
+        "multifield": "",
+        "multipleEvents": "",
+        "myActivity": "",
+        "myBucketList": "",
+        "myCollection": "",
+        "myCourses": "",
+        "myEvent": "",
+        "myEvents": "",
+        "myNetwork": "",
+        "myNonFictionBook": "",
+        "myParties": "",
+        "myParty": "",
+        "myProfessionalProfile": "",
+        "myProjects": "",
+        "myReadingList": "",
+        "myStory": "",
+        "myStudents": "",
+        "myWedding": "",
+        "name": "",
+        "networkCalendar": "",
+        "networkContact": "",
+        "networkContacts": "",
+        "networking": "",
+        "networkOrganization": "",
+        "networkOrganizations": "",
+        "newPassword": "",
+        "nextWeek": "",
+        "none": "",
+        "nonFictionBook": "",
+        "nonFictionBooks": "",
+        "notAttending": "",
+        "note": "",
+        "notes": "",
+        "notesList": "",
+        "notFavorites": "",
+        "notForProfit": "",
+        "notice": "",
+        "notProceeding": "",
+        "november": "",
+        "number": "",
+        "numberRange": "",
+        "occasion": "",
+        "october": "",
+        "off": "",
+        "offerMade": "",
+        "on": "",
+        "oneEvent": "",
+        "openPosition": "",
+        "openPositions": "",
+        "order": "",
+        "organization": "",
+        "organizationName": "",
+        "organizations": "",
+        "organizationsInMyNetwork": "",
+        "organizationType": "",
+        "other": "",
+        "otherCosts": "",
+        "outline": "",
+        "overdue": "",
+        "owners": "",
+        "page": "",
+        "pageCustomization": "",
+        "paragraph": "",
+        "parties": "",
+        "partTime": "",
+        "party": "",
+        "partyName": "",
+        "password": "",
+        "pattern": "",
+        "paymentInterval": "",
+        "paymentMethod": "",
+        "paymentRate": "",
+        "peBacked": "",
+        "people": "",
+        "peopleAtSchool": "",
+        "peopleEventTags": "",
+        "permanent": "",
+        "person": "",
+        "personal": "",
+        "personalContact": "",
+        "personalContacts": "",
+        "personPersonalTags": "",
+        "pet": "",
+        "petCare": "",
+        "petNeeds": "",
+        "pets": "",
+        "phone": "",
+        "phones": "",
+        "photographyCalendar": "",
+        "photographyClient": "",
+        "photographyClients": "",
+        "photographyJob": "",
+        "photographyJobs": "",
+        "photographyProject": "",
+        "photographyProjects": "",
+        "pin": "",
+        "pinboard": "",
+        "pinboardList": "",
+        "pins": "",
+        "pipeline": "",
+        "placesToStay": "",
+        "plan": "",
+        "plane": "",
+        "plant": "",
+        "plants": "",
+        "policyNumber": "",
+        "position": "",
+        "positions": "",
+        "positionType": "",
+        "postcode": "",
+        "potentialBuyers": "",
+        "potentialCar": "",
+        "potentialCars": "",
+        "potentialCourse": "",
+        "potentialCourses": "",
+        "potentialDuration": "",
+        "potentialHome": "",
+        "potentialHomes": "",
+        "potentialPrograms": "",
+        "potentialPublishers": "",
+        "potentialRental": "",
+        "potentialRentals": "",
+        "potentialSchools": "",
+        "potentialTenants": "",
+        "potentialVenues": "",
+        "preferredName": "",
+        "prepAhead": "",
+        "prepopulated": "",
+        "preserveRatio": "",
+        "priorities": "",
+        "priority": "",
+        "private": "",
+        "probationEndDate": "",
+        "product": "",
+        "products": "",
+        "professionalContacts": "",
+        "professionalProfile": "",
+        "professionalProfiles": "",
+        "profile": "",
+        "profileImage": "",
+        "program": "",
+        "programs": "",
+        "progress": "",
+        "project": "",
+        "projectLinks": "",
+        "projectManagementStatus": "",
+        "projects": "",
+        "projectStatus": "",
+        "properties": "",
+        "propertiesCalendar": "",
+        "propertiesOwned": "",
+        "propertiesServed": "",
+        "property": "",
+        "propertyOwner": "",
+        "propertyOwners": "",
+        "propertyTenant": "",
+        "propertyTenants": "",
+        "provider": "",
+        "public": "",
+        "publicSector": "",
+        "publisher": "",
+        "publishers": "",
+        "quantityLine": "",
+        "quarterly": "",
+        "radioList": "",
+        "rating": "",
+        "ratingTags": "",
+        "recipe": "",
+        "recipeLinks": "",
+        "recipes": "",
+        "referees": "",
+        "references": "",
+        "relatedSettings": "",
+        "relationships": "",
+        "relevance": "",
+        "remote": "",
+        "renewalInterval": "",
+        "rentalProperties": "",
+        "rentalProperty": "",
+        "requirements": "",
+        "resources": "",
+        "reverted": "",
+        "reverting": "",
+        "role": "",
+        "salary": "",
+        "salaryExpectation": "",
+        "salaryPeriods": {
+            "daily": "",
+            "hourly": "",
+            "monthly": "",
+            "oneTime": "",
+            "per": {
+                "daily": "",
+                "hourly": "",
+                "monthly": "",
+                "oneTime": "",
+                "weekly": "",
+                "yearly": ""
+            },
+            "weekly": "",
+            "yearly": ""
+        },
+        "salaryRange": "",
+        "saleProperties": "",
+        "saleProperty": "",
+        "schedule": "",
+        "scheduled": "",
+        "scholarship": "",
+        "scholarshipName": "",
+        "scholarships": "",
+        "school": "",
+        "schools": "",
+        "select": "",
+        "selectCities": "",
+        "selectCity": "",
+        "selectContinent": "",
+        "selectContinents": "",
+        "selectCountries": "",
+        "selectCountry": "",
+        "selectCurrency": "",
+        "selectLocation": "",
+        "selectLocations": "",
+        "semiAnnually": "",
+        "september": "",
+        "serviceProvider": "",
+        "serviceTags": "",
+        "setting": "",
+        "settings": "",
+        "sewing": "",
+        "sewingLinks": "",
+        "sewingPinboard": "",
+        "sewingProject": "",
+        "sewingProjects": "",
+        "size": "",
+        "skills": "",
+        "small": "",
+        "social": "",
+        "socialCircleTodos": "",
+        "socialMediaContent": "",
+        "socialMediaPost": "",
+        "socialMediaPosts": "",
+        "source": "",
+        "spaceName": "",
+        "speakers": "",
+        "staffSchedule": "",
+        "start": "",
+        "startDate": "",
+        "started": "",
+        "startup": "",
+        "state": "",
+        "status": "",
+        "stories": "",
+        "storiesToSend": "",
+        "story": "",
+        "storyCharacter": "",
+        "storyCharacters": "",
+        "storyEvent": "",
+        "storyEvents": "",
+        "storyItem": "",
+        "storyItems": "",
+        "storyLocation": "",
+        "storyLocations": "",
+        "storyOrganization": "",
+        "storyOrganizations": "",
+        "storySetting": "",
+        "storySettings": "",
+        "storyTitle": "",
+        "student": "",
+        "students": "",
+        "subject": "",
+        "subjects": "",
+        "subscription": "",
+        "subscriptions": "",
+        "supplierCompanies": "",
+        "supplierCompany": "",
+        "supplierContact": "",
+        "supplierContacts": "",
+        "suppliers": "",
+        "supplies": "",
+        "system": "",
+        "systemName": "",
+        "tag": "",
+        "tags": "",
+        "targetCompanies": "",
+        "targetCompany": "",
+        "task": "",
+        "tasks": "",
+        "teaching": "",
+        "teachingCalendar": "",
+        "teachingSchedule": "",
+        "team": "",
+        "teams": "",
+        "templates": "",
+        "temporary": "",
+        "tenants": "",
+        "text": "",
+        "theme": "",
+        "thingsToDo": "",
+        "thriller": "",
+        "ticketCost": "",
+        "time": "",
+        "timeframe": "",
+        "timekeeper": "",
+        "timeRange": "",
+        "timing": "",
+        "title": "",
+        "to": "",
+        "today": "",
+        "todo": "",
+        "todos": "",
+        "todosList": "",
+        "toggle": "",
+        "toggleList": "",
+        "tomorrow": "",
+        "totalProgramCost": "",
+        "train": "",
+        "trainingCourse": "",
+        "trainingCourses": "",
+        "travel": "",
+        "travelActivities": "",
+        "travelActivity": "",
+        "trip": "",
+        "tripDurationRange": "",
+        "tripType": "",
+        "tripTypeTags": "",
+        "tutoring": "",
+        "tutoringCalendar": "",
+        "tutoringFreedoc": "",
+        "tutoringLinkResources": "",
+        "tutoringSchedule": "",
+        "tutoringStudent": "",
+        "tutoringStudents": "",
+        "type": "",
+        "updatedAt": "",
+        "updatedBy": "",
+        "url": "",
+        "value": "",
+        "vehicle": "",
+        "vehicles": "",
+        "vendorOrService": "",
+        "vendorsAndServices": "",
+        "venue": "",
+        "venues": "",
+        "viewingsCalendar": "",
+        "vin": "",
+        "wedding": "",
+        "weddingGuest": "",
+        "weddingGuests": "",
+        "weddingPlanning": "",
+        "weddings": "",
+        "weddingsPlanning": "",
+        "weddingVenue": "",
+        "weddingVenues": "",
+        "weekly": "",
+        "weeks": "",
+        "whatILike": "",
+        "woodworking": "",
+        "woodworkingLinks": "",
+        "woodworkingProject": "",
+        "woodworkingProjects": "",
+        "work": "",
+        "workCalendar": "",
+        "workplace": "",
+        "world": "",
+        "worldBuildingLinks": "",
+        "worldCulture": "",
+        "worldCultures": "",
+        "worldMyth": "",
+        "worldMyths": "",
+        "worlds": "",
+        "writing": "",
+        "writingFiction": "",
+        "year": "",
+        "yesterday": "",
+        "yourPassword": ""
+    },
+    "landing": {
+        "general": {
+            "contact": "",
+            "getStarted": "",
+            "getStartedFree": "",
+            "home": "",
+            "pricing": "",
+            "product": "",
+            "tryFree": ""
+        },
+        "home": {
+            "main": {
+                "subtitle": "",
+                "subtitleAlt": "",
+                "title": "",
+                "title1": "",
+                "title2": "",
+                "title3": "",
+                "yours": ""
+            }
+        },
+        "pricing": {
+            "full": {
+                "sections": {
+                    "collaboration": {
+                        "sharing": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "title": ""
+                    },
+                    "customizations": {
+                        "branded": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "color": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "data": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "designTemplates": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "fieldTypes": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "personalStyle": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "title": "",
+                        "views": {
+                            "explanation": "",
+                            "title": ""
+                        }
+                    },
+                    "fundamentals": {
+                        "dataTemplates": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "log": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "pages": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "records": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "spaces": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "storage": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "title": "",
+                        "users": {
+                            "explanation": "",
+                            "title": "",
+                            "value": ""
+                        }
+                    },
+                    "productivity": {
+                        "analytics": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "calendar": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "email": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "goals": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "main": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "timeKeeper": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "title": ""
+                    },
+                    "security": {
+                        "2fa": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "device": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "title": ""
+                    },
+                    "support": {
+                        "documentation": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "email": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "phone": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "priority": {
+                            "explanation": "",
+                            "title": ""
+                        },
+                        "title": ""
+                    },
+                    "values": {
+                        "basic": "",
+                        "invites": "",
+                        "templates": "",
+                        "unlimited": "",
+                        "upTo": ""
+                    }
+                },
+                "seeAll": "",
+                "title": ""
+            },
+            "future": {
+                "connection": "",
+                "features": {
+                    "analytics": "",
+                    "automation": "",
+                    "imports": "",
+                    "integrations": "",
+                    "more": "",
+                    "reporting": "",
+                    "teams": ""
+                },
+                "title": ""
+            },
+            "period": {
+                "monthly": "",
+                "yearly": ""
+            },
+            "plans": {
+                "benefits": {
+                    "activityRecord": "",
+                    "advancedStatistics": "",
+                    "calendar": "",
+                    "customizeData": "",
+                    "designTemplates": "",
+                    "features": "",
+                    "goals": "",
+                    "items": "",
+                    "pages": "",
+                    "privacy": "",
+                    "sharing": "",
+                    "skins": "",
+                    "storage": "",
+                    "views": ""
+                },
+                "free": {
+                    "includes": "",
+                    "intro": "",
+                    "title": ""
+                },
+                "includesPlus": "",
+                "pro": {
+                    "bubble": "",
+                    "intro": "",
+                    "title": ""
+                }
+            },
+            "subtitle": "",
+            "title": ""
+        }
+    },
+    "links": {
+        "account": "",
+        "calendar": "",
+        "customize": "",
+        "data": "",
+        "documents": "",
+        "emails": "",
+        "events": "",
+        "finder": "",
+        "general": "",
+        "history": "",
+        "home": "",
+        "integrations": "",
+        "links": "",
+        "myIntegrations": "",
+        "myPages": "",
+        "myProfile": "",
+        "notes": "",
+        "notifications": "",
+        "people": "",
+        "pinboard": "",
+        "plans": "",
+        "preferences": "",
+        "security": "",
+        "settings": "",
+        "support": "",
+        "tasks": "",
+        "timekeeper": "",
+        "todos": ""
+    },
+    "login": {
+        "noAccount": "",
+        "noPassword": "",
+        "rememberMe": "",
+        "welcomeBack": ""
+    },
+    "navigation": {
+        "allPages": "",
+        "backToPage": "",
+        "viewAllPages": ""
+    },
+    "noContent": {
+        "headers": {
+            "systemSet": {
+                "1": "",
+                "2": "",
+                "3": "",
+                "4": ""
+            },
+            "userSet": {
+                "1": "",
+                "2": "",
+                "3": "",
+                "4": "",
+                "5": "",
+                "6": "",
+                "7": "",
+                "8": "",
+                "9": "",
+                "10": ""
+            }
+        },
+        "notifications": {
+            "archive": "",
+            "archiveChannel": "",
+            "unread": "",
+            "unreadChannel": ""
+        }
+    },
+    "notifications": {
+        "account": "",
+        "all": "",
+        "archive": "",
+        "new": "",
+        "newFeatures": "",
+        "tips": "",
+        "unread": ""
+    },
+    "passwords": {
+        "reset": "",
+        "sent": "",
+        "throttled": "",
+        "token": "",
+        "update": ""
+    },
+    "plans": {
+        "names": {
+            "ascend": "",
+            "core": "",
+            "early": "",
+            "soar": "",
+            "upgraded": ""
+        },
+        "statuses": {
+            "cancelled": "",
+            "failed": "",
+            "paid": "",
+            "pending": ""
+        }
+    },
+    "records": {
+        "noContent": {
+            "description": "",
+            "header": ""
+        },
+        "options": {
+            "dissociateRecord": "",
+            "makeEntityPage": ""
+        }
+    },
+    "registration": {
+        "common": {
+            "customizeMore": "",
+            "included": "",
+            "mergeTypes": {
+                "event": "",
+                "organization": "",
+                "person": "",
+                "singular": {
+                    "event": "",
+                    "organization": "",
+                    "person": "",
+                    "student": ""
+                },
+                "student": ""
+            },
+            "templateBenefits": ""
+        },
+        "confirm": {
+            "collaborative": {
+                "subtitle": ""
+            },
+            "personal": {
+                "subtitle": ""
+            },
+            "refine": {
+                "title": ""
+            },
+            "selectedUses": "",
+            "title": "",
+            "yourSpaces": ""
+        },
+        "initial": {
+            "alreadyHaveAccount": "",
+            "branding": {
+                "header": "",
+                "yourData": "",
+                "yourGoals": "",
+                "yourStyle": ""
+            },
+            "completeToAdvance": "",
+            "completeToJoin": "",
+            "join": "",
+            "password": {
+                "passwordStrength": "",
+                "ratings": {
+                    "excellent": "",
+                    "fair": "",
+                    "good": "",
+                    "poor": ""
+                },
+                "requirements": {
+                    "chars": "",
+                    "lowercase": "",
+                    "numberSymbol": "",
+                    "uppercase": ""
+                },
+                "set": ""
+            },
+            "subtitle": ""
+        },
+        "refine": {
+            "refineIntro": "",
+            "refinements": {
+                "options": {
+                    "art": "",
+                    "bills": "",
+                    "clients": "",
+                    "clientsBothSeparate": "",
+                    "clientsBothTogether": "",
+                    "clientsCompanies": "",
+                    "clientsPeople": "",
+                    "clientsStudents": "",
+                    "coach": "",
+                    "collaborators": "",
+                    "employees": "",
+                    "equipment": "",
+                    "eventPeople": "",
+                    "eventSuppliers": "",
+                    "eventVenues": "",
+                    "fiction": "",
+                    "genericEvent": "",
+                    "guests": "",
+                    "hiring": "",
+                    "home": "",
+                    "internalEvents": "",
+                    "investors": "",
+                    "knitting": "",
+                    "multipleActivities": "",
+                    "multipleBooks": "",
+                    "multipleChildren": "",
+                    "multipleDestinations": "",
+                    "multipleEvents": "",
+                    "multiplePets": "",
+                    "multipleProducts": "",
+                    "multipleProjects": "",
+                    "no": "",
+                    "nonFiction": "",
+                    "oneActivity": "",
+                    "oneBook": "",
+                    "oneDestination": "",
+                    "oneEvent": "",
+                    "oneProduct": "",
+                    "oneProject": "",
+                    "other": "",
+                    "party": "",
+                    "photography": "",
+                    "potentialVenues": "",
+                    "products": "",
+                    "projects": "",
+                    "roadmap": "",
+                    "services": "",
+                    "sewing": "",
+                    "singleChild": "",
+                    "singlePet": "",
+                    "staffSchedule": "",
+                    "students": "",
+                    "subscriptions": "",
+                    "suppliers": "",
+                    "teacher": "",
+                    "travel": "",
+                    "travelAccommodation": "",
+                    "travelActivities": "",
+                    "tutor": "",
+                    "vehicles": "",
+                    "vendorsAndServices": "",
+                    "venues": "",
+                    "woodworking": "",
+                    "yes": ""
+                },
+                "posts": {
+                    "addClientsLater": ""
+                },
+                "prompts": {
+                    "whoClients": ""
+                },
+                "subtitles": {
+                    "clients": "",
+                    "growth": "",
+                    "operations": "",
+                    "planning": "",
+                    "students": "",
+                    "team": "",
+                    "work": ""
+                },
+                "titles": {
+                    "activityNumber": "",
+                    "assignments": "",
+                    "bookNumber": "",
+                    "childrenNumber": "",
+                    "courses": "",
+                    "crmLifeExtras": "",
+                    "customers": "",
+                    "destinationNumber": "",
+                    "eventExtras": "",
+                    "eventNumber": "",
+                    "eventType": "",
+                    "petsNumber": "",
+                    "products": "",
+                    "projects": "",
+                    "projectType": "",
+                    "students": "",
+                    "studentWorkType": "",
+                    "travelExtras": "",
+                    "weddingExtras": "",
+                    "writingType": ""
+                }
+            },
+            "selectedUses": "",
+            "subtitle": "",
+            "title": ""
+        },
+        "spaces": {
+            "collaborative": {
+                "subtitle": ""
+            },
+            "personal": {
+                "subtitle": ""
+            },
+            "title": ""
+        },
+        "start": {
+            "collaborative": {
+                "description": "",
+                "main": "",
+                "title": ""
+            },
+            "for": {
+                "businesses": "",
+                "clubs": "",
+                "friends": "",
+                "groups": "",
+                "individuals": ""
+            },
+            "personal": {
+                "description": "",
+                "main": "",
+                "title": ""
+            },
+            "subtitle": "",
+            "title": ""
+        },
+        "steps": {
+            "confirm": "",
+            "refine": "",
+            "spaces": "",
+            "start": "",
+            "uses": ""
+        },
+        "templates": {
+            "descriptions": {
+                "careerFurther": "",
+                "careerJobSearch": ""
+            },
+            "filter": "",
+            "templateDetails": {
+                "activities": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "activity": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "applicantTracker": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "bills": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "blogPlanning": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "bucketList": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "bugTracker": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "businessRoadmap": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "clients": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "coaching": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "conferencePlanning": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "conferencesOrganizing": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "contentCreation": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "contractorFinder": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "contractorTimeTracker": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "courseManagement": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "crm": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "design": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "documentRenewals": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "educationSearch": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "employeeList": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "executiveJobSearch": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "furtherEducation": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "gardening": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "giftIdeas": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "hobbiesArt": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "hobbiesCollecting": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "hobbiesGaming": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "hobbiesProjects": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "holidayGifts": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "homeBuying": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "homeImprovement": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "ideas": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "decsription": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "jewelryMaking": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "jobPlacements": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "jobSearch": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "4": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "knitting": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "leisureEvent": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "leisureEvents": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "mealPlanning": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "networking": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "partiesOrganizing": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "partyPlanning": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "personalCrm": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "petCare": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "photography": {
+                    "description": ""
+                },
+                "photographyBusiness": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "photographyHobby": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "projectManagement": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "propertyManagement": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "reading": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "recipes": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "rentalSearch": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "salesAndRentals": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "sewing": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "singleProjectManagement": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "socialMediaPlanning": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "staffSchedule": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "starterItems": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "starterPeople": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "suppliers": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "teachingTracker": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "travel": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "trip": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "tutoring": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "vehiclePlanner": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "vehicleSearch": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "viewings": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "weddingPlanning": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "weddingsOrganizing": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "woodworking": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "worldBuilding": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "writing": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                },
+                "writingNonFiction": {
+                    "benefits": {
+                        "1": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "2": {
+                            "description": "",
+                            "title": ""
+                        },
+                        "3": {
+                            "description": "",
+                            "title": ""
+                        }
+                    },
+                    "description": ""
+                }
+            },
+            "title": ""
+        },
+        "uses": {
+            "categories": {
+                "all": "",
+                "career": "",
+                "education": "",
+                "everyday": "",
+                "hobbies": "",
+                "special": "",
+                "universal": "",
+                "workAndBusiness": ""
+            },
+            "collaborative": {
+                "subtitle": "",
+                "title": "",
+                "useFilters": ""
+            },
+            "create": {
+                "withoutUses": ""
+            },
+            "greatFor": {
+                "collaborative": {
+                    "activities": "",
+                    "bucketList": "",
+                    "business": "",
+                    "calendar": "",
+                    "childrenSchedule": "",
+                    "collecting": "",
+                    "continuingEducation": "",
+                    "coursesITeach": "",
+                    "crmLife": "",
+                    "educationSearch": "",
+                    "events": "",
+                    "executiveCareer": "",
+                    "expenses": "",
+                    "findJob": "",
+                    "gardening": "",
+                    "genericItem": "",
+                    "genericPerson": "",
+                    "gifts": "",
+                    "hobbyProjects": "",
+                    "homeImprovements": "",
+                    "homeSearch": "",
+                    "ideas": "",
+                    "network": "",
+                    "personalCrm": "",
+                    "petCare": "",
+                    "professionalProfile": "",
+                    "reading": "",
+                    "recipes": "",
+                    "socialMediaPresence": "",
+                    "subscriptions": "",
+                    "teaching": "",
+                    "todos": "",
+                    "travel": "",
+                    "universityExperience": "",
+                    "vehicleMaintenance": "",
+                    "vehicleSearch": "",
+                    "wedding": "",
+                    "work": "",
+                    "worldbuilding": "",
+                    "writing": ""
+                },
+                "personal": {
+                    "activities": "",
+                    "bucketList": "",
+                    "business": "",
+                    "calendar": "",
+                    "childrenSchedule": "",
+                    "collecting": "",
+                    "continuingEducation": "",
+                    "coursesITeach": "",
+                    "crmLife": "",
+                    "educationSearch": "",
+                    "events": "",
+                    "executiveCareer": "",
+                    "expenses": "",
+                    "findJob": "",
+                    "gardening": "",
+                    "genericItem": "",
+                    "genericPerson": "",
+                    "gifts": "",
+                    "hobbyProjects": "",
+                    "homeImprovements": "",
+                    "homeSearch": "",
+                    "ideas": "",
+                    "network": "",
+                    "personalCrm": "",
+                    "petCare": "",
+                    "professionalProfile": "",
+                    "reading": "",
+                    "recipes": "",
+                    "socialMediaPresence": "",
+                    "subscriptions": "",
+                    "teaching": "",
+                    "todos": "",
+                    "travel": "",
+                    "universityExperience": "",
+                    "vehicleMaintenance": "",
+                    "vehicleSearch": "",
+                    "wedding": "",
+                    "work": "",
+                    "worldbuilding": "",
+                    "writing": ""
+                }
+            },
+            "headers": {
+                "collaborative": {
+                    "activities": "",
+                    "blank": "",
+                    "bucketList": "",
+                    "business": "",
+                    "calendar": "",
+                    "childrenSchedule": "",
+                    "collecting": "",
+                    "continuingEducation": "",
+                    "coursesITeach": "",
+                    "crmLife": "",
+                    "educationSearch": "",
+                    "events": "",
+                    "executiveCareer": "",
+                    "expenses": "",
+                    "findJob": "",
+                    "gardening": "",
+                    "genericItem": "",
+                    "genericPerson": "",
+                    "gifts": "",
+                    "hobbyProjects": "",
+                    "homeImprovements": "",
+                    "homeSearch": "",
+                    "ideas": "",
+                    "mealPlanning": "",
+                    "network": "",
+                    "personalCrm": "",
+                    "petCare": "",
+                    "professionalProfile": "",
+                    "reading": "",
+                    "recipes": "",
+                    "socialMediaPresence": "",
+                    "subscriptions": "",
+                    "teaching": "",
+                    "todos": "",
+                    "travel": "",
+                    "universityExperience": "",
+                    "vehicleMaintenance": "",
+                    "vehicleSearch": "",
+                    "wedding": "",
+                    "work": "",
+                    "worldbuilding": "",
+                    "writing": ""
+                },
+                "personal": {
+                    "activities": "",
+                    "blank": "",
+                    "bucketList": "",
+                    "business": "",
+                    "calendar": "",
+                    "childrenSchedule": "",
+                    "collecting": "",
+                    "continuingEducation": "",
+                    "coursesITeach": "",
+                    "crmLife": "",
+                    "educationSearch": "",
+                    "events": "",
+                    "executiveCareer": "",
+                    "expenses": "",
+                    "findJob": "",
+                    "gardening": "",
+                    "genericItem": "",
+                    "genericPerson": "",
+                    "gifts": "",
+                    "hobbyProjects": "",
+                    "homeImprovements": "",
+                    "homeSearch": "",
+                    "ideas": "",
+                    "mealPlanning": "",
+                    "network": "",
+                    "personalCrm": "",
+                    "petCare": "",
+                    "professionalProfile": "",
+                    "reading": "",
+                    "recipes": "",
+                    "socialMediaPresence": "",
+                    "subscriptions": "",
+                    "teaching": "",
+                    "todos": "",
+                    "travel": "",
+                    "universityExperience": "",
+                    "vehicleMaintenance": "",
+                    "vehicleSearch": "",
+                    "wedding": "",
+                    "work": "",
+                    "worldbuilding": "",
+                    "writing": ""
+                }
+            },
+            "personal": {
+                "subtitle": "",
+                "title": "",
+                "useFilters": ""
+            },
+            "registration": {
+                "withoutUses": ""
+            },
+            "subtitle": "",
+            "tags": {
+                "tailorToYou": ""
+            },
+            "unsure": ""
+        }
+    },
+    "relationships": {
+        "add": "",
+        "noContent": {
+            "header": "",
+            "message": ""
+        }
+    },
+    "routing": {
+        "titles": {
+            "access": {
+                "activate": "",
+                "activationSent": "",
+                "authentication": "",
+                "login": "",
+                "otp": "",
+                "passwordReset": "",
+                "passwordSet": ""
+            },
+            "customizePage": "",
+            "history": "",
+            "home": "",
+            "notifications": "",
+            "register": {
+                "confirm": "",
+                "initial": "",
+                "refine": "",
+                "spaces": "",
+                "start": "",
+                "uses": ""
+            },
+            "settings": {
+                "account": "",
+                "integrations": "",
+                "notifications": "",
+                "plans": "",
+                "preferences": ""
+            },
+            "support": {
+                "article": "",
+                "folder": "",
+                "home": ""
+            },
+            "timekeeper": ""
+        }
+    },
+    "searchTerms": {
+        "accounting": "",
+        "acting": "",
+        "activities": "",
+        "actuary": "",
+        "administration": "",
+        "agriculture": "",
+        "apartment": "",
+        "architecture": "",
+        "art": "",
+        "auditing": "",
+        "baking": "",
+        "bills": "",
+        "blog": "",
+        "blogging": "",
+        "books": "",
+        "building": "",
+        "bus": "",
+        "business": "",
+        "businessDevelopment": "",
+        "car": "",
+        "career": "",
+        "careerCoach": "",
+        "carHire": "",
+        "cat": "",
+        "charity": "",
+        "class": "",
+        "classes": "",
+        "clients": "",
+        "clothes": "",
+        "community": "",
+        "conference": "",
+        "conservation": "",
+        "construction": "",
+        "consulting": "",
+        "contacts": "",
+        "continuingEducation": "",
+        "cooking": "",
+        "course": "",
+        "crafts": "",
+        "creative": "",
+        "customers": "",
+        "customerService": "",
+        "dance": "",
+        "design": "",
+        "development": "",
+        "distribution": "",
+        "dog": "",
+        "domestic": "",
+        "drawing": "",
+        "earlyEducation": "",
+        "editing": "",
+        "education": "",
+        "educationSearch": "",
+        "employee": "",
+        "employment": "",
+        "engineering": "",
+        "estate": "",
+        "event": "",
+        "events": "",
+        "experiences": "",
+        "factory": "",
+        "faith": "",
+        "family": "",
+        "farming": "",
+        "fashion": "",
+        "finance": "",
+        "fisheries": "",
+        "food": "",
+        "forestry": "",
+        "friends": "",
+        "furtherEducation": "",
+        "game": "",
+        "graphic": "",
+        "health": "",
+        "hiring": "",
+        "hobbies": "",
+        "home": "",
+        "horticulture": "",
+        "house": "",
+        "household": "",
+        "hr": "",
+        "humanResources": "",
+        "informatics": "",
+        "infoTech": "",
+        "insurance": "",
+        "interior": "",
+        "item": "",
+        "items": "",
+        "jobSearch": "",
+        "laboratory": "",
+        "landscaping": "",
+        "language": "",
+        "law": "",
+        "leisure": "",
+        "lifeCoaching": "",
+        "logistics": "",
+        "magazine": "",
+        "making": "",
+        "management": "",
+        "manufacturing": "",
+        "meal": "",
+        "media": "",
+        "merchandise": "",
+        "networking": "",
+        "news": "",
+        "none": "",
+        "nursery": "",
+        "one-on-one": "",
+        "oneOnOne": "",
+        "painting": "",
+        "passenger": "",
+        "passport": "",
+        "payments": "",
+        "people": "",
+        "performance": "",
+        "performing": "",
+        "person": "",
+        "personalService": "",
+        "personalServices": "",
+        "pharma": "",
+        "photography": "",
+        "planAnEvent": "",
+        "planATrip": "",
+        "planning": "",
+        "pr": "",
+        "present": "",
+        "product": "",
+        "program": "",
+        "projects": "",
+        "promotion": "",
+        "property": "",
+        "propertyManagement": "",
+        "publicRelations": "",
+        "publishing": "",
+        "rail": "",
+        "recipes": "",
+        "recruitment": "",
+        "religion": "",
+        "rent": "",
+        "rental": "",
+        "renting": "",
+        "research": "",
+        "retail": "",
+        "sales": "",
+        "school": "",
+        "science": "",
+        "sculpting": "",
+        "sell": "",
+        "seminars": "",
+        "services": "",
+        "shipping": "",
+        "shop": "",
+        "social": "",
+        "socialCare": "",
+        "socialMedia": "",
+        "software": "",
+        "softwareAsService": "",
+        "sports": "",
+        "staff": "",
+        "station": "",
+        "statistics": "",
+        "store": "",
+        "story": "",
+        "supplyChain": "",
+        "supportServices": "",
+        "survey": "",
+        "talent": "",
+        "tax": "",
+        "taxi": "",
+        "teaching": "",
+        "technology": "",
+        "temporaryAccommodation": "",
+        "theater": "",
+        "therapies": "",
+        "timber": "",
+        "tourism": "",
+        "tours": "",
+        "training": "",
+        "transcription": "",
+        "translation": "",
+        "transport": "",
+        "travel": "",
+        "trip": "",
+        "tutoring": "",
+        "utilities": "",
+        "valuation": "",
+        "veterinary": "",
+        "voluntary": "",
+        "warehouse": "",
+        "wedding": "",
+        "wellness": "",
+        "wildlife": "",
+        "worldBuilding": "",
+        "writing": ""
+    },
+    "sectors": {
+        "arts": "",
+        "artsBlog": "",
+        "artsCommission": "",
+        "artsEditing": "",
+        "artsFashionDesign": "",
+        "artsFilmmaking": "",
+        "artsGraphicDesign": "",
+        "artsInteriorDesign": "",
+        "artsMagazine": "",
+        "artsNews": "",
+        "artsPerformanceCenter": "",
+        "artsPerforming": "",
+        "artsPhotography": "",
+        "artsProductionCompany": "",
+        "artsPublishing": "",
+        "artsSocialMedia": "",
+        "artsStation": "",
+        "artsTalentAgency": "",
+        "artsTranslation": "",
+        "artsWriting": "",
+        "business": "",
+        "businessAccountancy": "",
+        "businessActuarialServices": "",
+        "businessAuditing": "",
+        "businessBanking": "",
+        "businessConsulting": "",
+        "businessFinanceManagement": "",
+        "businessFinancePlanning": "",
+        "businessFinanceTax": "",
+        "businessInsurance": "",
+        "businessManagement": "",
+        "engineering": "",
+        "engineeringArchitecture": "",
+        "engineeringEngineering": "",
+        "engineeringManufacturing": "",
+        "environment": "",
+        "environmentFarming": "",
+        "environmentFisheries": "",
+        "environmentForestry": "",
+        "environmentGame": "",
+        "environmentHorticulture": "",
+        "environmentMining": "",
+        "environmentVet": "",
+        "healthcare": "",
+        "healthcareAdmin": "",
+        "healthcarePromotion": "",
+        "healthcareServices": "",
+        "internet": "",
+        "law": "",
+        "lawConveyance": "",
+        "lawMediation": "",
+        "lawServices": "",
+        "leisure": "",
+        "leisureAccommodation": "",
+        "leisureCar": "",
+        "leisureCatering": "",
+        "leisureCoaching": "",
+        "leisureExperiences": "",
+        "leisureFood": "",
+        "leisureManagement": "",
+        "leisurePassengerServices": "",
+        "leisurePlanning": "",
+        "leisureTours": "",
+        "leisureTravelAgency": "",
+        "marketing": "",
+        "marketingAdvertising": "",
+        "marketingFundraising": "",
+        "marketingMarketing": "",
+        "marketingPr": "",
+        "none": "",
+        "other": "",
+        "property": "",
+        "propertyArchitecture": "",
+        "propertyConservation": "",
+        "propertyConstruction": "",
+        "propertyManagement": "",
+        "propertyRealEstate": "",
+        "propertySurveying": "",
+        "propertyValuation": "",
+        "recruitment": "",
+        "recruitmentCoach": "",
+        "recruitmentHr": "",
+        "recruitmentRecruitment": "",
+        "retail": "",
+        "retailPersonal": "",
+        "retailStore": "",
+        "retailWarehouse": "",
+        "sales": "",
+        "salesCustomer": "",
+        "salesDevelopment": "",
+        "salesSales": "",
+        "science": "",
+        "scienceLab": "",
+        "sciencePharmaceuticals": "",
+        "sciencePharmacy": "",
+        "scienceResearch": "",
+        "security": "",
+        "securityEmergency": "",
+        "securityPrivate": "",
+        "securitySecurity": "",
+        "social": "",
+        "socialAccommodation": "",
+        "socialCharity": "",
+        "socialCoaching": "",
+        "socialCommunity": "",
+        "socialReligion": "",
+        "socialSupport": "",
+        "technology": "",
+        "technologyAnalysis": "",
+        "technologyConsulting": "",
+        "technologyDev": "",
+        "technologyGames": "",
+        "technologySaas": "",
+        "technologySupport": "",
+        "training": "",
+        "trainingConference": "",
+        "trainingNursery": "",
+        "trainingSeminars": "",
+        "trainingTeaching": "",
+        "trainingTutoring": "",
+        "transport": "",
+        "transportLogistics": "",
+        "transportPlanning": "",
+        "transportShipping": "",
+        "transportSupply": ""
+    },
+    "settings": {
+        "changeEmail": {
+            "accountSettingsLink": "",
+            "differentEmail": "",
+            "goodToGo": "",
+            "header": "",
+            "homePageLink": "",
+            "leave": {
+                "description": "",
+                "header": ""
+            },
+            "notifyAdmins": "",
+            "oldInvitesInvalid": "",
+            "oneTimeCode": "",
+            "resendCode": "",
+            "steps": {
+                "code": "",
+                "email": "",
+                "end": "",
+                "password": ""
+            },
+            "whereNext": ""
+        },
+        "colorMode": {
+            "colorMode": "",
+            "dark": "",
+            "light": ""
+        },
+        "deleteAccount": {
+            "assignOwner": "",
+            "baseOwner": "",
+            "deleteAccountPrompt": "",
+            "header": "",
+            "leaveBases": "",
+            "ownedBases": "",
+            "permanent": ""
+        },
+        "general": {
+            "accountCreated": "",
+            "avatar": "",
+            "email": {
+                "changeEmail": "",
+                "currentEmail": "",
+                "description": "",
+                "header": ""
+            },
+            "hylarkDuration": ""
+        },
+        "notifications": {
+            "app": {
+                "account": {
+                    "description": ""
+                },
+                "newFeatures": {
+                    "description": ""
+                },
+                "tips": {
+                    "description": ""
+                }
+            }
+        },
+        "plans": {
+            "baseMembers": "",
+            "billedUser": "",
+            "cancel": "",
+            "cancelHeader": "",
+            "cancelPrompt": "",
+            "collaborationLearnMore": "",
+            "currentPlan": "",
+            "numberOfSeats": "",
+            "plansLearnMore": "",
+            "renew": ""
+        },
+        "security": {
+            "2fa": {
+                "activate": {
+                    "description": "",
+                    "header": ""
+                },
+                "description": "",
+                "header": "",
+                "isActivated": {
+                    "description": "",
+                    "header": ""
+                },
+                "success": {
+                    "description": "",
+                    "header": ""
+                }
+            },
+            "login": {
+                "description": "",
+                "header": ""
+            },
+            "password": {
+                "description": "",
+                "header": ""
+            }
+        }
+    },
+    "shortcuts": {
+        "editFields": "",
+        "editRelationships": "",
+        "updateDesign": "",
+        "updateDisplay": ""
+    },
+    "styleTemplates": {
+        "full": {
+            "custom": {
+                "new": {
+                    "sections": {
+                        "build": {
+                            "fields": "",
+                            "multi": "",
+                            "sections": ""
+                        },
+                        "name": {
+                            "section": "",
+                            "sub": ""
+                        }
+                    }
+                }
+            }
+        },
+        "labels": {
+            "instructions": {
+                "empty": "",
+                "global": "",
+                "individual": ""
+            },
+            "on": {
+                "all": "",
+                "contentOnly": "",
+                "none": ""
+            }
+        },
+        "style": {
+            "helpers": {
+                "empty": "",
+                "summary": ""
+            },
+            "options": {
+                "align": {
+                    "align": "",
+                    "center": "",
+                    "end": "",
+                    "start": ""
+                },
+                "case": {
+                    "case": "",
+                    "regular": "",
+                    "uppercase": ""
+                },
+                "color": {
+                    "brand": "",
+                    "color": "",
+                    "dark": "",
+                    "light": ""
+                },
+                "italics": {
+                    "italic": "",
+                    "italics": "",
+                    "regular": ""
+                },
+                "shape": {
+                    "shape": ""
+                },
+                "size": {
+                    "2xl": "",
+                    "3xl": "",
+                    "4xl": "",
+                    "lg": "",
+                    "md": "",
+                    "size": "",
+                    "sm": "",
+                    "xl": "",
+                    "xs": "",
+                    "xxs": ""
+                },
+                "trim": {
+                    "ellipsis": "",
+                    "hyphen": "",
+                    "trim": "",
+                    "wrap": ""
+                },
+                "underline": {
+                    "regular": "",
+                    "under": "",
+                    "underline": ""
+                },
+                "weight": {
+                    "bold": "",
+                    "regular": "",
+                    "weight": ""
+                }
+            }
+        }
+    },
+    "support": {
+        "categories": {
+            "contact": "",
+            "docs": "",
+            "faqs": "",
+            "gettingStarted": "",
+            "newFeatures": "",
+            "plans": ""
+        },
+        "contact": {
+            "formSentHeader": "",
+            "formSentMessage": "",
+            "messagePlaceholders": {
+                "featureRequest": "",
+                "feedback": "",
+                "myAccount": "",
+                "other": "",
+                "question": "",
+                "reportBug": ""
+            },
+            "subjectPlaceholders": {
+                "featureRequest": "",
+                "feedback": "",
+                "myAccount": "",
+                "other": "",
+                "question": "",
+                "reportBug": ""
+            }
+        },
+        "goHome": "",
+        "queryTypes": {
+            "featureRequest": "",
+            "feedback": "",
+            "myAccount": "",
+            "other": "",
+            "question": "",
+            "reportBug": ""
+        },
+        "search": {
+            "noContent": {
+                "noMatches": "",
+                "noMatchesTopics": "",
+                "twoChars": ""
+            }
+        },
+        "toArticleSearch": ""
+    },
+    "tags": {
+        "abandoned": "",
+        "accepted": "",
+        "acquaintance": "",
+        "action": "",
+        "active": "",
+        "adventure": "",
+        "applied": "",
+        "applying": "",
+        "assessment": "",
+        "attending": "",
+        "awaitingContract": "",
+        "awaitingGrade": "",
+        "awaitingReply": "",
+        "bad": "",
+        "beach": "",
+        "city": "",
+        "classic": "",
+        "closed": "",
+        "club": "",
+        "colleague": "",
+        "comedy": "",
+        "comingSoon": "",
+        "community": "",
+        "completed": "",
+        "considering": "",
+        "contacted": "",
+        "crime": "",
+        "current": "",
+        "delivered": "",
+        "dessert": "",
+        "done": "",
+        "doNotHire": "",
+        "doubts": "",
+        "drama": "",
+        "family": "",
+        "fantasy": "",
+        "finalInterview": "",
+        "friend": "",
+        "fullTime": "",
+        "future": "",
+        "good": "",
+        "goodExperience": "",
+        "goodFit": "",
+        "goodSource": "",
+        "great": "",
+        "greatImpression": "",
+        "handmade": "",
+        "hardToGet": "",
+        "have": "",
+        "headhunter": "",
+        "headhunters": "",
+        "helping": "",
+        "hired": "",
+        "history": "",
+        "horror": "",
+        "identified": "",
+        "initialInterview": "",
+        "inProgress": "",
+        "instructor": "",
+        "interview": "",
+        "invited": "",
+        "lastResort": "",
+        "letGo": "",
+        "local": "",
+        "loveThis": "",
+        "main": "",
+        "mainInstructor": "",
+        "manager": "",
+        "maybe": "",
+        "medical": "",
+        "mentor": "",
+        "multiPlayer": "",
+        "nature": "",
+        "need": "",
+        "needToThinkAboutIt": "",
+        "next": "",
+        "notApplying": "",
+        "notAttending": "",
+        "notForMe": "",
+        "notGreat": "",
+        "nothingToSeeHere": "",
+        "notHired": "",
+        "notProceeding": "",
+        "notStarted": "",
+        "now": "",
+        "offerMade": "",
+        "onHold": "",
+        "online": "",
+        "open": "",
+        "opportunity": "",
+        "ordered": "",
+        "other": "",
+        "outsideBudget": "",
+        "partTime": "",
+        "past": "",
+        "period": "",
+        "planning": "",
+        "potential": "",
+        "promising": "",
+        "purchased": "",
+        "recommended": "",
+        "recruiter": "",
+        "recurring": "",
+        "referee": "",
+        "relaxation": "",
+        "reviewing": "",
+        "roadTrip": "",
+        "romance": "",
+        "sci-fi": "",
+        "self-help": "",
+        "side": "",
+        "singlePlayer": "",
+        "snack": "",
+        "started": "",
+        "studying": "",
+        "teachingAssistant": "",
+        "temporary": "",
+        "thriller": "",
+        "tradesperson": "",
+        "unsure": "",
+        "wait": "",
+        "waiting": "",
+        "waitingForReply": "",
+        "want": "",
+        "wishlist": "",
+        "withinBudget": "",
+        "work": ""
+    },
+    "templates": {
+        "activities": "",
+        "activity": "",
+        "applicantTracker": "",
+        "billing": "",
+        "bills": "",
+        "blogPlanning": "",
+        "brief": {
+            "activities": "",
+            "activity": "",
+            "applicantTracker": "",
+            "bills": "",
+            "blogPlanning": "",
+            "bucketList": "",
+            "bugTracker": "",
+            "businessDevelopment": "",
+            "businessRoadmap": "",
+            "casualProject": "",
+            "clients": "",
+            "coaching": "",
+            "competitorTracking": "",
+            "conferencePlanning": "",
+            "conferencesOrganizing": "",
+            "contentCreation": "",
+            "contractorFinder": "",
+            "contractorTimeTracker": "",
+            "courseManagement": "",
+            "crm": "",
+            "design": "",
+            "documentRenewals": "",
+            "educationSearch": "",
+            "employeeList": "",
+            "executiveJobSearch": "",
+            "fashion": "",
+            "filmmaking": "",
+            "furtherEducation": "",
+            "gardening": "",
+            "giftIdeas": "",
+            "hobbiesArt": "",
+            "hobbiesCollecting": "",
+            "hobbiesGaming": "",
+            "hobbiesProjects": "",
+            "holidayGifts": "",
+            "homeBuying": "",
+            "homeHousehold": "",
+            "homeImprovement": "",
+            "ideas": "",
+            "jewelryMaking": "",
+            "jobPlacements": "",
+            "jobSearch": "",
+            "knitting": "",
+            "leisureEvent": "",
+            "leisureEvents": "",
+            "mealPlanning": "",
+            "movingHome": "",
+            "networking": "",
+            "partiesOrganizing": "",
+            "partyPlanning": "",
+            "personalCrm": "",
+            "petCare": "",
+            "photographyBusiness": "",
+            "photographyHobby": "",
+            "productLaunch": "",
+            "productPlanning": "",
+            "productRoadmap": "",
+            "projectApprovals": "",
+            "projectManagement": "",
+            "propertyManagement": "",
+            "reading": "",
+            "recipes": "",
+            "rentalSearch": "",
+            "salesAndRentals": "",
+            "sewing": "",
+            "singleProjectManagement": "",
+            "socialMediaPlanning": "",
+            "staffSchedule": "",
+            "starterItems": "",
+            "starterPeople": "",
+            "suppliers": "",
+            "teachingTracker": "",
+            "travel": "",
+            "trip": "",
+            "tutoring": "",
+            "vehiclePlanner": "",
+            "vehicleSearch": "",
+            "viewings": "",
+            "weddingPlanning": "",
+            "weddingsOrganizing": "",
+            "woodworking": "",
+            "worldBuilding": "",
+            "writing": "",
+            "writingNonFiction": ""
+        },
+        "bucketList": "",
+        "bugTracker": "",
+        "business": "",
+        "businessDevelopment": "",
+        "businessRoadmap": "",
+        "career": "",
+        "casualProjects": "",
+        "clients": "",
+        "coaching": "",
+        "competitorTracking": "",
+        "conferencePlanning": "",
+        "conferencesOrganizing": "",
+        "contacts": "",
+        "contentCreation": "",
+        "contentProduction": "",
+        "contractorFinder": "",
+        "contractorTimeTracker": "",
+        "courseManagement": "",
+        "creative": "",
+        "crm": "",
+        "design": "",
+        "documentRenewals": "",
+        "educationSearch": "",
+        "employeeList": "",
+        "events": "",
+        "everydayLife": "",
+        "executiveJobSearch": "",
+        "fashion": "",
+        "featured": "",
+        "filmmaking": "",
+        "freelancers": "",
+        "furtherEducation": "",
+        "gardening": "",
+        "giftIdeas": "",
+        "hobbies": "",
+        "hobbiesArt": "",
+        "hobbiesCollecting": "",
+        "hobbiesGaming": "",
+        "hobbiesProjects": "",
+        "holidayGifts": "",
+        "home": "",
+        "homeBuying": "",
+        "homeHousehold": "",
+        "homeImprovement": "",
+        "ideas": "",
+        "jewelryMaking": "",
+        "jobPlacements": "",
+        "jobSearch": "",
+        "knitting": "",
+        "leisure": "",
+        "leisureEvent": "",
+        "leisureEvents": "",
+        "manufacturing": "",
+        "mealPlanning": "",
+        "movingHome": "",
+        "networking": "",
+        "partiesOrganizing": "",
+        "partyPlanning": "",
+        "personalCrm": "",
+        "petCare": "",
+        "photographyBusiness": "",
+        "photographyHobby": "",
+        "productDevelopment": "",
+        "productLaunch": "",
+        "productPlanning": "",
+        "productRoadmap": "",
+        "projectApprovals": "",
+        "projectManagement": "",
+        "propertyManagement": "",
+        "reading": "",
+        "realEstate": "",
+        "recipes": "",
+        "recommended": "",
+        "recruitment": "",
+        "rentalSearch": "",
+        "sales": "",
+        "salesAndRentals": "",
+        "sewing": "",
+        "singleProjectManagement": "",
+        "socialMediaPlanning": "",
+        "software": "",
+        "staffSchedule": "",
+        "starterItems": "",
+        "starterPeople": "",
+        "starters": "",
+        "suppliers": "",
+        "teachingTracker": "",
+        "travel": "",
+        "trip": "",
+        "tutoring": "",
+        "vehiclePlanner": "",
+        "vehicleSearch": "",
+        "viewings": "",
+        "weddingPlanning": "",
+        "weddingsOrganizing": "",
+        "woodworking": "",
+        "workProjects": "",
+        "worldBuilding": "",
+        "writing": "",
+        "writingNonFiction": ""
+    },
+    "timekeeper": {
+        "completion": "",
+        "deadlineDates": "",
+        "done": "",
+        "isComplete": "",
+        "markComplete": "",
+        "markIncomplete": "",
+        "noContent": {
+            "description": "",
+            "header": ""
+        },
+        "phase": "",
+        "phases": {
+            "abandoned": "",
+            "active": "",
+            "completed": "",
+            "hold": "",
+            "noStatus": "",
+            "onTime": "",
+            "open": "",
+            "overdue": "",
+            "started": "",
+            "total": "",
+            "totalClosed": "",
+            "waitingToStart": ""
+        }
+    },
+    "tips": {
+        "spaces": {
+            "focus": {
+                "paragraph": "",
+                "title": ""
+            }
+        }
+    },
+    "tiptap": {
+        "addLink": "",
+        "alignCenter": "",
+        "alignLeft": "",
+        "alignRight": "",
+        "blockquote": "",
+        "bold": "",
+        "clearFormatting": "",
+        "codeblock": "",
+        "decreaseFontSize": "",
+        "heading1": "",
+        "heading2": "",
+        "heading3": "",
+        "heading4": "",
+        "heading5": "",
+        "heading6": "",
+        "highlight": "",
+        "hyperlink": "",
+        "increaseFontSize": "",
+        "indent": "",
+        "italic": "",
+        "orderedList": "",
+        "outdent": "",
+        "paragraph": "",
+        "setFontSize": "",
+        "strike": "",
+        "subscript": "",
+        "superscript": "",
+        "textFormat": "",
+        "textStyle": "",
+        "underline": "",
+        "unorderedList": ""
+    },
+    "todos": {
+        "leave": "",
+        "new": {
+            "dueBy": "",
+            "group": "",
+            "list": "",
+            "recurrenceWarning": "",
+            "repeat": "",
+            "tags": "",
+            "todo": ""
+        }
+    },
+    "upgrade": {
+        "information": {
+            "collaborativeBase": {
+                "1": {
+                    "answer": "",
+                    "question": ""
+                },
+                "2": {
+                    "answer": "",
+                    "question": ""
+                },
+                "3": {
+                    "answer": "",
+                    "question": ""
+                },
+                "4": {
+                    "answer": "",
+                    "question": ""
+                }
+            }
+        },
+        "prompts": {
+            "history": {
+                "subtitle": "",
+                "title": ""
+            },
+            "spaces": {
+                "subtitle": "",
+                "title": ""
+            }
+        }
+    },
+    "validation": {
+        "fileSize": "",
+        "unsavedInformation": ""
+    },
+    "views": {
+        "birdseye": {
+            "name": ""
+        },
+        "dashboard": {
+            "kanban": "",
+            "line": "",
+            "name": "",
+            "spreadsheet": "",
+            "tile": ""
+        },
+        "displayOptions": {
+            "dueDate": "",
+            "eventCount": "",
+            "favorites": "",
+            "featureCount": "",
+            "featureGo": "",
+            "featureNew": "",
+            "fieldListCount": "",
+            "firstDocument": "",
+            "firstEvent": "",
+            "firstLink": "",
+            "firstNote": "",
+            "firstPin": "",
+            "firstTodo": "",
+            "lastDocument": "",
+            "lastEvent": "",
+            "lastLink": "",
+            "lastNote": "",
+            "lastPin": "",
+            "lastTodo": "",
+            "listCount": "",
+            "listFirst": "",
+            "listMain": "",
+            "nextTodo": "",
+            "phase": "",
+            "priorities": "",
+            "record": "",
+            "relationshipCount": "",
+            "relationshipRecord": "",
+            "startDate": "",
+            "timeDue": "",
+            "timePhase": "",
+            "timeStart": "",
+            "upcomingEvent": ""
+        }
+    },
+    "warnings": {
+        "deleteConfirmation": "",
+        "deleteItemConfirmation": "",
+        "integrations": {
+            "description": "",
+            "header": "",
+            "leaveListHeader": "",
+            "leaveShared": "",
+            "listMembers": ""
+        },
+        "permanent": ""
+    }
+}

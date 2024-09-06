@@ -1,0 +1,13 @@
+fragment SavedFilter on SavedFilter {
+    id
+    name
+    private
+    filters
+    group
+    orderBy {
+        field
+        direction
+    }
+    createdAt
+    updatedAt
+}
